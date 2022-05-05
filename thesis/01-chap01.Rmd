@@ -1,0 +1,71 @@
+
+# Motivation {#mo}
+
+Economic growth and its determinants are a key area of macroeconomic research. The question of achieving sustained and inclusive growth is the cornerstone of economic policy for most developing countries Accurate statistical measurement of GDP and related macroeconomic aggregates is crucial to identify the sectors of the economy that are performing well, and those that are stagnating. Consequently, the measurement of GDP and related magnitudes are an object of scrutiny from academia, media and policymakers.
+\linebreak
+
+However, India's GDP numbers have been scrutinized even more than usual, especially over the last decade. Commentators have identified a number of issues in the data post-2011, the major ones listed as follows. One, the assumption that the informal and formal sectors grow at the same rates has led to overestimation bias in the output of the manufacturing sector. Recent research has found significant difference in manufacturing output as computed by formal and informal sector surveys (CITE). Two, inappropriate deflators have been applied to nominal GDP data, and the application of the right deflators leads to significant difference in output estimates. Finally, the focal point of debate has centered on the use of a new database, called the MCA21 database. Critics have pointed that along with other issues like firm mis-classification and lack of state-level data, the assumption that non-reporting firms contribute positively to growth has led to a "blowing up" of manufacturing output.
+\linebreak
+
+The third issue has caused many to question the veracity of GDP estimates in the recent years. This followed by the lack of good quality data alternatives raise an important question -  what is the extent of measurement error in India's GDP? In this chapter, I provide an overview of the debate on Indian GDP, focussing  on the exchange between R. Nagaraj and the Central Statistical Organization on the veracity of the MCA21 database. I then briefly examine the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers as well as his alternative estimates. I end with my broad research question.
+
+## The Indian GDP Debate
+
+### The Nagaraj - CSO Debate
+
+India's Central Statistics Office (CSO) is the agency responsible for publishing estimates of GDP since 1950.In accordance with best practices, the CSO also undertakes revisions of the base year used to measure GDP with constant prices. Updating the base year is a routine practice and typically does not affect the sectoral as well as the aggregate growth trend. However, the change in base year from 2004 to 2011 caused a number of significant changes in the new series, prompting an exchange between R Nagaraj, an economist at the Indira Gandhi Institute of Development Research (IGIDIR) and the CSO, in the pages of the *Economic and Political Weekly*.
+\linebreak
+
+In his article [@nagaraj_seeds_2015-1], Nagraj points out that there is a significant difference in growth rates (6.2% versus 4.8% for 2013), and that such a drastic difference in growth rates is a red flag. The primary difference between the old and new series is driven by changes in measures of gross value added, savings and investment due to a change in the database used by the ministry. The new database called MCA21, has been argued to be better as it contains firm returns filed with the Ministry of Corporate Affairs and has a much larger sample size. The veracity of the new series is questionable however, due to differences in in estimates reported by the sub-committee in its 2014 provisional report and the 2015 final report. PCS savings, investment and GVA shot up by 257\%, 34\% and 108\% respectively between the old and new reports. This combined with the fact that the MCA21 is not publicly available, and that the estimates were not vetted independently was a cause of great concern.
+\linebreak
+
+In its reply [@cso_no_2015], the CSO gave six reasons for the differences of estimates between the two reports, with the key explanation being that differences in timing of filing returns restrict the sample being considered, requiring the body to use a 'scaling factor' to scale up the numbers. The other reasons pertained to changes in definitions, usage of individual components of revenue instead of total revenue, and usage of better quality data.
+\linebreak
+
+In his rejoinder [@nagaraj_seeds_2015], questions the usage of dis-aggregated revenue data instead of aggregate data, and argues that the drastic difference in estimates is indicative of lack of consistency in the MCA21 database. The main critique however, centers on the usage of the 'scaling up' factor: as the number of companies sampled was lower in 2013-14, than previous year, the scaling up factor is larger, causing overestimation. He further argues that the problem of PCS estimation precedes this procedure, as very few firms with large output being legally registered, already causing the PCS to skew upwards. Nagaraj concludes that reasons for doubting the new series hence remains valid. In a recent summary[@nagaraj_revisiting_2021] reiterates these concerns, and argues that PCS output remains overestimated since the concerns raised before.
+\linebreak
+
+The Nagaraj- CSO debate shows that measurement of manufacturing area output is an area of concern. Other technical issues with the new series are detailed in @nagaraj_measuring_nodate.
+
+### Subramanian's Cross- Country Approach
+
+Arvind Subramanian, India's former Chief Economic Advisor makes the case that India's GDP is overestimated using a different methodology [@subramanian_indias_2019]. As a 'smell test', he compiles a list of 17 indicators strongly correlated with GDP growth (electricity consumption, vehicle sales,real credit etc.), and finds that pre-2011, 16 of these are positively correlated with GDP growth, but the correlation shifts to a negative one for 11 of these indicators post-2011. This shows that there is a prima-facie concern in the post-2011 estimates, given that average growth rates in the periods pre-and post-2011 periods were similar.
+\linebreak
+
+
+To further test this proposition, Subramanian runs two sets of cross-country regressions. The idea is to identify a sample of countries which have a robust correlation between growth and some select indicators, and check if India's growth numbers fall into this broad pattern or not. The first regresses GDP growth on credit, electricity, import and export growth for a sample of countries, with two samples: pre and post-2011. The second one includes an "India dummy" along with time fixed effects to examine the effect of change in methodology on India's growth and relationship with these indicators. He finds that the coefficient is statistically insignificant pre-2011 and significant post-2011, indicating that India is an outlier compared to the rest of the sample. Furthermore, when he estimates a panel specification to exploit time variation in each of these indicators with a sample of 75 countries, adding a period dummy (0 for pre-2011 and 1 for post-2011). The India*period interaction coefficient, which indicates differential mis-estimation, is statistically significant at 1\%. Using these results, Subramanian argues that there is a 2.5\% overestimation in India's GDP annually from 2011-2016.
+
+
+```{r, echo=FALSE,fig.align="center", message=FALSE, warning=FALSE}
+library(tidyr)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(ggpubr)
+
+#Reading csv
+nagaraj<-read.csv("data/nagaraj.csv")
+colnames(nagaraj)[6]<-"Utilites"
+colnames(nagaraj)[8]<-"Hotels and restaurants"
+
+nagaraj%>%
+  filter(Year==2012)%>%
+  pivot_longer(3:10)%>%
+  ggplot(aes(x=name, y=value, fill=Base))+
+  geom_col(position="dodge")+labs(caption="Figure 1.1a: Disaggregated GDP growth rates by sector for the year 2012-13.")+
+  coord_flip()
+
+nagaraj%>%
+  filter(Year==2013)%>%
+  pivot_longer(3:10)%>%
+  ggplot(aes(x=name, y=value, fill=Base))+
+  geom_col(position="dodge")+coord_flip()+labs(x="Sector", y="Growth rate",caption="Figure 1.1b: Disaggregated GDP growth rates by sector for the year 2013-14.")
+
+```
+
+
+
+
+
+
+

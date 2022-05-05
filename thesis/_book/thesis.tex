@@ -1,0 +1,608 @@
+% This is the Reed College LaTeX thesis template. Most of the work
+% for the document class was done by Sam Noble (SN), as well as this
+% template. Later comments etc. by Ben Salzberg (BTS). Additional
+% restructuring and APA support by Jess Youngberg (JY).
+% Your comments and suggestions are more than welcome; please email
+% them to cus@reed.edu
+%
+% See https://www.reed.edu/cis/help/LaTeX/index.html for help. There are a
+% great bunch of help pages there, with notes on
+% getting started, bibtex, etc. Go there and read it if you're not
+% already familiar with LaTeX.
+%
+% Any line that starts with a percent symbol is a comment.
+% They won't show up in the document, and are useful for notes
+% to yourself and explaining commands.
+% Commenting also removes a line from the document;
+% very handy for troubleshooting problems. -BTS
+
+% As far as I know, this follows the requirements laid out in
+% the 2002-2003 Senior Handbook. Ask a librarian to check the
+% document before binding. -SN
+
+%%
+%% Preamble
+%%
+% \documentclass{<something>} must begin each LaTeX document
+\documentclass[12pt,nobind, a4paper]{reedthesis}
+% Packages are extensions to the basic LaTeX functions. Whatever you
+% want to typeset, there is probably a package out there for it.
+% Chemistry (chemtex), screenplays, you name it.
+% Check out CTAN to see: https://www.ctan.org/
+%%
+\usepackage{graphicx,latexsym}
+\usepackage{amsmath}
+\usepackage{amssymb,amsthm}
+\usepackage{longtable,booktabs,setspace}
+\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
+\usepackage[hyphens]{url}
+\usepackage[margin=1.25in]{geometry}
+
+% Added by CII
+\usepackage[pdfpagelabels]{hyperref}
+% change the default coloring of links to something sensible
+\usepackage{xcolor}
+
+\definecolor{mylinkcolor}{RGB}{0,0,139}
+\definecolor{myurlcolor}{RGB}{0,0,139}
+\definecolor{mycitecolor}{RGB}{0,33,71}
+
+\hypersetup{
+	hidelinks,
+	colorlinks,
+	linktocpage=true,
+	linkcolor=mylinkcolor,
+	urlcolor=myurlcolor,
+	citecolor=mycitecolor
+}
+
+
+\usepackage{lmodern}
+\usepackage{float}
+\floatplacement{figure}{H}
+% Thanks, @Xyv
+\usepackage{calc}
+% End of CII addition
+\usepackage{rotating}
+
+% Next line commented out by CII
+%%% \usepackage{natbib}
+% Comment out the natbib line above and uncomment the following two lines to use the new
+% biblatex-chicago style, for Chicago A. Also make some changes at the end where the
+% bibliography is included.
+%\usepackage{biblatex-chicago}
+%\bibliography{thesis}
+
+
+% Added by CII (Thanks, Hadley!)
+% Use ref for internal links
+\renewcommand{\hyperref}[2][???]{\autoref{#1}}
+\def\chapterautorefname{Chapter}
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Subsection}
+% End of CII addition
+
+% Added by CII
+\usepackage{caption}
+\captionsetup{width=5in}
+% End of CII addition
+
+% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+
+% Syntax highlighting #22
+
+% To pass between YAML and LaTeX the dollar signs are added by CII
+\title{My Final College Paper}
+\author{Your R. Name}
+% The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
+\date{May 20xx}
+\division{Mathematics and Natural Sciences}
+\advisor{Advisor F. Name}
+\institution{Reed College}
+\degree{Bachelor of Arts}
+%If you have two advisors for some reason, you can use the following
+% Uncommented out by CII
+% End of CII addition
+
+%%% Remember to use the correct department!
+\department{Mathematics}
+% if you're writing a thesis in an interdisciplinary major,
+% uncomment the line below and change the text as appropriate.
+% check the Senior Handbook if unsure.
+%\thedivisionof{The Established Interdisciplinary Committee for}
+% if you want the approval page to say "Approved for the Committee",
+% uncomment the next line
+%\approvedforthe{Committee}
+
+% Added by CII
+%%% Copied from knitr
+%% maxwidth is the original width if it's less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+	\ifdim\Gin@nat@width>\linewidth
+	\linewidth
+	\else
+	\Gin@nat@width
+	\fi
+}
+\makeatother
+
+% From {rticles}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+% for Pandoc 2.8 to 2.10.1
+\newenvironment{cslreferences}%
+{}%
+{\par}
+% For Pandoc 2.11+
+% As noted by @mirh [2] is needed instead of [3] for 2.12
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+{% don't indent paragraphs
+	\setlength{\parindent}{0pt}
+	% turn on hanging indent if param 1 is 1
+	\ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+	% set entry spacing
+	\ifnum #2 > 0
+	\setlength{\parskip}{#2\baselineskip}
+	\fi
+}%
+{}
+\usepackage{calc} % for calculating minipage widths
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\renewcommand{\contentsname}{Table of Contents}
+% End of CII addition
+
+\setlength{\parskip}{0pt}
+
+% Added by CII
+
+\providecommand{\tightlist}{%
+	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\Acknowledgements{
+	I want to thank a few people.
+}
+
+\Dedication{
+	You can have a dedication here if you wish.
+}
+
+\Preface{
+	This is an example of a thesis setup to use the reed thesis document class
+ (for LaTeX) and the R bookdown package, in general.
+}
+
+\Abstract{
+	The preface pretty much says it all.
+
+ \par
+
+ Second paragraph of abstract starts here.
+}
+
+\usepackage{setspace}\onehalfspacing
+\usepackage{amsmath}
+% End of CII addition
+%%
+%% End Preamble
+%%
+%
+\begin{document}
+	
+	% Everything below added by CII
+		\begin{titlepage}
+		\topmargin -2.5cm
+	\end{titlepage}
+	\begin{figure}[ht]
+		\begin{center}
+			\includegraphics[scale=.34]{unisilogo.pdf}
+		\end{center}
+	\end{figure}
+	\begin{center}
+		{{\Large{\textsc{Dipartimento di Economia politica e statistica}}}}
+		\rule[0.1cm]{15.8cm}{0.1mm}
+		\rule[0.5cm]{15.8cm}{0.6mm}
+		\renewcommand*\rmdefault{cmss}
+		Corso di Laurea Magistrale in \\ ECONOMICS 
+	\end{center}
+	\begin{center}
+		\begin{huge}
+			Estimating measurement error in India's GDP : \\
+			\vspace{3mm}
+			\Large A synthetic ccontrol approach
+		\end{huge}
+	\end{center}
+	\vspace{12mm}
+	\par
+	\noindent
+	\begin{minipage}[t]{0.55\textwidth}
+		{\large{\textbf{Relatore:}\\
+				Prof. Federico Crudu}\\
+			\textbf{Correlatore:}\\
+			Prof. Giuliano Curatola}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.47\textwidth}\raggedleft
+		{\large{\textbf{Candidato:}\\
+				Advait Moharir}}
+	\end{minipage}
+	\vspace{2mm} %modificare questo valore in caso il frontespizio non entri in una sola pagina
+	%\vfill
+	\begin{center}
+		{\large{\bf Anno Accademico 2021-2022}}
+	\end{center}
+	\frontmatter % this stuff will be roman-numbered
+	\pagestyle{empty} % this removes page numbers from the frontmatter
+		\begin{acknowledgements}
+		I want to thank a few people.
+	\end{acknowledgements}
+		\begin{preface}
+		This is an example of a thesis setup to use the reed thesis document class
+  (for LaTeX) and the R bookdown package, in general.
+	\end{preface}
+		\hypersetup{linkcolor=blue}
+	\setcounter{secnumdepth}{2}
+	\setcounter{tocdepth}{2}
+	\tableofcontents
+		
+		\listoftables
+		
+		\listoffigures
+		\begin{abstract}
+		The preface pretty much says it all.
+
+  \par
+
+  Second paragraph of abstract starts here.
+	\end{abstract}
+		\begin{dedication}
+		You can have a dedication here if you wish.
+	\end{dedication}
+	\mainmatter % here the regular arabic numbering starts
+	\pagestyle{fancyplain} % turns page numbering back on
+	
+	\hypertarget{introduction}{%
+ \chapter*{Introduction}\label{introduction}}
+ \addcontentsline{toc}{chapter}{Introduction}
+
+ \hypertarget{mo}{%
+ \chapter{Motivation}\label{mo}}
+
+ Economic growth and its determinants are a key area of macroeconomic research. The question of achieving sustained and inclusive growth is the cornerstone of economic policy for most developing countries Accurate statistical measurement of GDP and related macroeconomic aggregates is crucial to identify the sectors of the economy that are performing well, and those that are stagnating. Consequently, the measurement of GDP and related magnitudes are an object of scrutiny from academia, media and policymakers.
+ \linebreak
+
+ However, India's GDP numbers have been scrutinized even more than usual, especially over the last decade. Commentators have identified a number of issues in the data post-2011, the major ones listed as follows. One, the assumption that the informal and formal sectors grow at the same rates has led to overestimation bias in the output of the manufacturing sector. Recent research has found significant difference in manufacturing output as computed by formal and informal sector surveys (CITE). Two, inappropriate deflators have been applied to nominal GDP data, and the application of the right deflators leads to significant difference in output estimates. Finally, the focal point of debate has centered on the use of a new database, called the MCA21 database. Critics have pointed that along with other issues like firm mis-classification and lack of state-level data, the assumption that non-reporting firms contribute positively to growth has led to a ``blowing up'' of manufacturing output.
+ \linebreak
+
+ The third issue has caused many to question the veracity of GDP estimates in the recent years. This followed by the lack of good quality data alternatives raise an important question - what is the extent of measurement error in India's GDP? In this chapter, I provide an overview of the debate on Indian GDP, focussing on the exchange between R. Nagaraj and the Central Statistical Organization on the veracity of the MCA21 database. I then briefly examine the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers as well as his alternative estimates. I end with my broad research question.
+
+ \hypertarget{the-indian-gdp-debate}{%
+ \section{The Indian GDP Debate}\label{the-indian-gdp-debate}}
+
+ \hypertarget{the-nagaraj---cso-debate}{%
+ \subsection{The Nagaraj - CSO Debate}\label{the-nagaraj---cso-debate}}
+
+ India's Central Statistics Office (CSO) is the agency responsible for publishing estimates of GDP since 1950.In accordance with best practices, the CSO also undertakes revisions of the base year used to measure GDP with constant prices. Updating the base year is a routine practice and typically does not affect the sectoral as well as the aggregate growth trend. However, the change in base year from 2004 to 2011 caused a number of significant changes in the new series, prompting an exchange between R Nagaraj, an economist at the Indira Gandhi Institute of Development Research (IGIDIR) and the CSO, in the pages of the \emph{Economic and Political Weekly}.
+ \linebreak
+
+ In his article (\protect\hyperlink{ref-nagaraj_seeds_2015-1}{Nagaraj, 2015a}), Nagraj points out that there is a significant difference in growth rates (6.2\% versus 4.8\% for 2013), and that such a drastic difference in growth rates is a red flag. The primary difference between the old and new series is driven by changes in measures of gross value added, savings and investment due to a change in the database used by the ministry. The new database called MCA21, has been argued to be better as it contains firm returns filed with the Ministry of Corporate Affairs and has a much larger sample size. The veracity of the new series is questionable however, due to differences in in estimates reported by the sub-committee in its 2014 provisional report and the 2015 final report. PCS savings, investment and GVA shot up by 257\%, 34\% and 108\% respectively between the old and new reports. This combined with the fact that the MCA21 is not publicly available, and that the estimates were not vetted independently was a cause of great concern.
+ \linebreak
+
+ In its reply (\protect\hyperlink{ref-cso_no_2015}{CSO, 2015}), the CSO gave six reasons for the differences of estimates between the two reports, with the key explanation being that differences in timing of filing returns restrict the sample being considered, requiring the body to use a `scaling factor' to scale up the numbers. The other reasons pertained to changes in definitions, usage of individual components of revenue instead of total revenue, and usage of better quality data.
+ \linebreak
+
+ In his rejoinder (\protect\hyperlink{ref-nagaraj_seeds_2015}{Nagaraj, 2015b}), questions the usage of dis-aggregated revenue data instead of aggregate data, and argues that the drastic difference in estimates is indicative of lack of consistency in the MCA21 database. The main critique however, centers on the usage of the `scaling up' factor: as the number of companies sampled was lower in 2013-14, than previous year, the scaling up factor is larger, causing overestimation. He further argues that the problem of PCS estimation precedes this procedure, as very few firms with large output being legally registered, already causing the PCS to skew upwards. Nagaraj concludes that reasons for doubting the new series hence remains valid. In a recent summary(\protect\hyperlink{ref-nagaraj_revisiting_2021}{Nagaraj, 2021}) reiterates these concerns, and argues that PCS output remains overestimated since the concerns raised before.
+ \linebreak
+
+ The Nagaraj- CSO debate shows that measurement of manufacturing area output is an area of concern. Other technical issues with the new series are detailed in Nagaraj \& Srinivasan (\protect\hyperlink{ref-nagaraj_measuring_nodate}{n.d.}).
+
+ \hypertarget{subramanians-cross--country-approach}{%
+ \subsection{Subramanian's Cross- Country Approach}\label{subramanians-cross--country-approach}}
+
+ Arvind Subramanian, India's former Chief Economic Advisor makes the case that India's GDP is overestimated using a different methodology (\protect\hyperlink{ref-subramanian_indias_2019}{Subramanian, 2019}). As a `smell test', he compiles a list of 17 indicators strongly correlated with GDP growth (electricity consumption, vehicle sales,real credit etc.), and finds that pre-2011, 16 of these are positively correlated with GDP growth, but the correlation shifts to a negative one for 11 of these indicators post-2011. This shows that there is a prima-facie concern in the post-2011 estimates, given that average growth rates in the periods pre-and post-2011 periods were similar.
+ \linebreak
+
+ To further test this proposition, Subramanian runs two sets of cross-country regressions. The idea is to identify a sample of countries which have a robust correlation between growth and some select indicators, and check if India's growth numbers fall into this broad pattern or not. The first regresses GDP growth on credit, electricity, import and export growth for a sample of countries, with two samples: pre and post-2011. The second one includes an ``India dummy'' along with time fixed effects to examine the effect of change in methodology on India's growth and relationship with these indicators. He finds that the coefficient is statistically insignificant pre-2011 and significant post-2011, indicating that India is an outlier compared to the rest of the sample. Furthermore, when he estimates a panel specification to exploit time variation in each of these indicators with a sample of 75 countries, adding a period dummy (0 for pre-2011 and 1 for post-2011). The India*period interaction coefficient, which indicates differential mis-estimation, is statistically significant at 1\%. Using these results, Subramanian argues that there is a 2.5\% overestimation in India's GDP annually from 2011-2016.
+ \begin{center}\includegraphics{thesis_files/figure-latex/unnamed-chunk-3-1} \end{center}
+ \begin{center}\includegraphics{thesis_files/figure-latex/unnamed-chunk-3-2} \end{center}
+
+ \hypertarget{the-synthetic-control-method}{%
+ \chapter{The Synthetic Control Method}\label{the-synthetic-control-method}}
+
+ The synthetic control method is a relatively recent innovation in causal inference methods. It was first introduced by Alberto Abadie and Javier Gardeabazal in their 2003 paper investingating estimating the impact of conflict on GDP in the Baque county(\protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal, 2003}). Since then, the method has been used widely to study the impact of policy interventions involving large economic units like cities, states or countries(\protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller, 2010}, \protect\hyperlink{ref-abadie_comparative_2015}{2015}). Nobel laureate Guido Imebns and Susan Athey call it ``arguably the most important innovation in the policy evaluation literature in the last 15 years'' in a recent review of applied econometrics(\protect\hyperlink{ref-athey_state_2017}{Athey \& Imbens, 2017}).
+ \linebreak
+
+ In this chapter, I present an overview of the synthetic control method (SCM), beginning with a non-technical introduction. In Section 2.2, I examine the theory behind the method, focussing on the setup estimation and inference. In Section 2.3, I present the relative advantages and limitations of the standard SCM, and briefly delve into the improvements provided by two new methods: the augmented synthetic control and generalized synthetic control respectively. Section 2.4 summarizes and concludes.
+
+ \hypertarget{introduction-1}{%
+ \section{Introduction}\label{introduction-1}}
+
+ Synthetic control methods emerged in the context of comparative case study. Case studies often study the effect of a policy or intervention on a particular outcome, by comparing it to other determinants of the outcome. For example, a medicine case study focusses on a ailment, while a political case study examines the impact of an electoral strategy. Comparative case studies compare one or more units exposed to the event or intervention of interest to one or more unexposed units. For example, Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) examine the impact of Proposition 99, a tobacco control program implemented in California and compare its impact on cigarette sales relative to other states. It is essential that only some units are exposed to the intervention, while other comparable units are not.
+ \linebreak
+
+ Comparative case studies have been used in economics for a long time. However, studies typically relied on the comparison between one unit where a policy was implemented (also called `treatment' unit) to a similar unit, where the policy did not take place (also called `control' unit). A classic example is the study by Card (\protect\hyperlink{ref-card_impact_1990}{1990}). Card examines the impact of the Mariel boatlift, which bought Cuban workers to Miami on the wages of low-skilled workers. He considers various single `control' cities like Houston or Philadelphia, where no such event took place to estimate the difference between wages. The key assumption here is that wages in Miami and the control city would be the same, ahd the boatlift not taken place. This method is the classic difference-in-difference approach, which has been since used widely in economics(\protect\hyperlink{ref-card_minimum_1994}{Card \& Krueger, 1994}; \protect\hyperlink{ref-dube_minimum_2010}{Dube, Lester, \& Reich, 2010}), with interesting updates to the originial methodology(\protect\hyperlink{ref-goodman-bacon_difference_differences_2021}{\textbf{goodman-bacon\_difference\_differences\_2021?}}; \protect\hyperlink{ref-callaway_difference_differences_2021}{\textbf{callaway\_difference\_differences\_2021?}}).
+ \linebreak
+
+ Synthetic control builds upon difference-in-differences, with the key difference being that instead of considering a single control, a weighted average of a group of controls in considered. The intuition behind this is that when the control group is small in number, their weighted average provides a better unit of comparison than any single entity(\protect\hyperlink{ref-abadie_using_2021}{Abadie, 2021}). Specifically, the estimator chooses the weights such that this combination of control units reflects the treated unit closely. This is the approach followed in Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}). The authors use a weighted average of cigarette sales, composed of 38 states, to study the impact of Proposition 99 in California.
+ \begin{figure}
+
+ {\centering \includegraphics[width=1\linewidth]{figure/caltrends} 
+
+ }
+
+ \caption{Synthetic Control of Californoa}\label{fig:prop}
+ \end{figure}
+ Figure \ref{fig:prop} shows the per capita cigarette sales in California and synthetic California from 1970-2000. According to the SCM model, synthetic California is an estimation of what cigarette sales in California would have been, had Proposition 99 not existed. The gap between the two trends post the treatment year (1988), shows that cigarette sales would have been significantly higher in the counterfactual, indicating that the law was successful in reducing tobacco consumption in California. Thus, the SCM offers a very clean and intuitive way to estimate the causal effect of a policy intervention with a small number of large units, like cities, counties or countries. In the next section, I introduce the formal model setup, and elaborate on how estimation and inference takes place.
+
+ \hypertarget{formal-aspects}{%
+ \section{Formal Aspects}\label{formal-aspects}}
+
+ To maintain consistency of notation, I stick to the model setup as seen in Abadie (\protect\hyperlink{ref-abadie_using_2021}{2021}).
+
+ \hypertarget{setup}{%
+ \subsection{Setup}\label{setup}}
+
+ We begin by observing data for \(J+1\) units, where \(j=1,2,...,J+1\). Assume that \(j=1\), or the first unit is the unit where the intervention occured, or the treated unit. The rest of the units, from \(j=2,3...J+1\), form the set of units unaffected by the treatment and are referred to as the donor pool. Let the data be observed for \(T\) periods, where the first \(T0\) periods are those before the intervention. The outcome of interest observed for unit \(j\) at time \(t\) is referred to as \(Y_{jt}\). We also observe \(k\) predictors of the outcome \(j\), \(X_{1j}......X_{kj}\). The vectors \(\mathbf{X_{1},…,X_{j+1}}\) contain the values of the predictors for units \(j = 1,…,J + 1\), respectively. The \(k \times J\) matrix, \(\mathbf{X0} = [\mathbf{X2},..., \mathbf{XJ+1}]\), collects the values of the predictors for the J untreated units.
+ \linebreak
+
+ For unit \(j\) in time \(t\), the potential response \emph{without} the intervention is defined as \(Y^{N}_{jt}\), while for the unit affected by the intervention \(j=1\) at time \(t>T0\), the potential response is defined as \(Y^{I}_{1t}\). Thus the effect of the intervention at \(t>T0\) is given by
+
+ \[\alpha_{1t}= Y^{I}_{1t}-Y^{N}_{jt}\]
+ Since the unit of interest is observed after \(T0\), we have \(Y_{1t}=Y^{I}_{1t}\). The unknown response is the counterfactual, which is the evlution of the outcome of interest in absence of the intervention for \(t>T0\). Now, let \(D_{it}\) take the value 1 if unit \(i\) is exposed to the intervention and 0 otherwise. Then the observed outcome \(Y_{it}\) is given by
+ \begin{equation}
+ Y_{it}= Y^{N}_{it} + \alpha_{it} D_{it}
+ \label{eq:eq1}
+ \end{equation}
+ As only the first unit is exposed to the treatment and only after \(T0\), we have
+ \begin{equation}
+ D_{it} = 
+ \begin{cases} 
+ 1 & \text{if} i=1, t>T0 \\
+  0 &\text{otherwise}
+ \end{cases}
+ \label{eq:eq2}
+ \end{equation}
+ The effect of intervention on unit 1 at time \(t>T0\), given by \(alpha_{1t}\), is
+ \begin{equation}
+ \alpha_{1t}= Y^{I}_{1t}-Y^{N}_{1t}= Y_{1t}-Y^{N}_{1t}
+ \label{eq:eq3}
+ \end{equation}
+ Since \(Y_{1t}\) is observed after the intervention, we simply need to estimate \(Y^{N}_{1t}\) to estimate \(\alpha_{1t}\).
+
+ \hypertarget{estimation}{%
+ \subsection{Estimation}\label{estimation}}
+
+ Assume that \(Y^{N}_{1t}\) is given by a factor model. {[}ADD A SHORT PARA ABOUT FACTOR MODELS{]}. The model used to estimate SC is given by
+ \begin{equation}
+ Y^{N}_{1t}= \delta_{t}+\mathbf{\theta_{t} Z_{i}}+\mathbf{\lambda_{t} \mu_{i}}+ \epsilon_{it}
+ \label{eq:eq4}
+ \end{equation}
+ where \(\delta_{t}\) is the time trend, \(\mathbf{Z_{i}}\) is a vector of observed covariates not affected by the intervention and \(\mathbf{ \lambda_{t}}\) is a vector of unobserved common factors. \(\mathbf{\theta_{t}}\) and \(\mathbf{\mu_{i}}\) are vectors of unknown parameters and unknown factor loadings respectively. \(\epsilon_{it}\) is the zero-mean error term. {[}WRITE ABOUT ADVANTAGES OF FACTOR MODEL{]}. Now, consider a \((j\times 1)\) vector of weights \(\mathbf{W}=(w_{2},..,w_{j+1})\), where each weight is positive and the sum of weights equals one. Thus, the weighted value of the outcome variable is
+ \begin{equation}
+ \sum_{j=2}^{J+1}w_{j}Y^{N}_{jt}= \delta_{t}+
+ \mathbf{\theta_{t}} \sum_{j=2}^{J+1}w_{j}\mathbf{Z_{j}}+
+ \mathbf{\lambda_{t}} \sum_{j=2}^{J+1}w_{j}\mathbf{\mu_{j}}+ \sum_{j=2}^{J+1}w_{j}\epsilon_{jt}
+ \label{eq:eq5}
+ \end{equation}
+ Suppose there exist a set of optimal weights \((w_{2}^{*},...,w_{j}^{*})\), such that,
+
+ \[\sum_{j=2}^{J+1}w_{j}^{*}Y_{j1}=Y_{11}\]
+
+ \[ \sum_{j=2}^{J+1}w_{j}^{*}Y_{j2}=Y_{12}\]
+
+ \[\sum_{j=2}^{J+1}w_{j}^{*}Y_{jT0}=Y_{1T0} \]
+
+ \[\sum_{j=2}^{J+1}w_{j}^{*} \mathbf{Z_{j}}=\mathbf{Z_{1}}\]
+
+ These set of weights \((w_{2}^{*},...,w_{j}^{*})\) are such that the weighed sum of each observed outcome variable for the donor group, in the pre-intervention time period \(T0\) (\(Y_{j1},...,Y_{jT0}\)) equals the respective outcome variable for the treated unit before the intervention (\(Y_{11},...,Y_{1T0}\)). Similarly, the weighted sum of donor group covariates equals the cvariates for the treated unit. In the Proposition 99 example, all the variables on the right hand side would be the observed per capita cigarette sales in California before 1988, while the terms on the left hand side denote the weighted sum of per capita cigarette sales in the donor states. From Equation \eqref{eq:eq4}, we have
+ \begin{equation}
+ \hat{Y^{N}_{1t}}=\sum_{j=2}^{J+1}w_{j}Y^{N}_{jt}
+ \label{eq:eq6}
+ \end{equation}
+ and
+ \begin{equation}
+ \hat{\alpha_{1t}}={Y_{1t}}-\hat{Y^{N}_{1t}}
+ \label{eq:eq7}
+ \end{equation}
+ Equation \eqref{eq:eq6} states that the estimated synthetic control for the unobserved outcome is given by the weighted average of the observed outcome variables in the donor group. This is true as each observation of the estimated synthetic control (\textbackslash hat\{Y\^{}\{N\}\_\{1t\}) is the weighted average of each observation in the donor group (Equations 6-10). Once the synthetic control is estimated, the treatment effect for the affected unit is simply the difference between the observed outcome and the estimated unobserved outcome in \(t>T0\), as shown in Equation \eqref{eq:eq7}.
+ \linebreak
+
+ How are the optimal weights determined? Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) argue that the weights should be chosen so that the synthetic control best resembles the pre-treatment values of the predictors of the outcome variable. As stted before, \(\mathbf{X1}\) contains the pre-treatment values of the covariates which predict the outcome variable for the treated unit, while \(\mathbf{X0}\) refers to the same for the donor units. Then, the vector of weights \(\mathbf{W^*}\), minimizes
+
+ \[||\mathbf{X1}-\mathbf{X0 W}||=\sqrt{(\mathbf{X1}-\mathbf{X0 W})' \mathbf{V} (\mathbf{X1}-\mathbf{X0 W})}\]
+ The matrix \(\mathbf{V}\) measures the discrepancy between the\(\mathbf{X1}\) and \(\mathbf{X0}\). The value of \(\mathbf{V}\) is an important one, and influences the quality of the pre-intervention fit. Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) chooses \(\mathbf{V}\), such that the synthetic control minimizes the mean squared prediction error (MSPE)
+
+ \[ \sum_{t \in T0}(Y_{1t}- w_{2}(\mathbf{V})Y_2{t}-...-w_{J+1}(\mathbf{V})Y_{J+1t})^2\]
+ The MSPE is a measure of the distance between the outcome variable of the treated unit (\(Y_{1t}\)) and the predicted outcome variable generated by the synthetic control. MSPE is crucial to inferring the outcome of the synthetic control, which is explained in the next section.
+
+ \hypertarget{inference}{%
+ \subsection{Inference}\label{inference}}
+
+ At a preliminary level, inference can be done using placebo tests. Placebo tests apply the synthetic control tests to each of the donor units i.e.~the units where the intervention does not occur. If the gaps between the observed and synthetic values is of a magnitude similar to those seen in the unit of interest, then there is no significant evidence that the intervention had the desired effect. However, if the magnitudes are smaller, then it can be concluded that the intervention did have a significant effect on the unit of interest.
+ \begin{figure}
+
+ {\centering \includegraphics[width=1\linewidth]{figure/calplacebo} 
+
+ }
+
+ \caption{Per-capita cigarette sales gaps in California and placebo gaps in 19 control states}\label{fig:placebo}
+ \end{figure}
+ Figure \ref{fig:placebo} shows the gap in the per capita cigarette sales in the placebo states as well as California. The cigarette sale gap is highest for the state of California, showing that the effect of Proposition 99 was significant in size. The sample is restricted to 19 states, as units with a pre-intervention MSPE greater than 2 times that of California are discarded. This is done so as to exclude states which are too similar to California.
+ \linebreak
+
+ While being a useful starting point, placebo tests are limited as the pre-treatment fit of all the placebo units may not closely match the trajectory of the outcome variable well. For this reason, Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) specify an exact test statistic, which measures the ratio of the post-intervention fit relatve to the pre-intervention fit. This is given by
+ \begin{equation}
+ r_{j}= \frac{R_{j}(T_{0}+1,T)}{R_{j}(1,T_{0})}
+ \label{eq:eq8}
+ \end{equation}
+ where
+ \begin{equation}
+ R_{j}(t_{1},t_{2})= (\frac{1}{t_{2}-t_{1}+1} \sum_{t=t1}^{t2}(Y_{jt}-Y_{jt}^{N})^2)^{\frac{1}{2}}
+ \label{eq:eq9}
+ \end{equation}
+ Equation \eqref{eq:eq9} defines the mean squared prediction error (MSPE) of the synthetic control estimator over periods \(t_{1}\) to \(t_{2}\). Hence, the numerator of Equation \eqref{eq:eq8} is the MSPE of the post-intervention period, and the denominator is the MSPE of the pre-intervention period. The p-value for this inferential procedure is given by:
+ \begin{equation}
+ p= (\frac{1}{J+1} \sum_{j=1}^{J+1}I_{+}(r_{j}-r_{1})
+ \label{eq:eq10}
+ \end{equation}
+ where \(I_{+}(.)\) is an indicator function taking value one for non-negative inputs and zero otherwise.
+ \begin{figure}
+
+ {\centering \includegraphics[width=1\linewidth]{figure/calmspe} 
+
+ }
+
+ \caption{Ratio of post and pre-treatment MSPE in California and donor states}\label{fig:mspe}
+ \end{figure}
+ To better understand how to interpret this test statistic, consider again the Proposition 99 example. Figure \ref{fig:mspe} shows the value of the test statistic, i.e.~the ratio of the post-treatment to the pre-treatment MSPE for the treated state (California) and each of the states belonging to the donor pool. The MSPE is the squared value of the absolute distance between the fitted cigarette sales and actual cigarette sales. If Proposition 99 had a significant effect on cigarette sales in California, then the pre-treatment trend of California and synthetic California overlap, and diverge in the post-treatment period. Hence, the ratio of the two MSPEs should be the largest for California, which is exactly what is seen in Figure \ref{fig:mspe}. Furthermore, using equation \eqref{eq:eq10} the corresponding p-values of this statistic can be computed, as shown below.
+ \begin{table}
+ \centering
+ \begin{tabular}{llr}
+ \hline
+ \hline
+ \textbf{Unit name} & \textbf{Type}&\textbf{p-values}\\
+ \hline
+ \hline
+ California & Treated & 0.0256410\\
+ \hline
+ Georgia & Donor & 0.0512821\\
+ \hline
+ Virginia & Donor & 0.0769231\\
+ \hline
+ Indiana & Donor & 0.1025641\\
+ \hline
+ West Virginia & Donor & 0.1282051\\
+ \hline
+ Connecticut & Donor & 0.1538462\\
+ \hline
+ Nebraska & Donor & 0.1794872\\
+ \hline
+ Missouri & Donor & 0.2051282\\
+ \hline
+ Texas & Donor & 0.2307692\\
+ \hline
+ Idaho & Donor & 0.2564103\\
+ \hline
+ \end{tabular}
+ \caption{p-values for the Post-Pre Intervention MSPE Ratio for select states}
+ \end{table}
+ The p-value for California is about 2.5\%, making the test statistic significant at 5\%.
+
+ \hypertarget{advantages-and-limitations-of-scm}{%
+ \section{Advantages and Limitations of SCM}\label{advantages-and-limitations-of-scm}}
+
+ The standard synthetic control method, estimated as per Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) has several advantages. The first distinct advantage of the standard SCM is that it gives a transparent fit. Specifically, the discrepancy between the treated unit and the combination of the donor units can be seen clearly. This can be done by computing the difference for the pre-treatment averages of the variables of interest for the treated unit and the corresponding synthetic control. In continuation, the weights assigned to each of the donor units are also easily accessible, which allows the researcher to understand which units are more similar to the treated unit, and which are not. Secondly, synthetic control methods preclude extrapolation due to the constraint that the weights sum to one. A regression model, in contrast, allows for negative weights. Finally, SCM provides a safeguard against `specification searches', which means cherry-picking models which yield a known result. This is avoided in SCM, as all the information used to compute the estimator is taken from the pre-intervention period, while the counterfactual for the post-intervention period remains unknown. Finally, SCM results are geometrically intuitive and can be easily visualized, and interpreted through placebo and exact test statistics.
+ \linebreak
+
+ However, the standard SCM has some limitations, two of which I highlight here. The first, elaborated by Ferman, Pinto, \& Possebom (\protect\hyperlink{ref-ferman_cherry_2020}{2020}), relates to specification searching opportunites. The choice of contributors to the synthetic control is often a matter of discretion, and hence it is possible to try and test a number of combinations which yield a desired pre-treatment fit and post-treatment trend. There is significant room for such searches when the number of pre-treatment periods is close to those used in common applications. While the distance-function is minimized algorithmically, which limits the bias, the function itself is endogenously chosen by the researcher, creating potential for bias and ``p-hacking''(\protect\hyperlink{ref-cunningham_causal_2021}{Cunningham, 2021}).
+ \linebreak
+
+ Second,
+
+ \hypertarget{alternative-estimators}{%
+ \section{Alternative Estimators}\label{alternative-estimators}}
+
+ \hypertarget{augmented-synthetic-control}{%
+ \subsection{Augmented Synthetic Control}\label{augmented-synthetic-control}}
+
+ \hypertarget{generalized-synthetic-control}{%
+ \subsection{Generalized Synthetic Control}\label{generalized-synthetic-control}}
+
+ The generalized synthetic control was proposed by Yiqing Xu in 2017. This method combines the synthetic control method and the interactive fixed effects model (IFE). The IFE model, proposed by {[}CITE BAI{]}, is used to model unobserved time-varying confounders. Time-varying confounders refer to unobserved variables that are correlated with both the dependent and independent variable, and which take different values over time. The IFE model interacts unit-specific intercepts, referred to as factor loadings and time-varying coefficients, referred to as latent factors. The generalized synthetic control method (GSCM), unifies the IFE model with the SCM in the following way: first, using only the control group (or donor pool) data, it estimates an IFE model to obtain a fixed number of latent factors. Then, the factor loadings for each treated unit are estimated by linearly projecting pre-treated treated outcomes on the space spanned by this factor. Finally, it computes treated counterfactuals based on the latent factors and the factor loadings.
+
+ The key difference between the SCM and GSCM is that the latter does dimension reduction prior to re-weighting. Specifically, the model selects the number of latent factors to be used algorithmically. This is done using a cross-validation scheme (details in the inference section), which avoids specification searches. The GSCM is also more ``general'' in the sense that it can be extended to cases with multiple treated units and variable treatment periods.
+
+ \hypertarget{framework}{%
+ \subsubsection{Framework}\label{framework}}
+
+ In this section and the next one, I stick to the notation used in {[}CITE XU{]}. Let \(Y_{it}\) be the outcome of interest for unit \(i\) and time \(t\), and let \(O\) and \(C\) denote the total number of units in the treatment and control groups, with \(N\) total units. All units are observed for \(T\) periods, with the pre-treatment periods denoted by \(T_{0,i}\) for each unit. The post treatment period is given by \(q_{i}=T-T_{0,i}\). It is assumed that \(Y_{it}\) is given by a linear factor model
+ \begin{equation}
+ Y_{it}=\delta_{it} D_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it}
+ \end{equation}
+ where \(D_{it}\) equals 1 if \(i\) is exposed to treatment, and zero otherwise. \(\delta_{it}\) is the treatment effect, and \(x_{it}\) is a \((k \times 1)\) vector of observed covariates, while \(\beta\) is \((k \times 1)\) vector of unobserved parameters. \(f_{t}\) is a \((r \times 1)\) vector of unobserved common factors and \(\lambda_{i}\) is a vector of factor loadings. \(\epsilon_{it}\) is the zero-mean idiosyncratic error term. The parameter of interest is \(\delta_{it}\); more specifically we are interested in estimating the average treatment effect on the treated unit, given by the sum of \(\delta_{it}\) for each unit, divided by the treatment period.
+
+ Let \(Y_{it}(1)\) and \(Y_{it}(0)\) be the potential outcomes for unit \(i\) at time \(t\), when variable \(D_{it}\) takes values 1 and 0 respectively. Therefore, we have
+
+ \[Y_{it}(1)=\delta_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it}\]
+
+ \[Y_{it}(0)=x_{it}'\beta + \lambda_{i}'f_{t}+\epsilon_{it}\]
+
+ Hence, we have that \(\delta_{it}= Y_{it}(1)-Y_{it}(0)\)
+
+ \hypertarget{estimation-and-inference}{%
+ \subsubsection{Estimation and Inference}\label{estimation-and-inference}}
+
+ \backmatter
+
+ \hypertarget{references}{%
+ \chapter*{References}\label{references}}
+ \addcontentsline{toc}{chapter}{References}
+
+ \markboth{References}{References}
+
+ \noindent
+
+ \setlength{\parindent}{-0.20in}
+
+ \hypertarget{refs}{}
+ \begin{CSLReferences}{1}{0}
+ \leavevmode\vadjust pre{\hypertarget{ref-abadie_using_2021}{}}%
+ Abadie, A. (2021). Using synthetic controls: Feasibility, data requirements, and methodological aspects. \emph{Journal of Economic Literature}, \emph{59}(2), 391--425. http://doi.org/\href{https://doi.org/10.1257/jel.20191450}{10.1257/jel.20191450}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-abadie_synthetic_2010}{}}%
+ Abadie, A., Diamond, A., \& Hainmueller, J. (2010). Synthetic control methods for comparative case studies: Estimating the effect of california's tobacco control program. \emph{Journal of the American Statistical Association}, \emph{105}(490), 493--505. http://doi.org/\href{https://doi.org/10.1198/jasa.2009.ap08746}{10.1198/jasa.2009.ap08746}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-abadie_comparative_2015}{}}%
+ Abadie, A., Diamond, A., \& Hainmueller, J. (2015). Comparative politics and the synthetic control method. \emph{American Journal of Political Science}, \emph{59}(2), 495--510. http://doi.org/\href{https://doi.org/10.1111/ajps.12116}{10.1111/ajps.12116}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-abadie_economic_2003}{}}%
+ Abadie, A., \& Gardeazabal, J. (2003). The economic costs of conflict: A case study of the basque country. \emph{American Economic Review}, \emph{93}(1), 113--132. http://doi.org/\href{https://doi.org/10.1257/000282803321455188}{10.1257/000282803321455188}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-athey_state_2017}{}}%
+ Athey, S., \& Imbens, G. W. (2017). The state of applied econometrics: Causality and policy evaluation. \emph{Journal of Economic Perspectives}, \emph{31}(2), 3--32. http://doi.org/\href{https://doi.org/10.1257/jep.31.2.3}{10.1257/jep.31.2.3}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-card_impact_1990}{}}%
+ Card, D. (1990). The impact of the mariel boatlift on the miami labor market. \emph{{ILR} Review}, \emph{43}(2), 245--257. http://doi.org/\href{https://doi.org/10.1177/001979399004300205}{10.1177/001979399004300205}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-card_minimum_1994}{}}%
+ Card, D., \& Krueger, A. B. (1994). Minimum wages and employment: A case study of the fast-food industry in new jersey and pennsylvania. \emph{American Economic Review}, \emph{84}(4), 772--793. Retrieved from \url{https://ideas.repec.org/a/aea/aecrev/v84y1994i4p772-93.html}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-cso_no_2015}{}}%
+ CSO. (2015). No room for doubts on new {GDP} numbers. \emph{Economic and Political Weekly}, \emph{50}(16), 7--8. Retrieved from \url{https://www.epw.in/journal/2015/16/discussion/no-room-doubts-new-gdp-numbers.html}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-cunningham_causal_2021}{}}%
+ Cunningham, S. (2021). \emph{Causal inference; the mixtape} (1st ed.). Yale University Press. Retrieved from \url{https://yalebooks.yale.edu/9780300251685/causal-inference}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-dube_minimum_2010}{}}%
+ Dube, A., Lester, T. W., \& Reich, M. (2010). Minimum wage effects acrss state borders: Estimates using contiguous counties. \emph{The Review of Economics and Statistics}, \emph{92}(4), 945--964. Retrieved from \url{https://www.jstor.org/stable/40985804}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-ferman_cherry_2020}{}}%
+ Ferman, B., Pinto, C., \& Possebom, V. (2020). Cherry picking with synthetic controls. \emph{Journal of Policy Analysis and Management}, \emph{39}(2), 510--532. http://doi.org/\href{https://doi.org/10.1002/pam.22206}{10.1002/pam.22206}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-nagaraj_seeds_2015-1}{}}%
+ Nagaraj, R. (2015a). Seeds of doubt on new {GDP} numbers: Private corporate sector overestimated?, \emph{50}, 14--17.
+
+ \leavevmode\vadjust pre{\hypertarget{ref-nagaraj_seeds_2015}{}}%
+ Nagaraj, R. (2015b). Seeds of doubt remain: A reply to {CSO}'s rejoinder. \emph{Economic and Political Weekly}, \emph{50}(18), 64--66. Retrieved from \url{https://www.jstor.org/stable/24481913}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-nagaraj_revisiting_2021}{}}%
+ Nagaraj, R. (2021). Revisiting the {GDP} estimation debate. \emph{Economic and Political Weekly}, \emph{56}(45), 10--13. Retrieved from \url{https://www.epw.in/journal/2021/44/commentary/revisiting-gdp-estimation-debate.html}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-nagaraj_measuring_nodate}{}}%
+ Nagaraj, R., \& Srinivasan, T. (n.d.). Measuring india's {GDP} growth: Unpacking the analytics \& data issues behind a controversy that refuses to go away.
+
+ \leavevmode\vadjust pre{\hypertarget{ref-subramanian_indias_2019}{}}%
+ Subramanian, A. (2019, June). \emph{India's {GDP} mis-estimation: Likelihood, magnitudes, mechanisms, and implications}. \{CID\} Working Paper 354, {CID} Working Paper 354.
+
+ \end{CSLReferences}
+	
+	% Index?
+	
+\end{document}
