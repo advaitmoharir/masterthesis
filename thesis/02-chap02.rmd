@@ -315,5 +315,12 @@ $$Y_{it}(0)=x_{it}'\beta + \lambda_{i}'f_{t}+\epsilon_{it}$$
 
 Hence, we have that $\delta_{it}= Y_{it}(1)-Y_{it}(0)$
 
+Let the control and treated units be subscripted from 1 to $N_{CO}$ and $N_{CO+1}$ to $N$ respectively. Then, stacking the control units together yields
+
+\begin{equation}
+Y_{CO}=X_{CO} \beta+ F \Lambda_{CO}'+\epsilon_{CO}
+\end{equation}
+
+where $Y_{CO}$ and $\epsilon_{CO}$ are matrices sized $(T \times N_{CO})$, $X_{CO}$ is of dimension $(T \times N_{CO} \times p)$, while $\Lambda_{CO}$ is a $(N_{CO} \times R)$ matrix.  
 
 #### Estimation and Inference

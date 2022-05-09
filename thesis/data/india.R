@@ -13,19 +13,23 @@ library(gsynth)
 library(synthdid)
 library(panelView)
 library(datawizard)
+library(IMFData)
+options(digits=16)
 #Loading data
 
-data<-WDI(country=c("AR", "BR", "CL", "CO", "EG", "HU","IN",
+data<-WDI(country=c("AR", "BR", "CL", "CO", "EG", "HU","IN","CN",
                     "ID", "IR", "MY", "MX", "SA","PH","PL", "ZA",
                     "TH", "TR", "RU")
           ,
-          indicator=c("NY.GDP.MKTP.KN","NE.GDI.FTOT.ZS","NE.TRD.GNFS.ZS",
+          indicator=c("NY.GDP.MKTP.KN", "NE.GDI.FTOT.ZS","NE.TRD.GNFS.ZS",
                       "SE.PRM.ENRR","SE.SEC.ENRR", 	
                       "FP.CPI.TOTL.ZG"),
 start=1991,
 end=2019)
+#Changing column names
 colnames(data)[4:9]<-c("gdp","inv","trade", "primenr", "secenr", "inflation")
 
+#extrapolating primary and secondary edu, and taking log gdp
 data<-data%>%
   mutate(primenr=na.approx(primenr),
          secenr=na.approx(secenr),
@@ -33,9 +37,9 @@ data<-data%>%
  
 #de-meaned vars (ferman, 2019)#
 data<-data%>%
-  group_by(iso2c)%>%
-  mutate_at(c(4:9),~.x-mean(.x))%>%
-  ungroup()
+group_by(iso2c)%>%
+mutate_at(c(4:9),~.x-mean(.x))%>%
+ ungroup()
 
 
 #############Conflict and democracy variables acemoglu########
@@ -69,8 +73,8 @@ data_out <-
   generate_predictor(time_window = 1991:2011,
                      inv = mean(inv, na.rm = T),
                      trade = mean(trade, na.rm = T),
-                     primenr = mean(primenr, na.rm = T),
-                     secenr=mean(secenr, na.rm=T)) %>%
+                     primenr=mean(primenr,na.rm=T),
+                     secenr = mean(secenr, na.rm = T)) %>%
   
   # Generate the fitted weights for the synthetic control
   generate_weights(optimization_window = 1991:2011, # time to use in the optimization task
@@ -82,23 +86,29 @@ data_out <-
 
 #counterfactual plot
 
-data_out%>%plot_trends()
+p1<-data_out%>%plot_trends()
+#weights
+tab1<-data_out%>%grab_unit_weights()
 
 
-#augsynth
+#Adding treatment variable (1 post-treatment, 0 pre-treatment)
 
 data<-data%>%mutate(treated=ifelse(country=="India"&year>2010,1,0))
-asyn<-augsynth(gdp~treated,iso2c,year,data,progfunc="Ridge",scm=TRUE,fixedeff=T)
-plot(asyn)
+asyn<-augsynth(gdp~treated|gdp+trade+inv+primenr+secenr,country,year,data,
+               progfunc="Ridge", scm=T, fixedeff=T)
 
-
-
-#gsynth-baseline model
+#gsynth-baseline model (no covariates)
 
 
 baseline <- gsynth(gdp~treated, data = data,
               index = c("country","year"), force = "two-way",
               CV = TRUE, r = c(0, 5), se =FALSE)
+baseline2 <- gsynth(gdp~treated, data = data,
+                   index = c("country","year"), force = "two-way",
+                   CV = TRUE, r = c(0, 5), se =TRUE, inference="parametric",
+                   nboots=1000)
+
+p2<-plot(baseline, type="ct")
 #baseline with EM and MC methods
 
 EM <- gsynth(gdp~treated, data = data,
@@ -108,17 +118,59 @@ EM <- gsynth(gdp~treated, data = data,
 MC <- gsynth(gdp~treated, data = data,
                    index = c("country","year"),estimator="mc", force = "two-way",
              inference="nonparametric", nboots=500,CV = TRUE, r = c(0, 5), se =TRUE)
-#controls-unbalanced panel
 
+#gsynth with controls-unbalanced panel
 #removing obs with NA
 
 data<-data%>%drop_na()
-control1<- gsynth(gdp~treated+trade+primenr+secenr+inflation,min.T0=8, data = data,
+#with all controls
+control1<- gsynth(gdp~treated+trade+inv+primenr+secenr+inflation,min.T0=8, data = data,
                    index = c("country","year"),inference="parametric",
                    CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
-plot(control1, type="ct")
-plot(control1, type="gap")
+p3<-plot(control1, type="ct")
+p4<-plot(control1, type="gap")
+#with only trade and investment
+control2<- gsynth(gdp~treated+trade+inv,min.T0=8, data = data,
+                  index = c("country","year"),inference="parametric",
+                  CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
+
+p5<-plot(control2, type="ct")
+p6<-plot(control2, type="gap")
+
+#with trade, investment and inflation
+control3<- gsynth(gdp~treated+trade+inv+inflation,min.T0=8, data = data,
+                  index = c("country","year"),inference="parametric",
+                  CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
+
+p7<-plot(control3, type="ct")
+p8<-plot(control3, type="gap")
+
+#growth rates
+final<-as.data.frame(baseline[c("time","Y.tr", "Y.ct")])%>%
+  rename(tr=India,ct=India.1)%>%
+  mutate(tr=tr-lag(tr), ct=ct-lag(ct), error=tr-ct)
+###############################################################
+#####Estimating tidysynth and gsynth with quarterly data########
+##################################################################
+
+#extracting data from IMFData package##
+
+CodeSearch(IFS.available.codes, "CL_INDICATOR_IFS", "GDP")
+
+#Code for real GDP is  NGDP_R_XDC#
+#setting parameters
+databaseID <- "IFS"
+startdate = "2001-01-01"
+enddate = "2019-12-31"
+checkquery = FALSE
+
+queryfilter<-list(CL_FREA = "", CL_AREA_IFS = "IN", 
+                  CL_INDICATOR_IFS = "NGDP_R_SA_IX")
+
+india<-CompactDataMethod(databaseID,queryfilter, startdate, enddate, 
+                                          checkquery, tidy = T)
+
 
 #############################################################################
 #PLOTS

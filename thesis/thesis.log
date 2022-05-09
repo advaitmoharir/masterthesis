@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  5 MAY 2022 13:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.4)  5 MAY 2022 13:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -867,7 +867,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [17] [18] [19] [20
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 575.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 581.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -880,8 +880,8 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 66D63FAE181FE22BE5BA61A32319F557;2585.
  ) 
 Here is how much of TeX's memory you used:
- 15657 strings out of 480265
- 257942 string characters out of 5893218
+ 15658 strings out of 480265
+ 257957 string characters out of 5893218
  574981 words of memory out of 5000000
  33000 multiletter control sequences out of 15000+600000
  540765 words of font info for 156 fonts, out of 8000000 for 9000
@@ -894,10 +894,10 @@ pdfTeX warning (dest): name{ref-callaway_difference_differences_2021} has been r
 pdfTeX warning (dest): name{ref-goodman-bacon_difference_differences_2021} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}<c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (38 pages, 1049519 bytes).
+Output written on thesis.pdf (38 pages, 1050938 bytes).
 PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
- 428 compressed objects within 5 object streams
- 115 named destinations out of 1000 (max. 500000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 429 compressed objects within 5 object streams
+ 116 named destinations out of 1000 (max. 500000)
  39071 words of extra memory for PDF output out of 42996 (max. 10000000)
 
