@@ -110,7 +110,7 @@ We begin by observing data for $J+1$ units, where $j=1,2,...,J+1$. Assume that $
 For unit $j$ in time $t$, the potential response *without* the intervention is defined as $Y^{N}_{jt}$, while for the unit affected by the intervention $j=1$ at time $t>T0$, the potential response is defined as $Y^{I}_{1t}$. Thus the effect of the intervention at $t>T0$ is given by
 
 $$\alpha_{1t}= Y^{I}_{1t}-Y^{N}_{jt}$$
-Since the unit of interest is observed after $T0$, we have $Y_{1t}=Y^{I}_{1t}$. The unknown response is the counterfactual, which is the evlution of the outcome of interest in absence of the intervention for $t>T0$. Now, let $D_{it}$ take the value 1 if unit $i$ is exposed to the intervention and 0 otherwise. Then the observed outcome $Y_{it}$ is given by
+Since the unit of interest is observed after $T0$, we have $Y_{1t}=Y^{I}_{1t}$. The unknown response is the counterfactual, which is the evolution of the outcome of interest in absence of the intervention for $t>T0$. Now, let $D_{it}$ take the value 1 if unit $i$ is exposed to the intervention and 0 otherwise. Then the observed outcome $Y_{it}$ is given by
 
 \begin{equation}
 Y_{it}= Y^{N}_{it} + \alpha_{it} D_{it}
@@ -288,7 +288,7 @@ Second,
 
 ## Alternative Estimators
 
-### Augmented Synthetic Control
+Since its introduction in @abadie_economic_2003, the synthetic control method has become a popular tool of causal inference. However, it has also been criticised for reasons mentioned in the previous section; the critiques have also spawned a number of alternatives. Some of these are improvements to the standard SCM, while others use different estimation techniques altogether. @ferman_synthetic_2021 deals with the issue of imperfect pre - treatment fit. When the matching of pre - treatment predictors of the treated and the donor units is imperfect, the SCM estimator is biased, even for large pre - treatment period. However, using a de - meaned version of the SCM, reduces the bias of the estimator relative to difference - in - differences. @ben-michael_augmented_2021 also deals with the issue of bias, but instead propose a bias correction by modifying the regression specification. The predictor matching discrepancy is corrected for, in this case, by using a "penalty term", which is a synthetic control estimator applied to residuals. They refer to this as the Augmented Synthetic Control Estimator. 
 
 ### Generalized Synthetic Control
 
@@ -324,3 +324,20 @@ Y_{CO}=X_{CO} \beta+ F \Lambda_{CO}'+\epsilon_{CO}
 where $Y_{CO}$ and $\epsilon_{CO}$ are matrices sized $(T \times N_{CO})$, $X_{CO}$ is of dimension $(T \times N_{CO} \times p)$, while $\Lambda_{CO}$ is a $(N_{CO} \times R)$ matrix.  
 
 #### Estimation and Inference
+
+We are interested in estimating the treatment effect on the treated unit $i$, at time $t$, given by $\hat{\delta_{it}}= Y_{it}(1)-\hat{Y_{it}(0)}$. $\hat{Y_{it}(0)}$ is imputed using the following three steps:
+
+1. Estimate an IFE model using only the control group data to obtain
+
+$$(\hat{\beta},\hat{F},\hat{\lambda})=\arg\min_{\tilde{\beta},\tilde{F},\tilde{\Lambda}}\sum_{i\in C}(Y_{i}-X_{i} \tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})'(Y_{i}-X_{i}\tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})$$
+2. Estimate factor loadings for the treated unit by minimizng MSPE of the predicted treated outcome in the pre-treatment period:
+
+$$\lambda_{i}'=\arg\min_{\tilde{\Lambda_{i}}} (Y_{i}^{0}-X_{i}^{0} \hat{\beta}-\hat{F}^{0}\tilde{\Lambda_{i}})'(Y_{i}^{0}-X_{i}^{0} \hat{\beta}-\hat{F}^{0}\tilde{\Lambda_{i}}), i \in T$$
+3. Using the estimated parameters for covariates, common factors and factor loadings, estimate the counterfactual outcome as:
+
+$$\hat{Y_{it}(0)}=x_{it}'\hat{\beta}+\hat{\lambda_{i}'}\hat{f_{t}},  i\in T, t>T_{0}$$
+How is the factor model used to obtain the GSC estimator chosen? Xu (2017) proposes a cross - validation scheme to choose the model before estimating the causal effect. Cross - validation is a resampling method i.e. it involves repeatedly drawing samples from a training set, which is a sub - sample and fitting a model of interest on each sample. In cross validation, the data is randomly divided into a training set, and a validation set. The model of interest is then fit on the training set as used to predict observations in the validation set. The mean squared error then allows us to check which model is the most precise. For the GSC estimator, a special case of cross - validation is used, namely the leave one out cross validation (LOOCV). In this case, the validation set consists of a single observation. 
+
+Broadly, the algorithm performing LOOCV performs the following steps. First, it estimates an IFE model with a given number of factors $r$, using only control group data. It then assigns one pre -treatment period of the treatment group to the validation set, and uses the rest of the pre - treatment data to estimate the held back data. The corresponding MSPE is computed, and then this is repeated for different values of $r$. The number of factors that minimizes MSPE ($r^{*}$) is chosen. For technical details of this algorithm, see Appendix X.
+
+How is inference carried out using the GSC model? 

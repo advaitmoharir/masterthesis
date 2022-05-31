@@ -12,8 +12,9 @@ library(augsynth)
 library(gsynth)
 library(synthdid)
 library(panelView)
+library(imfr)
 library(datawizard)
-library(IMFData)
+library(varhandle)
 options(digits=16)
 #Loading data
 
@@ -93,9 +94,7 @@ tab1<-data_out%>%grab_unit_weights()
 
 #Adding treatment variable (1 post-treatment, 0 pre-treatment)
 
-data<-data%>%mutate(treated=ifelse(country=="India"&year>2010,1,0))
-asyn<-augsynth(gdp~treated|gdp+trade+inv+primenr+secenr,country,year,data,
-               progfunc="Ridge", scm=T, fixedeff=T)
+data<-data%>%mutate(treated=ifelse(country=="India"&year>2005,1,0))
 
 #gsynth-baseline model (no covariates)
 
@@ -124,7 +123,7 @@ MC <- gsynth(gdp~treated, data = data,
 
 data<-data%>%drop_na()
 #with all controls
-control1<- gsynth(gdp~treated+trade+inv+primenr+secenr+inflation,min.T0=8, data = data,
+control1<- gsynth(gdp~treated+trade+inv+primenr+secenr,min.T0=8, data = data,
                    index = c("country","year"),inference="parametric",
                    CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
@@ -156,22 +155,44 @@ final<-as.data.frame(baseline[c("time","Y.tr", "Y.ct")])%>%
 
 #extracting data from IMFData package##
 
-CodeSearch(IFS.available.codes, "CL_INDICATOR_IFS", "GDP")
 
 #Code for real GDP is  NGDP_R_XDC#
 #setting parameters
-databaseID <- "IFS"
-startdate = "2001-01-01"
-enddate = "2019-12-31"
-checkquery = FALSE
+dataimf<-imf_data(
+  database_id="IFS",
+  indicator="NGDP_R_SA_XDC",
+  country = c("AR", "BR", "CL", "CO", "EG", "HU","IN","CN",
+              "ID", "IR", "MY", "MX", "SA","PH","PL", "ZA",
+              "TH", "TR", "RU"),
+  start = 1996,
+  end = 2019,
+  freq = "Q",
+  return_raw = FALSE,
+  print_url = FALSE,
+  times = 10
+)
 
-queryfilter<-list(CL_FREA = "", CL_AREA_IFS = "IN", 
-                  CL_INDICATOR_IFS = "NGDP_R_SA_IX")
+dataimf<-dataimf%>%
+  separate(year_quarter, c("year", "qtr"))%>%
+  mutate(qtr=as.numeric(factor(qtr)), 
+         treated=ifelse(iso2c=="IN"&year>2010,1,0),
+         year=as.numeric(year),
+         year_qtr=year+(qtr/4),
+         NGDP_R_SA_XDC=log(NGDP_R_SA_XDC))%>%
+  rename(gdp=NGDP_R_SA_XDC)%>%
+  arrange(iso2c)
 
-india<-CompactDataMethod(databaseID,queryfilter, startdate, enddate, 
-                                          checkquery, tidy = T)
+#running gsynth baseline
+baselineq <- gsynth(gdp~treated, data = dataimf,
+                   index = c("iso2c","year_qtr"), force = "two-way",
+                   CV = TRUE, r = c(0, 5), se =FALSE)
 
-
+baselineq2 <- gsynth(gdp~treated, data = dataimf,
+                    index = c("iso2c","year_qtr"), force = "two-way",
+                    CV = TRUE, r = c(0, 5), se =TRUE, inference="parametric",
+                    nboots=1000)
+p10<-plot(baselineq, type="ct")
+syn<-augsynth(gdp~treated,iso2c,year_qtr,dataimf,progfunc="Ridge", scm=T,fixedeff=T)
 #############################################################################
 #PLOTS
 #################################################3
