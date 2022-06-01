@@ -317,7 +317,7 @@
  \hypertarget{the-synthetic-control-method}{%
  \chapter{The Synthetic Control Method}\label{the-synthetic-control-method}}
 
- The synthetic control method is a relatively recent innovation in causal inference methods. It was first introduced by Alberto Abadie and Javier Gardeabazal in their 2003 paper investingating estimating the impact of conflict on GDP in the Baque county(\protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal, 2003}). Since then, the method has been used widely to study the impact of policy interventions involving large economic units like cities, states or countries(\protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller, 2010}, \protect\hyperlink{ref-abadie_comparative_2015}{2015}). Nobel laureate Guido Imebns and Susan Athey call it ``arguably the most important innovation in the policy evaluation literature in the last 15 years'' in a recent review of applied econometrics(\protect\hyperlink{ref-athey_state_2017}{Athey \& Imbens, 2017}).
+ The synthetic control method is a relatively recent innovation in causal inference methods. It was first introduced by Alberto Abadie and Javier Gardeabazal in their 2003 paper investingating estimating the impact of conflict on GDP in the Baque county (\protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal, 2003}). Since then, the method has been used widely to study the impact of policy interventions involving large economic units like cities, states or countries (\protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller, 2010}, \protect\hyperlink{ref-abadie_comparative_2015}{2015}). Nobel laureate Guido Imebns and Susan Athey call it ``arguably the most important innovation in the policy evaluation literature in the last 15 years'' in a recent review of applied econometrics (\protect\hyperlink{ref-athey_state_2017}{Athey \& Imbens, 2017}).
  \linebreak
 
  In this chapter, I present an overview of the synthetic control method (SCM), beginning with a non-technical introduction. In Section 2.2, I examine the theory behind the method, focussing on the setup estimation and inference. In Section 2.3, I present the relative advantages and limitations of the standard SCM, and briefly delve into the improvements provided by two new methods: the augmented synthetic control and generalized synthetic control respectively. Section 2.4 summarizes and concludes.
@@ -515,7 +515,8 @@
  \hypertarget{generalized-synthetic-control}{%
  \subsection{Generalized Synthetic Control}\label{generalized-synthetic-control}}
 
- The generalized synthetic control was proposed by Yiqing Xu in 2017. This method combines the synthetic control method and the interactive fixed effects model (IFE). The IFE model, proposed by {[}CITE BAI{]}, is used to model unobserved time-varying confounders. Time-varying confounders refer to unobserved variables that are correlated with both the dependent and independent variable, and which take different values over time. The IFE model interacts unit-specific intercepts, referred to as factor loadings and time-varying coefficients, referred to as latent factors. The generalized synthetic control method (GSCM), unifies the IFE model with the SCM in the following way: first, using only the control group (or donor pool) data, it estimates an IFE model to obtain a fixed number of latent factors. Then, the factor loadings for each treated unit are estimated by linearly projecting pre-treated treated outcomes on the space spanned by this factor. Finally, it computes treated counterfactuals based on the latent factors and the factor loadings.
+ The generalized synthetic control was proposed by Yiqing Xu in 2017. This method combines the synthetic control method and the interactive fixed effects model (IFE). The IFE model, proposed by Bai (\protect\hyperlink{ref-bai_panel_2009}{2009}), is used to model unobserved time-varying confounders. Time-varying confounders refer to unobserved variables that are correlated with both the dependent and independent variable, and which take different values over time. The IFE model interacts unit-specific intercepts, referred to as factor loadings and time-varying coefficients, referred to as latent factors. The generalized synthetic control method (GSCM), unifies the IFE model with the SCM in the following way: first, using only the control group (or donor pool) data, it estimates an IFE model to obtain a fixed number of latent factors. Then, the factor loadings for each treated unit are estimated by linearly projecting pre-treated treated outcomes on the space spanned by this factor. Finally, it computes treated counterfactuals based on the latent factors and the factor loadings.
+ \linebreak
 
  The key difference between the SCM and GSCM is that the latter does dimension reduction prior to re-weighting. Specifically, the model selects the number of latent factors to be used algorithmically. This is done using a cross-validation scheme (details in the inference section), which avoids specification searches. The GSCM is also more ``general'' in the sense that it can be extended to cases with multiple treated units and variable treatment periods.
 
@@ -527,6 +528,7 @@
  Y_{it}=\delta_{it} D_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it}
  \end{equation}
  where \(D_{it}\) equals 1 if \(i\) is exposed to treatment, and zero otherwise. \(\delta_{it}\) is the treatment effect, and \(x_{it}\) is a \((k \times 1)\) vector of observed covariates, while \(\beta\) is \((k \times 1)\) vector of unobserved parameters. \(f_{t}\) is a \((r \times 1)\) vector of unobserved common factors and \(\lambda_{i}\) is a vector of factor loadings. \(\epsilon_{it}\) is the zero-mean idiosyncratic error term. The parameter of interest is \(\delta_{it}\); more specifically we are interested in estimating the average treatment effect on the treated unit, given by the sum of \(\delta_{it}\) for each unit, divided by the treatment period.
+ \linebreak
 
  Let \(Y_{it}(1)\) and \(Y_{it}(0)\) be the potential outcomes for unit \(i\) at time \(t\), when variable \(D_{it}\) takes values 1 and 0 respectively. Therefore, we have
 
@@ -546,6 +548,7 @@
  \subsubsection{Estimation and Inference}\label{estimation-and-inference}}
 
  We are interested in estimating the treatment effect on the treated unit \(i\), at time \(t\), given by \(\hat{\delta_{it}}= Y_{it}(1)-\hat{Y_{it}(0)}\). \(\hat{Y_{it}(0)}\) is imputed using the following three steps:
+ \linebreak
  \begin{enumerate}
  \def\labelenumi{\arabic{enumi}.}
  \tightlist
@@ -559,11 +562,42 @@
  3. Using the estimated parameters for covariates, common factors and factor loadings, estimate the counterfactual outcome as:
 
  \[\hat{Y_{it}(0)}=x_{it}'\hat{\beta}+\hat{\lambda_{i}'}\hat{f_{t}},  i\in T, t>T_{0}\]
- How is the factor model used to obtain the GSC estimator chosen? Xu (2017) proposes a cross - validation scheme to choose the model before estimating the causal effect. Cross - validation is a resampling method i.e.~it involves repeatedly drawing samples from a training set, which is a sub - sample and fitting a model of interest on each sample. In cross validation, the data is randomly divided into a training set, and a validation set. The model of interest is then fit on the training set as used to predict observations in the validation set. The mean squared error then allows us to check which model is the most precise. For the GSC estimator, a special case of cross - validation is used, namely the leave one out cross validation (LOOCV). In this case, the validation set consists of a single observation.
+ How is the factor model used to obtain the GSC estimator chosen? Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}) proposes a cross - validation scheme to choose the model before estimating the causal effect. Cross - validation is a resampling method i.e.~it involves repeatedly drawing samples from a training set, which is a sub - sample and fitting a model of interest on each sample. In cross validation, the data is randomly divided into a training set, and a validation set. The model of interest is then fit on the training set as used to predict observations in the validation set. The mean squared error then allows us to check which model is the most precise. For the GSC estimator, a special case of cross - validation is used, namely the leave one out cross validation (LOOCV). In this case, the validation set consists of a single observation. (\protect\hyperlink{ref-james_introduction_2021}{James, Witten, Hastie, \& Tibshirani, 2021})
+ \linebreak
 
  Broadly, the algorithm performing LOOCV performs the following steps. First, it estimates an IFE model with a given number of factors \(r\), using only control group data. It then assigns one pre -treatment period of the treatment group to the validation set, and uses the rest of the pre - treatment data to estimate the held back data. The corresponding MSPE is computed, and then this is repeated for different values of \(r\). The number of factors that minimizes MSPE (\(r^{*}\)) is chosen. For technical details of this algorithm, see Appendix X.
+ \linebreak
 
- How is inference carried out using the GSC model?
+ How is inference carried out using the GSC model? Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}) uses a parametric bootstrap procedure. Bootstrapping is a widely used statistical tool used to quantify uncertainty associated with a given estimator or statistical tool. Typically, this involves randomly selecting a number of observations from a dataset, performing the required estimation and repeating this procedure a large number of times. Finally, the standard error of these bootstrap is computed, yielding the required uncertainty estimates. (\protect\hyperlink{ref-james_introduction_2021}{James et al., 2021})
+ \linebreak
+
+ For the GSC estimator, the following procedure is implemented. We are interested in obtaining the conditional variance of the average treatment effect. First, LOOCV is performed by randomly assigning treatment to a control unit, resampling the rest of the control group, and applying the GSC method in order to obtain the residuals (or prediction error). These are \textit{simulated} residuals. Then, the GSC method is applied to the originial data, yielding the average treatment (ATT) effect, estimates for the parameters and the \textit{predicted} residuals of the control units. Then, a bootstrapped sample is constructed using the two sets of predicted residuals, and the GSC method is applied to it, yielding a new ATT estimate. This, added to the ATT obtained in the previous step is the bootstrapped estimate. Finally, its variance and confidence intervals are constructed using the formulae described in Appendix Y.
+
+ \hypertarget{conclusion}{%
+ \section{Conclusion}\label{conclusion}}
+
+ In this chapter, I introduced the standard and generalized synthetic control methods for causal inference and covered the respective model setups, estimation and inference. Both methods estimate counterfactual trajectories for a treated unit of interest, and under a set of assumptions identify the average treatment effect on the treated unit. However, the underlying models, estimation method and inference for both techniques are completely different. The most important difference lies with reference to extrapolation: the GSCM allows for extrapolation and admits negative weights, while the SCM does not. The GSCM assumes a linear factor model with interactive fixed effects, while the SCM has no IFE. The SCM matches on predictors of the outcome of interest, and does not use data on the outcome of interest itself. However, the GSCM uses both and hence allows to estimate the ATT with and without covariates. Finally, the SCM relies on ratios of pre and post treatment RMSPE and computes Fisher's exact p - values for inference, with no way to compute confidence intervals. The GSCM uses a parametric bootstrap appraoch to compute variance and confidence intervals for the estimated ATT. Table XX summarizes the difference between the two
+ \begin{table}[h!!]
+ \centering
+ \begin{tabular}{lll}
+ \hline
+ \hline
+ \textbf{Criteria} & \textbf{SCM}&\textbf{GSCM}\\
+ \hline
+ \hline
+ Underlying model & Linear factor model & Linear factor model with IFE\\
+ Matching & Covariates Only & Covariates and Outcome Variable\\
+ Inference & Fisher's exact p - values & Parametric bootstrap\\
+ Extrapolation&No&Yes\\
+ Multiple Treated Units & No & Yes\\
+ Variable Treatment Periods&No&Yes\\
+ \hline
+ \end{tabular}
+ \caption{Differences between the SCM and GSCM Estimators}
+ \end{table}
+ \linebreak
+
+ Both the SCM and GSCM provide different but simple and powerful ways to establish the causal effects of interventions on a variable or a group of variables of interest. While the interpretation of the final estimate(s) of interest are similar, it is important to remember the vast differences in the underlying models and estimation strategies. Hence, appropriate care must be taken and the caveats kept in mind while applying these estimators to study questions of economic policy.
 
  \backmatter
 
@@ -594,6 +628,9 @@
  \leavevmode\vadjust pre{\hypertarget{ref-athey_state_2017}{}}%
  Athey, S., \& Imbens, G. W. (2017). The state of applied econometrics: Causality and policy evaluation. \emph{Journal of Economic Perspectives}, \emph{31}(2), 3--32. http://doi.org/\href{https://doi.org/10.1257/jep.31.2.3}{10.1257/jep.31.2.3}
 
+ \leavevmode\vadjust pre{\hypertarget{ref-bai_panel_2009}{}}%
+ Bai, J. (2009). Panel data models with interactive fixed effects. \emph{Econometrica}, \emph{77}(4), 1229--1279. http://doi.org/\href{https://doi.org/10.3982/ECTA6135}{10.3982/ECTA6135}
+
  \leavevmode\vadjust pre{\hypertarget{ref-ben-michael_augmented_2021}{}}%
  Ben-Michael, E., Feller, A., \& Rothstein, J. (2021). The augmented synthetic control method. \emph{Journal of the American Statistical Association}, \emph{116}(536), 1789--1803. http://doi.org/\href{https://doi.org/10.1080/01621459.2021.1929245}{10.1080/01621459.2021.1929245}
 
@@ -618,6 +655,9 @@
  \leavevmode\vadjust pre{\hypertarget{ref-ferman_cherry_2020}{}}%
  Ferman, B., Pinto, C., \& Possebom, V. (2020). Cherry picking with synthetic controls. \emph{Journal of Policy Analysis and Management}, \emph{39}(2), 510--532. http://doi.org/\href{https://doi.org/10.1002/pam.22206}{10.1002/pam.22206}
 
+ \leavevmode\vadjust pre{\hypertarget{ref-james_introduction_2021}{}}%
+ James, G., Witten, D., Hastie, T., \& Tibshirani, R. (2021). \emph{An introduction to statistical learning} (2nd ed.). {NY}: Springer New York. Retrieved from \url{https://link.springer.com/book/10.1007/978-1-0716-1418-1}
+
  \leavevmode\vadjust pre{\hypertarget{ref-nagaraj_seeds_2015-1}{}}%
  Nagaraj, R. (2015a). Seeds of doubt on new {GDP} numbers: Private corporate sector overestimated?, \emph{50}, 14--17.
 
@@ -632,6 +672,9 @@
 
  \leavevmode\vadjust pre{\hypertarget{ref-subramanian_indias_2019}{}}%
  Subramanian, A. (2019, June). \emph{India's {GDP} mis-estimation: Likelihood, magnitudes, mechanisms, and implications}. \{CID\} Working Paper 354, {CID} Working Paper 354.
+
+ \leavevmode\vadjust pre{\hypertarget{ref-xu_generalized_2017}{}}%
+ Xu, Y. (2017). Generalized synthetic control method: Causal inference with interactive fixed effects models. \emph{Political Analysis}, \emph{25}(1), 57--76. http://doi.org/\href{https://doi.org/10.1017/pan.2016.2}{10.1017/pan.2016.2}
 
  \end{CSLReferences}
 	

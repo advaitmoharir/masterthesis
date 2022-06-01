@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.31)  31 MAY 2022 13:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.31)  31 MAY 2022 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -571,7 +571,7 @@ Package hyperref Info: Link coloring ON on input line 198.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<unisilogo.pdf, id=64, 623.75833pt x 639.06552pt>
+<unisilogo.pdf, id=68, 623.75833pt x 639.06552pt>
 File: unisilogo.pdf Graphic file (type pdf)
 <use unisilogo.pdf>
 Package pdftex.def Info: unisilogo.pdf  used on input line 206.
@@ -725,7 +725,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--312
  []
 
 [5]
-<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=232, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=239, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 314.
@@ -735,7 +735,7 @@ Overfull \hbox (52.92097pt too wide) in paragraph at lines 314--314
  [] 
  []
 
-<thesis_files/figure-latex/unnamed-chunk-3-2.pdf, id=233, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/unnamed-chunk-3-2.pdf, id=240, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-3-2.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-2.pdf  used on input line 315.
@@ -775,7 +775,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 331--333
 
  []
 
-<figure/caltrends.jpg, id=280, 578.16pt x 289.08pt>
+<figure/caltrends.jpg, id=287, 578.16pt x 289.08pt>
 File: figure/caltrends.jpg Graphic file (type jpg)
 <use figure/caltrends.jpg>
 Package pdftex.def Info: figure/caltrends.jpg  used on input line 337.
@@ -807,7 +807,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 414--417
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13]
-<figure/calplacebo.jpg, id=332, 578.16pt x 289.08pt>
+<figure/calplacebo.jpg, id=339, 578.16pt x 289.08pt>
 File: figure/calplacebo.jpg Graphic file (type jpg)
 <use figure/calplacebo.jpg>
 Package pdftex.def Info: figure/calplacebo.jpg  used on input line 432.
@@ -839,7 +839,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 438--440
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [15 <./figure/calplacebo.jpg>]
-<figure/calmspe.jpg, id=350, 578.16pt x 289.08pt>
+<figure/calmspe.jpg, id=357, 578.16pt x 289.08pt>
 File: figure/calmspe.jpg Graphic file (type jpg)
 <use figure/calmspe.jpg>
 Package pdftex.def Info: figure/calmspe.jpg  used on input line 459.
@@ -860,13 +860,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 505--507
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17] [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 518--520
 
-[19] [20] [21] [22
+ []
 
-]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 604.
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 529--532
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 550--552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 564--567
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 568--570
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 571--573
+
+ []
+
+
+Overfull \hbox (58.14587pt too wide) in paragraph at lines 582--596
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--599
+
+ []
+
+[21] [22]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 641.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -874,16 +909,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [23
 
+
 ] [24] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1ECEA4CB554179B3C9C9975A209CE64F;2382.
+(rerunfilecheck)             Checksum: E8E052F4C791C91FA3BD93CC614A876E;2487.
  ) 
 Here is how much of TeX's memory you used:
- 15676 strings out of 480253
- 258452 string characters out of 5892936
- 576451 words of memory out of 5000000
- 33026 multiletter control sequences out of 15000+600000
- 540765 words of font info for 156 fonts, out of 8000000 for 9000
+ 15686 strings out of 480253
+ 258604 string characters out of 5892936
+ 577487 words of memory out of 5000000
+ 33028 multiletter control sequences out of 15000+600000
+ 540856 words of font info for 157 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,12n,77p,1386b,417s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -893,10 +929,10 @@ pdfTeX warning (dest): name{ref-callaway_difference_differences_2021} has been r
 pdfTeX warning (dest): name{ref-goodman-bacon_difference_differences_2021} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (40 pages, 1061340 bytes).
+Output written on thesis.pdf (40 pages, 1067376 bytes).
 PDF statistics:
- 544 PDF objects out of 1000 (max. 8388607)
- 440 compressed objects within 5 object streams
- 119 named destinations out of 1000 (max. 500000)
- 39063 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 565 PDF objects out of 1000 (max. 8388607)
+ 461 compressed objects within 5 object streams
+ 125 named destinations out of 1000 (max. 500000)
+ 39071 words of extra memory for PDF output out of 42996 (max. 10000000)
 
