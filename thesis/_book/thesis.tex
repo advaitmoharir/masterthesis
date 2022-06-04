@@ -505,7 +505,7 @@
  However, the standard SCM has some limitations, two of which I highlight here. The first, elaborated by Ferman, Pinto, \& Possebom (\protect\hyperlink{ref-ferman_cherry_2020}{2020}), relates to specification searching opportunites. The choice of contributors to the synthetic control is often a matter of discretion, and hence it is possible to try and test a number of combinations which yield a desired pre-treatment fit and post-treatment trend. There is significant room for such searches when the number of pre-treatment periods is close to those used in common applications. While the distance-function is minimized algorithmically, which limits the bias, the function itself is endogenously chosen by the researcher, creating potential for bias and ``p-hacking''(\protect\hyperlink{ref-cunningham_causal_2021}{Cunningham, 2021}).
  \linebreak
 
- Second,
+ Another common critique centers on the restriction placed on weights: that they must be positive and sum upto one. In technical terms, this is the ``convex hull assumption'', wherein the weighted average (or convex combination) of the predictors of the donor pool falls close to the convex hull of these points. This restriction leads to a sparse distribution of weights, with a small number of units contributing heavily to the synthetic control, and many units contributing close to zero. Since there are typically multiple predictors, and they are to be determined such that the synthetic control resembles the treated unit both in terms of the outcome and the predictors, the weights of the predictors are the control units are jointly optimized. However, multiple studies have shown that the weights produced by algorithms using such joint optimization procedures are unstable and sub - optimalKlößner, Kaul, Pfeifer, \& Schieler (\protect\hyperlink{ref-klosner_comparative_2018}{2018}). Kuosmanen, Zhou, Eskelinen, \& Malo (\protect\hyperlink{ref-kuosmanen_design_2021}{2021}) use insights from game theory to show that the true optimum of this estimation procedure is a corner solution, which assigns all the weight to a single predictor, which defeats the purpose of the SCM. These limitations, along with some others (not discussed here) have led to the development of a number of alternatives to the SCM.
 
  \hypertarget{alternative-estimators}{%
  \section{Alternative Estimators}\label{alternative-estimators}}
@@ -523,7 +523,7 @@
  \hypertarget{framework}{%
  \subsubsection{Framework}\label{framework}}
 
- In this section and the next one, I stick to the notation used in {[}CITE XU{]}. Let \(Y_{it}\) be the outcome of interest for unit \(i\) and time \(t\), and let \(O\) and \(C\) denote the total number of units in the treatment and control groups, with \(N\) total units. All units are observed for \(T\) periods, with the pre-treatment periods denoted by \(T_{0,i}\) for each unit. The post treatment period is given by \(q_{i}=T-T_{0,i}\). It is assumed that \(Y_{it}\) is given by a linear factor model
+ In this section and the next one, I stick to the notation used in Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}). Let \(Y_{it}\) be the outcome of interest for unit \(i\) and time \(t\), and let \(O\) and \(C\) denote the total number of units in the treatment and control groups, with \(N\) total units. All units are observed for \(T\) periods, with the pre-treatment periods denoted by \(T_{0,i}\) for each unit. The post treatment period is given by \(q_{i}=T-T_{0,i}\). It is assumed that \(Y_{it}\) is given by a linear factor model
  \begin{equation}
  Y_{it}=\delta_{it} D_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it}
  \end{equation}
@@ -555,12 +555,28 @@
  \item
    Estimate an IFE model using only the control group data to obtain
  \end{enumerate}
- \[(\hat{\beta},\hat{F},\hat{\lambda})=\arg\min_{\tilde{\beta},\tilde{F},\tilde{\Lambda}}\sum_{i\in C}(Y_{i}-X_{i} \tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})'(Y_{i}-X_{i}\tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})\]
- 2. Estimate factor loadings for the treated unit by minimizng MSPE of the predicted treated outcome in the pre-treatment period:
+ \[(\hat{\beta},\hat{F},\hat{\Lambda_{co}})=\arg\min_{\tilde{\beta},\tilde{F},\tilde{\Lambda}}\sum_{i\in C}(Y_{i}-X_{i} \tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})'(Y_{i}-X_{i}\tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})\]
 
+ \[s.t. \frac{\tilde{F}'\tilde{F}}{T}=I_{r}
+ , \Lambda_{co}'\Lambda_{co}=\text{diagonal}\]
+
+ This generates the estimators for common factors, factor loadings and \(\beta\). The imposed constraints state that all the factors are normalized, and that the factor loadings are orthogonal to each other.
+ \begin{enumerate}
+ \def\labelenumi{\arabic{enumi}.}
+ \setcounter{enumi}{1}
+ \tightlist
+ \item
+   Estimate factor loadings for the treated unit by minimizing MSPE of the predicted treated outcome in the pre-treatment period:
+ \end{enumerate}
  \[\lambda_{i}'=\arg\min_{\tilde{\Lambda_{i}}} (Y_{i}^{0}-X_{i}^{0} \hat{\beta}-\hat{F}^{0}\tilde{\Lambda_{i}})'(Y_{i}^{0}-X_{i}^{0} \hat{\beta}-\hat{F}^{0}\tilde{\Lambda_{i}}), i \in T\]
- 3. Using the estimated parameters for covariates, common factors and factor loadings, estimate the counterfactual outcome as:
-
+ Note that this step uses data only from the pre - treatment period, while the parameters \(\hat{\beta}\) and \(\hat{F}^{0}\) are taken from the first step.
+ \begin{enumerate}
+ \def\labelenumi{\arabic{enumi}.}
+ \setcounter{enumi}{2}
+ \tightlist
+ \item
+   Using the estimated parameters for covariates, common factors and factor loadings, estimate the counterfactual outcome as:
+ \end{enumerate}
  \[\hat{Y_{it}(0)}=x_{it}'\hat{\beta}+\hat{\lambda_{i}'}\hat{f_{t}},  i\in T, t>T_{0}\]
  How is the factor model used to obtain the GSC estimator chosen? Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}) proposes a cross - validation scheme to choose the model before estimating the causal effect. Cross - validation is a resampling method i.e.~it involves repeatedly drawing samples from a training set, which is a sub - sample and fitting a model of interest on each sample. In cross validation, the data is randomly divided into a training set, and a validation set. The model of interest is then fit on the training set as used to predict observations in the validation set. The mean squared error then allows us to check which model is the most precise. For the GSC estimator, a special case of cross - validation is used, namely the leave one out cross validation (LOOCV). In this case, the validation set consists of a single observation. (\protect\hyperlink{ref-james_introduction_2021}{James, Witten, Hastie, \& Tibshirani, 2021})
  \linebreak
@@ -631,6 +647,9 @@
  \leavevmode\vadjust pre{\hypertarget{ref-bai_panel_2009}{}}%
  Bai, J. (2009). Panel data models with interactive fixed effects. \emph{Econometrica}, \emph{77}(4), 1229--1279. http://doi.org/\href{https://doi.org/10.3982/ECTA6135}{10.3982/ECTA6135}
 
+ \leavevmode\vadjust pre{\hypertarget{ref-becker_estimating_2017}{}}%
+ Becker, M., \& Klößner, S. (2017). Estimating the economic costs of organized crime by synthetic control methods. \emph{Journal of Applied Econometrics}, \emph{32}(7), 1367--1369. http://doi.org/\href{https://doi.org/10.1002/jae.2572}{10.1002/jae.2572}
+
  \leavevmode\vadjust pre{\hypertarget{ref-ben-michael_augmented_2021}{}}%
  Ben-Michael, E., Feller, A., \& Rothstein, J. (2021). The augmented synthetic control method. \emph{Journal of the American Statistical Association}, \emph{116}(536), 1789--1803. http://doi.org/\href{https://doi.org/10.1080/01621459.2021.1929245}{10.1080/01621459.2021.1929245}
 
@@ -657,6 +676,12 @@
 
  \leavevmode\vadjust pre{\hypertarget{ref-james_introduction_2021}{}}%
  James, G., Witten, D., Hastie, T., \& Tibshirani, R. (2021). \emph{An introduction to statistical learning} (2nd ed.). {NY}: Springer New York. Retrieved from \url{https://link.springer.com/book/10.1007/978-1-0716-1418-1}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-klosner_comparative_2018}{}}%
+ Klößner, S., Kaul, A., Pfeifer, G., \& Schieler, M. (2018). Comparative politics and the synthetic control method revisited: A note on abadie et al. (2015). \emph{Swiss Journal of Economics and Statistics}, \emph{154}(1), 11. http://doi.org/\href{https://doi.org/10.1186/s41937-017-0004-9}{10.1186/s41937-017-0004-9}
+
+ \leavevmode\vadjust pre{\hypertarget{ref-kuosmanen_design_2021}{}}%
+ Kuosmanen, T., Zhou, X., Eskelinen, J., \& Malo, P. (2021). \emph{Design flaw of the synthetic control method} (No. 106328). University Library of Munich, Germany. Retrieved from \url{https://ideas.repec.org/p/pra/mprapa/106328.html}
 
  \leavevmode\vadjust pre{\hypertarget{ref-nagaraj_seeds_2015-1}{}}%
  Nagaraj, R. (2015a). Seeds of doubt on new {GDP} numbers: Private corporate sector overestimated?, \emph{50}, 14--17.

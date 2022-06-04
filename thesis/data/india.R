@@ -15,6 +15,7 @@ library(panelView)
 library(imfr)
 library(datawizard)
 library(varhandle)
+library(ggpubr)
 options(digits=16)
 #Loading data
 
@@ -35,18 +36,12 @@ data<-data%>%
   mutate(primenr=na.approx(primenr),
          secenr=na.approx(secenr),
          gdp=log(gdp))
- 
+data<-data%>%mutate(gdp=log(gdp))
 #de-meaned vars (ferman, 2019)#
 data<-data%>%
 group_by(iso2c)%>%
 mutate_at(c(4:9),~.x-mean(.x))%>%
  ungroup()
-
-
-#############Conflict and democracy variables acemoglu########
-ddcg<-read_dta("DDCGdata_final.dta")
-ddcg<-ddcg%>%select(country_name,year,taxratio,)
-
 
 #######################################################
 # ESTIMATION
@@ -88,13 +83,17 @@ data_out <-
 #counterfactual plot
 
 p1<-data_out%>%plot_trends()
+#Creating a data frame storing the original and synth gdp outputs.
+#This will be updated to include estimates from gsynth
+output<-data_out[[6]][[1]]
+
 #weights
 tab1<-data_out%>%grab_unit_weights()
 
 
 #Adding treatment variable (1 post-treatment, 0 pre-treatment)
 
-data<-data%>%mutate(treated=ifelse(country=="India"&year>2005,1,0))
+data<-data%>%mutate(treated=ifelse(country=="India"&year>2010,1,0))
 
 #gsynth-baseline model (no covariates)
 
@@ -103,20 +102,12 @@ baseline <- gsynth(gdp~treated, data = data,
               index = c("country","year"), force = "two-way",
               CV = TRUE, r = c(0, 5), se =FALSE)
 baseline2 <- gsynth(gdp~treated, data = data,
-                   index = c("country","year"), force = "two-way",
-                   CV = TRUE, r = c(0, 5), se =TRUE, inference="parametric",
-                   nboots=1000)
-
+                   index = c("country","year"), force="two-way",
+                   CV = TRUE, r = c(0, 5), se =TRUE, ,
+                   nboots=1000, inference="parametric")
+#Updating output tab
+output$gsynth_baseline<-baseline[["Y.ct"]]
 p2<-plot(baseline, type="ct")
-#baseline with EM and MC methods
-
-EM <- gsynth(gdp~treated, data = data,
-                   index = c("country","year"), EM=TRUE, force = "two-way",
-                   CV = TRUE, r = c(0, 5), se =FALSE)
-
-MC <- gsynth(gdp~treated, data = data,
-                   index = c("country","year"),estimator="mc", force = "two-way",
-             inference="nonparametric", nboots=500,CV = TRUE, r = c(0, 5), se =TRUE)
 
 #gsynth with controls-unbalanced panel
 #removing obs with NA
@@ -124,14 +115,14 @@ MC <- gsynth(gdp~treated, data = data,
 data<-data%>%drop_na()
 #with all controls
 control1<- gsynth(gdp~treated+trade+inv+primenr+secenr,min.T0=8, data = data,
-                   index = c("country","year"),inference="parametric",
+                   index = c("country","year"),inference="parametric",force="two-way",
                    CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
 p3<-plot(control1, type="ct")
 p4<-plot(control1, type="gap")
 #with only trade and investment
 control2<- gsynth(gdp~treated+trade+inv,min.T0=8, data = data,
-                  index = c("country","year"),inference="parametric",
+                  index = c("country","year"),inference="parametric",force="two-way",
                   CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
 p5<-plot(control2, type="ct")
@@ -145,8 +136,28 @@ control3<- gsynth(gdp~treated+trade+inv+inflation,min.T0=8, data = data,
 p7<-plot(control3, type="ct")
 p8<-plot(control3, type="gap")
 
+#Updating output df
+output$control1<-control1[["Y.ct"]]
+output$control2<-control2[["Y.ct"]]
+output$control3<-control3[["Y.ct"]]
+
+#Renaming columns
+output<-output%>%rename(synth=synth_y,
+                        gsynth_base=gsynth_baseline,
+                        gsynth_ctr1=control1,
+                        gsynth_ctr2=control2,
+                        gsynth_ctr3=control3)
+p1<-output%>%
+  pivot_longer(2:5)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype=1)+xlim(1991,2020)+
+  scale_colour_Publication()+theme_Publication()
+
+p2<-output%>%
+  pivot_longer(2:7)%>%
+  ggline(x=time_unit, y=value, color=name)
 #growth rates
-final<-as.data.frame(baseline[c("time","Y.tr", "Y.ct")])%>%
+final<-as.data.frame(control2[c("time","Y.tr", "Y.ct")])%>%
   rename(tr=India,ct=India.1)%>%
   mutate(tr=tr-lag(tr), ct=ct-lag(ct), error=tr-ct)
 ###############################################################
@@ -272,3 +283,45 @@ sprintf('point estimate: %1.2f', tau.hat)
 sprintf('95%% CI (%1.2f, %1.2f)', tau.hat - 1.96 * se, tau.hat + 1.96 * se)
 plot(tau.hat)
 
+theme_Publication <- function(base_size=14, base_family="helvetica") {
+  library(grid)
+  library(ggthemes)
+  (theme_foundation(base_size=base_size, base_family=base_family)
+    + theme(plot.title = element_text(face = "bold",
+                                      size = rel(1.2), hjust = 0.5),
+            text = element_text(),
+            panel.background = element_rect(colour = NA),
+            plot.background = element_rect(colour = NA),
+            panel.border = element_rect(colour = NA),
+            axis.title = element_text(face = "bold",size = rel(1)),
+            axis.title.y = element_text(angle=90,vjust =2),
+            axis.title.x = element_text(vjust = -0.2),
+            axis.text = element_text(), 
+            axis.line = element_line(colour="black"),
+            axis.ticks = element_line(),
+            panel.grid.major = element_line(colour="#f0f0f0"),
+            panel.grid.minor = element_blank(),
+            legend.key = element_rect(colour = NA),
+            legend.position = "bottom",
+            legend.direction = "horizontal",
+            legend.key.size= unit(0.2, "cm"),
+            legend.spacing = unit(0, "cm"),
+            legend.title = element_text(face="italic"),
+            plot.margin=unit(c(10,5,5,5),"mm"),
+            strip.background=element_rect(colour="#f0f0f0",fill="#f0f0f0"),
+            strip.text = element_text(face="bold")
+    ))
+  
+}
+
+scale_fill_Publication <- function(...){
+  library(scales)
+  discrete_scale("fill","Publication",manual_pal(values = c("#386cb0","#fdb462","#7fc97f","#ef3b2c","#662506","#a6cee3","#fb9a99","#984ea3","#ffff33")), ...)
+  
+}
+
+scale_colour_Publication <- function(...){
+  library(scales)
+  discrete_scale("colour","Publication",manual_pal(values = c("#386cb0","#fdb462","#7fc97f","#ef3b2c","#662506","#a6cee3","#fb9a99","#984ea3","#ffff33")), ...)
+  
+}
