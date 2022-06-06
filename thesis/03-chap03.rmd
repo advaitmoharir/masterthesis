@@ -1,0 +1,81 @@
+```{r include_packages_9, include = FALSE}
+# This chunk ensures that the thesisdown package is
+# installed and loaded. This thesisdown package includes
+# the template files for the thesis and also two functions
+# used for labeling and referencing
+if (!require(remotes)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    install.packages("remotes", repos = "https://cran.rstudio.com")
+  } else {
+    stop(
+      paste(
+        'You need to run install.packages("remotes")',
+        "first in the Console."
+      )
+    )
+  }
+}
+if (!require(dplyr)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    install.packages("dplyr", repos = "https://cran.rstudio.com")
+  } else {
+    stop(
+      paste(
+        'You need to run install.packages("dplyr")',
+        "first in the Console."
+      )
+    )
+  }
+}
+if (!require(ggplot2)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    install.packages("ggplot2", repos = "https://cran.rstudio.com")
+  } else {
+    stop(
+      paste(
+        'You need to run install.packages("ggplot2")',
+        "first in the Console."
+      )
+    )
+  }
+}
+if (!require(bookdown)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    install.packages("bookdown", repos = "https://cran.rstudio.com")
+  } else {
+    stop(
+      paste(
+        'You need to run install.packages("bookdown")',
+        "first in the Console."
+      )
+    )
+  }
+}
+if (!require(thesisdown)) {
+  if (params$`Install needed packages for {thesisdown}`) {
+    remotes::install_github("ismayc/thesisdown")
+  } else {
+    stop(
+      paste(
+        "You need to run",
+        'remotes::install_github("ismayc/thesisdown")',
+        "first in the Console."
+      )
+    )
+  }
+}
+library(thesisdown)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+library(tidyselect)
+
+```
+
+# Estimating the impact of methodological change on India's GDP
+
+Chapter - 1 introduced the issue of measurement error in GDP estimation, focussing specifically on the debate in India. Lack of income - side estimates, and metholodoligcal opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
+
+\linebreak
+
+The synthetic control method offers to be a promising alternative in this regard. Chapter - 2 establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. The 
