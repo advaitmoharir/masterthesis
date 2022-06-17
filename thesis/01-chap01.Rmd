@@ -1,5 +1,5 @@
 
-# Motivation {#mo}
+# GDP Measurement in India and the World
 
 Economic growth and its determinants are a key area of macroeconomic research. The question of achieving sustained and inclusive growth is the cornerstone of economic policy for most developing countries Accurate statistical measurement of GDP and related macroeconomic aggregates is crucial to identify the sectors of the economy that are performing well, and those that are stagnating. Consequently, the measurement of GDP and related magnitudes are an object of scrutiny from academia, media and policymakers.
 \linebreak
@@ -7,10 +7,21 @@ Economic growth and its determinants are a key area of macroeconomic research. T
 However, India's GDP numbers have been scrutinized even more than usual, especially over the last decade. Commentators have identified a number of issues in the data post-2011, the major ones listed as follows. One, the assumption that the informal and formal sectors grow at the same rates has led to overestimation bias in the output of the manufacturing sector. Recent research has found significant difference in manufacturing output as computed by formal and informal sector surveys (CITE). Two, inappropriate deflators have been applied to nominal GDP data, and the application of the right deflators leads to significant difference in output estimates. Finally, the focal point of debate has centered on the use of a new database, called the MCA21 database. Critics have pointed that along with other issues like firm mis-classification and lack of state-level data, the assumption that non-reporting firms contribute positively to growth has led to a "blowing up" of manufacturing output.
 \linebreak
 
-The third issue has caused many to question the veracity of GDP estimates in the recent years. This followed by the lack of good quality data alternatives raise an important question -  what is the extent of measurement error in India's GDP? In this chapter, I provide an overview of the debate on Indian GDP, focussing  on the exchange between R. Nagaraj and the Central Statistical Organization on the veracity of the MCA21 database. I then briefly examine the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers as well as his alternative estimates. I end with my broad research question.
+The third issue has caused many to question the veracity of GDP estimates in the recent years. This followed by the lack of good quality data alternatives raise an important question -  what is the extent of measurement error in India's GDP? I begin the chapter by tracing the history of GDP and national accounting in the world and India. I then discuss the various methods of GDP estimation in Section XX. In Section XXX, I delve into the Indian GDO measurement debate, focussing  on two major critiques: one, the exchange between between R. Nagaraj and the Central Statistical Organization on the veracity of the real GDP series with base year 2011, and two, the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers, and their changing relationship with correlates of GDP.  Section YYY concludes.
 
-# History of GDP Measurement
+## History of GDP Measurement
 
+### World
+
+### India
+
+## GDP Measurement: Methodologies
+
+### Production/ Output Method
+
+### Income Method
+
+### Expenditure Method
 
 
 ## The Indian GDP Debate
@@ -66,6 +77,8 @@ nagaraj%>%
   geom_col(position="dodge")+coord_flip()+labs(x="Sector", y="Growth rate",caption="Figure 1.1b: Disaggregated GDP growth rates by sector for the year 2013-14.")
 
 ```
+
+## Conclusion
 
 
 

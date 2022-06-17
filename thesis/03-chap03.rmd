@@ -21,5 +21,15 @@ The rest of this chapter is structured as follows. Section 3.1 presents a brief 
 
 ## Literature Review
 
+## Econometric Methodology
+
+## Data
+
+## Results
+
+## Robustness Checks
+
+## Discussion and Conclusion
+
 
 
