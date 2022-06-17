@@ -13,13 +13,14 @@ library(gsynth)
 library(synthdid)
 library(panelView)
 library(imfr)
+library(kableExtra)
 library(datawizard)
 library(varhandle)
 library(ggpubr)
-options(digits=16)
+options(digits=2)
 #Loading data
 
-data<-WDI(country=c("AR", "BR", "CL", "CO", "EG", "HU","IN","CN",
+data<-WDI(country=c("AR", "BR", "CL","CN", "CO", "EG", "HU","IN",
                     "ID", "IR", "MY", "MX", "SA","PH","PL", "ZA",
                     "TH", "TR", "RU")
           ,
@@ -36,12 +37,7 @@ data<-data%>%
   mutate(primenr=na.approx(primenr),
          secenr=na.approx(secenr),
          gdp=log(gdp))
-data<-data%>%mutate(gdp=log(gdp))
 #de-meaned vars (ferman, 2019)#
-data<-data%>%
-group_by(iso2c)%>%
-mutate_at(c(4:9),~.x-mean(.x))%>%
- ungroup()
 
 #######################################################
 # ESTIMATION
@@ -82,13 +78,13 @@ data_out <-
 
 #counterfactual plot
 
-p1<-data_out%>%plot_trends()
+p1<-data_out%>%plot_differences()
 #Creating a data frame storing the original and synth gdp outputs.
 #This will be updated to include estimates from gsynth
 output<-data_out[[6]][[1]]
 
 #weights
-tab1<-data_out%>%grab_unit_weights()
+#tab1<-data_out%>%grab_unit_weights()
 
 
 #Adding treatment variable (1 post-treatment, 0 pre-treatment)
@@ -108,59 +104,258 @@ baseline2 <- gsynth(gdp~treated, data = data,
 #Updating output tab
 output$gsynth_baseline<-baseline[["Y.ct"]]
 p2<-plot(baseline, type="ct")
+data_ctr<-data%>%drop_na()
 
 #gsynth with controls-unbalanced panel
 #removing obs with NA
 
-data<-data%>%drop_na()
-#with all controls
-control1<- gsynth(gdp~treated+trade+inv+primenr+secenr,min.T0=8, data = data,
-                   index = c("country","year"),inference="parametric",force="two-way",
-                   CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
-
-p3<-plot(control1, type="ct")
-p4<-plot(control1, type="gap")
+#p4<-plot(control1, type="gap")
 #with only trade and investment
-control2<- gsynth(gdp~treated+trade+inv,min.T0=8, data = data,
+control1<- gsynth(gdp~treated+trade+inv,min.T0=8, data = data_ctr,
                   index = c("country","year"),inference="parametric",force="two-way",
                   CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
 p5<-plot(control2, type="ct")
-p6<-plot(control2, type="gap")
-
-#with trade, investment and inflation
-control3<- gsynth(gdp~treated+trade+inv+inflation,min.T0=8, data = data,
-                  index = c("country","year"),inference="parametric",
+#p6<-plot(control2, type="gap")
+#with all controls
+control2<- gsynth(gdp~treated+trade+inv+primenr+secenr,min.T0=8, data = data_ctr,
+                  index = c("country","year"),inference = "parametric",force="two-way",
                   CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
-p7<-plot(control3, type="ct")
-p8<-plot(control3, type="gap")
 
 #Updating output df
 output$control1<-control1[["Y.ct"]]
 output$control2<-control2[["Y.ct"]]
-output$control3<-control3[["Y.ct"]]
 
 #Renaming columns
 output<-output%>%rename(synth=synth_y,
                         gsynth_base=gsynth_baseline,
                         gsynth_ctr1=control1,
-                        gsynth_ctr2=control2,
-                        gsynth_ctr3=control3)
+                        gsynth_ctr2=control2)
+######################PLOTS#################
+###########################################
+
+#First define the publication theme
+
+theme_Publication <- function(base_size=14, base_family="helvetica") {
+  library(grid)
+  library(ggthemes)
+  (theme_foundation(base_size=base_size, base_family=base_family)
+    + theme(plot.title = element_text(face = "bold",
+                                      size = rel(1.2), hjust = 0.5),
+            text = element_text(),
+            panel.background = element_rect(colour = NA),
+            plot.background = element_rect(colour = NA),
+            panel.border = element_rect(colour = NA),
+            axis.title = element_text(face = "bold",size = rel(1)),
+            axis.title.y = element_text(angle=90,vjust =2),
+            axis.title.x = element_text(vjust = -0.2),
+            axis.text = element_text(), 
+            axis.line = element_line(colour="black"),
+            axis.ticks = element_line(),
+            panel.grid.major = element_line(colour="#f0f0f0"),
+            panel.grid.minor = element_blank(),
+            panel.grid.major.x = element_blank(),
+            legend.key = element_rect(colour = NA),
+            legend.position = "bottom",
+            legend.direction = "horizontal",
+            legend.key.size= unit(0.2, "cm"),
+            legend.spacing = unit(0, "cm"),
+            legend.title = element_text(face="italic"),
+            plot.margin=unit(c(10,5,5,5),"mm"),
+            strip.background=element_rect(colour="#f0f0f0",fill="#f0f0f0"),
+            strip.text = element_text(face="bold")
+    ))
+  
+}
+
+scale_fill_Publication <- function(...){
+  library(scales)
+  discrete_scale("fill","Publication",manual_pal(values = c("#386cb0","#fdb462","#7fc97f","#ef3b2c","#662506","#a6cee3","#fb9a99","#984ea3","#ffff33")), ...)
+  
+}
+
+scale_colour_Publication <- function(...){
+  library(scales)
+  discrete_scale("colour","Publication",manual_pal(values = c("#386cb0","#fdb462","#7fc97f","#ef3b2c","#662506","#a6cee3","#fb9a99","#984ea3","#ffff33")), ...)
+  
+}
 p1<-output%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("India", "Synthetic India"))+theme_Publication()+
+labs(x="",y="log(GDP)")
+
+ggsave("figure/indiasynth.jpeg",width=6,height=4, device = "jpeg")
+
+#MSPE Ratio plot
+p2<-data_out%>%plot_mspe_ratio()+theme_Publication()+
+  scale_colour_Publication()+labs(title="")
+ggsave("figure/msperatio.jpeg",width=6,height=4, device = "jpeg")
+
+#Variable weights
+p2<-data_out%>%plot_weights()+theme_Publication()+labs(title="")
+ggsave("figure/weights.jpeg",width=8,height=4, device = "jpeg")
+
+
+#P values table
+
+tab1<-data_out%>%grab_signficance()
+
+kable(tab1[1:10,c(1,2,7)], "markdown")
+##
+p3<-output%>%
+  select(time_unit,real_y,gsynth_base)%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("Synthetic India (GSCM)","India"))+theme_Publication()+
+  labs(x="",y="log(GDP)")
+
+ggsave("figure/indiagsynth.jpeg",width=6,height=4, device = "jpeg")
+
+p3<-output%>%
+  select(time_unit,real_y,gsynth_ctr1)%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("Synthetic India (GSCM + All Covariates)","India"))+theme_Publication()+
+  labs(x="",y="log(GDP)")
+
+ggsave("figure/indiagsynthc1.jpeg",width=6,height=4, device = "jpeg")
+p4<-output%>%
+  select(time_unit,real_y,gsynth_ctr2)%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("Synthetic India (GSCM+ Economic Covariates)","India"))+theme_Publication()+
+  labs(x="",y="log(GDP)")
+
+ggsave("figure/indiagsynthc2.jpeg",width=6,height=4, device = "jpeg")
+
+##GAP PLOTS#
+p5<-output%>%
+  ggplot(aes(x=time_unit, y=real_y-synth))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication()+theme_Publication()+
+  labs(x="",y="gap in log(GDP)")
+ggsave("figure/indiasynthgap.jpeg",width=6,height=4, device = "jpeg")
+
+p6<-output%>%
+  ggplot(aes(x=time_unit, y=real_y-gsynth_base))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication()+theme_Publication()+
+  labs(x="",y="gap in log(GDP)")
+ggsave("figure/indiagsynthgap.jpeg",width=6,height=4, device = "jpeg")
+
+p7<-output%>%
+  ggplot(aes(x=time_unit, y=real_y-gsynth_ctr1))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication()+theme_Publication()+
+  labs(x="",y="gap in log(GDP)")
+ggsave("figure/indiagsynthgapc1.jpeg",width=6,height=4, device = "jpeg")
+
+p8<-output%>%
+ggplot(aes(x=time_unit, y=real_y-gsynth_ctr2))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication()+theme_Publication()+
+  labs(x="",y="gap in log(GDP)")
+ggsave("figure/indiagsynthgapc2.jpeg",width=6,height=4, device = "jpeg")
+
+#Table of growth rate gap
+diff_gr<-output%>%
+  mutate_at(c(2:6), ~.x-lag(.x))%>%
+  mutate(diff_s=real_y-synth,
+         diff_gb=real_y-gsynth_base,
+         diff_gc1=real_y-gsynth_ctr1,
+         diff_gc2=real_y-gsynth_ctr2)%>%
+  select(time_unit,diff_s,diff_gb,diff_gc1,diff_gc2)%>%
+  filter(time_unit>2010)
+#diff in growth rates
+
+#plotting
+p10<-diff_gr%>%
   pivot_longer(2:5)%>%
   ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
-  geom_vline(xintercept = 2011, linetype=1)+xlim(1991,2020)+
-  scale_colour_Publication()+theme_Publication()
+  scale_colour_Publication(name="", labels=c("1","2","3","4"))+theme_Publication()+
+  labs(x="",y="difference in GDP growth")
+kable(diff_gr*100, "markdown")
+#######################################################
+#######################################################
+#############ROBUSTNESS CHECKS######################33
+##############################################
 
-p2<-output%>%
-  pivot_longer(2:7)%>%
-  ggline(x=time_unit, y=value, color=name)
-#growth rates
-final<-as.data.frame(control2[c("time","Y.tr", "Y.ct")])%>%
-  rename(tr=India,ct=India.1)%>%
-  mutate(tr=tr-lag(tr), ct=ct-lag(ct), error=tr-ct)
-###############################################################
+##Backdating
+
+#tidysynth
+
+data_bd <-
+  data%>%
+  
+  # initial the synthetic control object
+  synthetic_control(outcome = gdp, # outcome
+                    unit = country, # unit index in the panel data
+                    time = year, # time index in the panel data
+                    i_unit = "India", # unit where the intervention occurred
+                    i_time = 2005, # time period when the intervention occurred
+                    generate_placebos=T # generate placebo synthetic controls (for inference)
+  ) %>%
+  
+  # Generate the aggregate predictors used to fit the weights
+  
+  # average log income, retail price of cigarettes, and proportion of the
+  # population between 15 and 24 years of age from 1980 - 1988
+  generate_predictor(time_window = 1991:2005,
+                     inv = mean(inv, na.rm = T),
+                     trade = mean(trade, na.rm = T),
+                     primenr=mean(primenr,na.rm=T),
+                     secenr = mean(secenr, na.rm = T)) %>%
+  
+  # Generate the fitted weights for the synthetic control
+  generate_weights(optimization_window = 1991:2005, # time to use in the optimization task
+                   margin_ipop = .02,sigf_ipop = 7,bound_ipop = 6 # optimizer options
+  ) %>%
+  
+  # Generate the synthetic control
+  generate_control()
+
+bd_output<-data_bd[[6]][[1]]
+p12<-  bd_output%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2005, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("India", "Synthetic India"))+theme_Publication()+
+  labs(x="",y="log(GDP)")
+ggsave("figure/indiasynthbd.jpeg",width=6,height=4, device = "jpeg")
+
+##backdating with gsynth
+bd<-data%>%mutate(treated=ifelse(country=="India"&year>2004,1,0))
+
+#gsynth-baseline model (no covariates)
+
+
+baseline_bd <- gsynth(gdp~treated, data = bd,
+                   index = c("country","year"), force = "two-way",
+                   CV = TRUE, r = c(0, 5), se =FALSE)
+baseline2_bd <- gsynth(gdp~treated, data = data,
+                    index = c("country","year"), force="two-way",
+                    CV = TRUE, r = c(0, 5), se =TRUE, ,
+                    nboots=1000, inference="parametric")
+#Updating output tab
+bd_output$gsynth_baseline<-baseline_bd[["Y.ct"]]
+p13<-bd_output%>%
+  select(time_unit,real_y,gsynth_baseline)%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2005, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("Synthetic India (GSCM)","India"))+theme_Publication()+
+  labs(x="",y="log(GDP)")
+ggsave("figure/indiagsynthbd.jpeg",width=6,height=4, device = "jpeg")
+
+######################
+
+#\########################################
 #####Estimating tidysynth and gsynth with quarterly data########
 ##################################################################
 
@@ -200,10 +395,15 @@ baselineq <- gsynth(gdp~treated, data = dataimf,
 
 baselineq2 <- gsynth(gdp~treated, data = dataimf,
                     index = c("iso2c","year_qtr"), force = "two-way",
-                    CV = TRUE, r = c(0, 5), se =TRUE, inference="parametric",
+                    CV = TRUE, r = c(0, 5), se =TRUE, inference="jackknife",
                     nboots=1000)
 p10<-plot(baselineq, type="ct")
-syn<-augsynth(gdp~treated,iso2c,year_qtr,dataimf,progfunc="Ridge", scm=T,fixedeff=T)
+p11<-p10[["data"]]%>%ggplot(aes(x=time, y=outcome, color=type))+
+  geom_line(size=0.8)+geom_vline(xintercept = 2011, linetype="dotted")+xlim(1996,2020)+
+  scale_colour_Publication(name="", labels=c("Synthetic India", "India"))+theme_Publication()+labs(x="",y="log(GDP)")
+  
+ggsave("figure/indiagsynthqtr.jpeg",width=6,height=4, device = "jpeg")
+
 #############################################################################
 #PLOTS
 #################################################3
@@ -274,54 +474,4 @@ tab<-smoking_out%>%grab_signficance()
   
 kable(tab[1:10,c(1,2,7)], "latex")
 
-#synthdid
-data('california_prop99')
-setup = panel.matrices(california_prop99)
-tau.hat = synthdid_estimate(setup$Y, setup$N0, setup$T0)
-se = sqrt(vcov(tau.hat, method='placebo'))
-sprintf('point estimate: %1.2f', tau.hat)
-sprintf('95%% CI (%1.2f, %1.2f)', tau.hat - 1.96 * se, tau.hat + 1.96 * se)
-plot(tau.hat)
 
-theme_Publication <- function(base_size=14, base_family="helvetica") {
-  library(grid)
-  library(ggthemes)
-  (theme_foundation(base_size=base_size, base_family=base_family)
-    + theme(plot.title = element_text(face = "bold",
-                                      size = rel(1.2), hjust = 0.5),
-            text = element_text(),
-            panel.background = element_rect(colour = NA),
-            plot.background = element_rect(colour = NA),
-            panel.border = element_rect(colour = NA),
-            axis.title = element_text(face = "bold",size = rel(1)),
-            axis.title.y = element_text(angle=90,vjust =2),
-            axis.title.x = element_text(vjust = -0.2),
-            axis.text = element_text(), 
-            axis.line = element_line(colour="black"),
-            axis.ticks = element_line(),
-            panel.grid.major = element_line(colour="#f0f0f0"),
-            panel.grid.minor = element_blank(),
-            legend.key = element_rect(colour = NA),
-            legend.position = "bottom",
-            legend.direction = "horizontal",
-            legend.key.size= unit(0.2, "cm"),
-            legend.spacing = unit(0, "cm"),
-            legend.title = element_text(face="italic"),
-            plot.margin=unit(c(10,5,5,5),"mm"),
-            strip.background=element_rect(colour="#f0f0f0",fill="#f0f0f0"),
-            strip.text = element_text(face="bold")
-    ))
-  
-}
-
-scale_fill_Publication <- function(...){
-  library(scales)
-  discrete_scale("fill","Publication",manual_pal(values = c("#386cb0","#fdb462","#7fc97f","#ef3b2c","#662506","#a6cee3","#fb9a99","#984ea3","#ffff33")), ...)
-  
-}
-
-scale_colour_Publication <- function(...){
-  library(scales)
-  discrete_scale("colour","Publication",manual_pal(values = c("#386cb0","#fdb462","#7fc97f","#ef3b2c","#662506","#a6cee3","#fb9a99","#984ea3","#ffff33")), ...)
-  
-}

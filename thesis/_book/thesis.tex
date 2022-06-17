@@ -588,7 +588,7 @@
    Using the estimated parameters for covariates, common factors and factor loadings, estimate the counterfactual outcome as:
  \end{enumerate}
  \[\hat{Y_{it}(0)}=x_{it}'\hat{\beta}+\hat{\lambda_{i}'}\hat{f_{t}},  i\in T, t>T_{0}\]
- How is the factor model used to obtain the GSC estimator chosen? Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}) proposes a cross-validation scheme to choose the model before estimating the causal effect. Cross-validation is a resampling method i.e.~it involves repeatedly drawing samples from a training set, which is a sub-sample and fitting a model of interest on each sample. In cross-validation, the data is randomly divided into a training set, and a validation set. The model of interest is then fit on the training set as used to predict observations in the validation set. The mean squared error then allows us to check which model is the most precise. For the GSC estimator, a special case is used, namely the leave one out cross-validation (LOOCV). In this case, the validation set consists of a single observation. (\protect\hyperlink{ref-james_introduction_2021}{James, Witten, Hastie, \& Tibshirani, 2021})
+ How is the factor model used to obtain the GSC estimator chosen? Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}) proposes a cross-validation scheme to choose the model before estimating the causal effect. Cross-validation is a resampling method i.e.~it involves repeatedly drawing samples from a training set, which is a sub-sample and fitting a model of interest on each sample. In cross-validation, the data is randomly divided into a training set, and a validation set. The model of interest is then fit on the training set as used to predict observations in the validation set. The mean squared error then allows us to check which model is the most precise. For the GSC estimator, a special case is used, namely the leave one out cross-validation (LOOCV). In this case, the validation set consists of a single observation(\protect\hyperlink{ref-james_introduction_2021}{James, Witten, Hastie, \& Tibshirani, 2021}).
  \linebreak
 
  Broadly, the algorithm performing LOOCV performs the following steps. First, it estimates an IFE model with a given number of factors \(r\), using only control group data. It then assigns one pre-treatment period of the treatment group to the validation set and uses the rest of the pre-treatment data to estimate the held back data. The corresponding MSPE is computed, and then this is repeated for different values of \(r\). The number of factors that minimizes MSPE (\(r^{*}\)) is chosen. For technical details of this algorithm, see Appendix X.
@@ -627,6 +627,23 @@
  \linebreak
 
  Both the SCM and GSCM provide different but simple and powerful ways to establish the causal effects of interventions on a variable or a group of variables of interest. While the interpretation of the final estimate(s) of interest are similar, it is important to remember the vast differences in the underlying models and estimation strategies. Hence, appropriate care must be taken and the caveats kept in mind while applying these estimators to study questions of economic policy. In the next chapter, I implement the SCM and GSCM to estimate counterfactual trajectories for India's GDP.
+
+ \hypertarget{estimating-the-impact-of-methodological-change-on-indias-gdp}{%
+ \chapter{Estimating the impact of methodological change on India's GDP}\label{estimating-the-impact-of-methodological-change-on-indias-gdp}}
+
+ Chapter - 1 introduced the issue of measurement error in GDP estimation, focussing specifically on the debate in India. Lack of income - side estimates, and metholodoligcal opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
+ \linebreak
+
+ The synthetic control method offers to be a promising alternative in this regard. Chapter - 2 establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. A clean research design, backed with minimal data is sufficient to construct a plausible counterfactual, making its usage attractive for the Indian case, where quality data is scarce.
+ \linebreak
+
+ In this chapter, I use the synthetic control method and the generalied synthetic control method to construct a counterfactual series for India's GDP. The synthetic control is constructed using a donor pool of countries similar to India - in this case, a set of emerging market economies as defined by the IMF. The treatment occurs at the year 2011, when the base year of the GDP series was changed from 2004-05 to 2011 - 12, along with the change in methodology of measurement. I find that XXX,
+ \linebreak
+
+ The rest of this chapter is structured as follows. Section 3.1 presents a brief overview of the literature on measurement error in GDP, and application to synthetic control for GDP. Section 3.2 specifieis the econometric metholodgy and discusses the data and the sources. Section 3.3 presents the key results, and Section 3.4 consists of robustness checks. The final section discusses the findings, their implications and concludes.
+
+ \hypertarget{literature-review}{%
+ \section{Literature Review}\label{literature-review}}
 
  \backmatter
 

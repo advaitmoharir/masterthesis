@@ -1,81 +1,25 @@
-```{r include_packages_9, include = FALSE}
-# This chunk ensures that the thesisdown package is
-# installed and loaded. This thesisdown package includes
-# the template files for the thesis and also two functions
-# used for labeling and referencing
-if (!require(remotes)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    install.packages("remotes", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste(
-        'You need to run install.packages("remotes")',
-        "first in the Console."
-      )
-    )
-  }
-}
-if (!require(dplyr)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    install.packages("dplyr", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste(
-        'You need to run install.packages("dplyr")',
-        "first in the Console."
-      )
-    )
-  }
-}
-if (!require(ggplot2)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    install.packages("ggplot2", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste(
-        'You need to run install.packages("ggplot2")',
-        "first in the Console."
-      )
-    )
-  }
-}
-if (!require(bookdown)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    install.packages("bookdown", repos = "https://cran.rstudio.com")
-  } else {
-    stop(
-      paste(
-        'You need to run install.packages("bookdown")',
-        "first in the Console."
-      )
-    )
-  }
-}
-if (!require(thesisdown)) {
-  if (params$`Install needed packages for {thesisdown}`) {
-    remotes::install_github("ismayc/thesisdown")
-  } else {
-    stop(
-      paste(
-        "You need to run",
-        'remotes::install_github("ismayc/thesisdown")',
-        "first in the Console."
-      )
-    )
-  }
-}
+```{r, echo=FALSE}
 library(thesisdown)
 library(dplyr)
 library(ggplot2)
 library(knitr)
 library(tidyselect)
-
 ```
 
-# Estimating the impact of methodological change on India's GDP
+# Estimating measurement error in Indian GDP using synthetic control
 
 Chapter - 1 introduced the issue of measurement error in GDP estimation, focussing specifically on the debate in India. Lack of income - side estimates, and metholodoligcal opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
-
 \linebreak
 
-The synthetic control method offers to be a promising alternative in this regard. Chapter - 2 establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. The 
+The synthetic control method offers to be a promising alternative in this regard. Chapter - 2 establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. A clean research design, backed with minimal data is sufficient to construct a plausible counterfactual, making its usage attractive for the Indian case, where quality data is scarce. 
+\linebreak
+
+In this chapter, I use the synthetic control method and the generalied synthetic control method to construct a counterfactual series for India's GDP. The synthetic control is constructed using a donor pool of countries similar to India - in this case, a set of emerging market economies as defined by the IMF. The treatment occurs at the year 2011, when the base year of the GDP series was changed from 2004-05 to 2011 - 12, along with the change in methodology of measurement. I find that XXX,
+\linebreak
+
+The rest of this chapter is structured as follows. Section 3.1 presents a brief overview of the literature on measurement error in GDP, and application to synthetic control for GDP. Section 3.2 specifieis the econometric metholodgy and discusses the data and the sources. Section 3.3 presents the key results, and Section 3.4 consists of robustness checks. The final section discusses the findings, their implications and concludes.
+
+## Literature Review
+
+
+

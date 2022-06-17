@@ -9,6 +9,10 @@ However, India's GDP numbers have been scrutinized even more than usual, especia
 
 The third issue has caused many to question the veracity of GDP estimates in the recent years. This followed by the lack of good quality data alternatives raise an important question -  what is the extent of measurement error in India's GDP? In this chapter, I provide an overview of the debate on Indian GDP, focussing  on the exchange between R. Nagaraj and the Central Statistical Organization on the veracity of the MCA21 database. I then briefly examine the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers as well as his alternative estimates. I end with my broad research question.
 
+# History of GDP Measurement
+
+
+
 ## The Indian GDP Debate
 
 ### The Nagaraj - CSO Debate
