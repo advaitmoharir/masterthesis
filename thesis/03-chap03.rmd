@@ -8,7 +8,7 @@ library(tidyselect)
 
 # Estimating measurement error in India's GDP using SCM
 
-Chapter - 1 introduced the issue of measurement error in GDP estimation, focussing specifically on the debate in India. Lack of income - side estimates, and metholodoligcal opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
+Chapter - 1 introduced the issue of measurement error in GDP estimation, focusing specifically on the debate in India. Lack of income - side estimates, and methodological opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counter factual GDP series.
 \linebreak
 
 The synthetic control method offers to be a promising alternative in this regard. Chapter - 2 establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. A clean research design, backed with minimal data is sufficient to construct a plausible counterfactual, making its usage attractive for the Indian case, where quality data is scarce. 
@@ -61,7 +61,21 @@ Secondry Enrollment & 551 & 83.0 & 17.0 & 30.0 & 121.0 \\
 \end{tabular} 
 \end{table}
 
+Table 3.1 shows the summary statistics for the outcome variable as well as the predictors. The average log GDP is 30, while the average investment and trade ratios are 23% and 64% respectively. There is large variance in the trade ratio data, as the dataset includes countries which rely heavily on trade like Saudi Arabia, as well as relatively closed economies like Argentina. The Gross Primary Enrollment Ratio which is the total enrollment divided by the population of relevant age group is above 100 at the mean, which happens due to inclusion of over-aged and under- aged students, as well as grade repetition. The Seconary Enrollment Ratio measures the same, but for the secondary school age group.
+\linebreak
+
+
+Observations for GDP are available for all years, and trade and investment for most years. There were significant amount of missing values (between 80 - 100), for the two enrollment ratios. However, as the gaps were not longer than a few years, and data was not missing for a significant chunk of the time period for any country, the missing values were filled via linear interpolation.
+\linebreak
+
+The data was extracted using the `R` package `wdi`, while the SC and GSCM was implemented using the packages `tidysynth` and `gsynth` respectively.
+
 ## Results
+
+I begin by presenting the counterfactual GDP estimates first using the SCM, and then the GSCM.
+\linebreak
+
+
 
 ## Robustness Checks
 

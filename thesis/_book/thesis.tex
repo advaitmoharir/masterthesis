@@ -279,7 +279,7 @@
  The second chapter, titled ``The Synthetic Control Method'' takes a deep dive into the synthetic control method (SCM), which I use to estimate measurement error in Indian GDP in the next chapter. I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address the lacunae of the SCM. I then delve deeper into the generalized SCM, a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two.
  \linebreak
 
- The final chapter, titled ``Estimating measurement error in Indian GDP using SCM'' uses the SCM and GSCM to construct counterfactual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
+ The final chapter, titled ``Estimating measurement error in India's GDP using SCM'' uses the SCM and GSCM to construct counterfactual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
 
  \hypertarget{gdp-measurement-in-india-and-the-world}{%
  \chapter{GDP Measurement in India and the World}\label{gdp-measurement-in-india-and-the-world}}
@@ -660,10 +660,10 @@
 
  Both the SCM and GSCM provide different but simple and powerful ways to establish the causal effects of interventions on a variable or a group of variables of interest. While the interpretation of the final estimate(s) of interest are similar, it is important to remember the vast differences in the underlying models and estimation strategies. Hence, appropriate care must be taken and the caveats kept in mind while applying these estimators to study questions of economic policy. In the next chapter, I implement the SCM and GSCM to estimate counterfactual trajectories for India's GDP.
 
- \hypertarget{estimating-measurement-error-in-indian-gdp-using-scm}{%
- \chapter{Estimating measurement error in Indian GDP using SCM}\label{estimating-measurement-error-in-indian-gdp-using-scm}}
+ \hypertarget{estimating-measurement-error-in-indias-gdp-using-scm}{%
+ \chapter{Estimating measurement error in India's GDP using SCM}\label{estimating-measurement-error-in-indias-gdp-using-scm}}
 
- Chapter - 1 introduced the issue of measurement error in GDP estimation, focussing specifically on the debate in India. Lack of income - side estimates, and metholodoligcal opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
+ Chapter - 1 introduced the issue of measurement error in GDP estimation, focusing specifically on the debate in India. Lack of income - side estimates, and methodological opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counter factual GDP series.
  \linebreak
 
  The synthetic control method offers to be a promising alternative in this regard. Chapter - 2 establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. A clean research design, backed with minimal data is sufficient to construct a plausible counterfactual, making its usage attractive for the Indian case, where quality data is scarce.
@@ -712,6 +712,14 @@
  \hline \\[-1.8ex] 
  \end{tabular} 
  \end{table}
+ Table 3.1 shows the summary statistics for the outcome variable as well as the predictors. The average log GDP is 30, while the average investment and trade ratios are 23\% and 64\% respectively. There is large variance in the trade ratio data, as the dataset includes countries which rely heavily on trade like Saudi Arabia, as well as relatively closed economies like Argentina. The Gross Primary Enrollment Ratio which is the total enrollment divided by the population of relevant age group is above 100 at the mean, which happens due to inclusion of over-aged and under- aged students, as well as grade repetition. The Seconary Enrollment Ratio measures the same, but for the secondary school age group.
+ \linebreak
+
+ Observations for GDP are available for all years, and trade and investment for most years. There were significant amount of missing values (between 80 - 100), for the two enrollment ratios. However, as the gaps were not longer than a few years, and data was not missing for a significant chunk of the time period for any country, the missing values were filled via linear interpolation.
+ \linebreak
+
+ The data was extracted using the \texttt{R} package \texttt{wdi}, while the SC and GSCM models were estimated using the packages \texttt{tidysynth} and \texttt{gsynth} respectively.
+
  \hypertarget{results}{%
  \section{Results}\label{results}}
 
