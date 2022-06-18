@@ -269,9 +269,17 @@
 	\mainmatter % here the regular arabic numbering starts
 	\pagestyle{fancyplain} % turns page numbering back on
 	
-	\hypertarget{introduction}{%
- \chapter*{Introduction}\label{introduction}}
- \addcontentsline{toc}{chapter}{Introduction}
+	\hypertarget{summary}{%
+ \chapter*{Summary}\label{summary}}
+ \addcontentsline{toc}{chapter}{Summary}
+
+ This thesis consists of three chapters. The first chapter titled '' GDP Measurement in India and the World'' provides a broad overview of the historical evolution of GDP measurement. I first describe the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception by William Petty in the early 17th century, to the globally accepted and harmonized definition as set out by the United Nations. I then provide a brief history of national acconting in India, before turning my focus to the three methods of output measurement. I then delve into the debate on measurement issues in Indian GDP, focussing on issues emerging in real GDP measurement post 2011.
+ \linebreak
+
+ The second chapter, titled ``The Synthetic Control Method'' takes a deep dive into the synthetic control method (SCM), which I use to estimate measurement error in Indian GDP in the next chapter. I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address the lacunae of the SCM. I then delve deeper into the generalized SCM, a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two.
+ \linebreak
+
+ The final chapter, titled ``Estimating measurement error in Indian GDP using SCM'' uses the SCM and GSCM to construct counterfactual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
 
  \hypertarget{gdp-measurement-in-india-and-the-world}{%
  \chapter{GDP Measurement in India and the World}\label{gdp-measurement-in-india-and-the-world}}
@@ -346,8 +354,8 @@
 
  In this chapter, I present an overview of the synthetic control method (SCM), beginning with a non-technical introduction. In Section 2.2, I examine the theory behind the method, focussing on the setup, estimation and inference. In Section 2.3, I present the advantages and limitations of the SCM. I review the advances in the literature on alternative estimation methods in Section 2.4. In Section 2.5 I delve deeper into the mechanics of the generalized synthetic control methods (GSCM) and conclude in the last sectiomn
 
- \hypertarget{introduction-1}{%
- \section{Introduction}\label{introduction-1}}
+ \hypertarget{introduction}{%
+ \section{Introduction}\label{introduction}}
 
  Synthetic control methods emerged in the context of comparative case studies. Case studies often study the effect of a policy or intervention on a particular outcome, by comparing it to other determinants of the outcome. For example, a medicine case study focuses on an ailment, while a political case study examines the impact of an electoral strategy. Comparative case studies compare one or more units exposed to the event or intervention of interest to one or more unexposed units. For example, Abadie et al. (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) examines the impact of Proposition 99, a tobacco control program implemented in California and compares its impact on cigarette sales relative to other states. Only some units must be exposed to the intervention, while other comparable units are not.
  \linebreak
