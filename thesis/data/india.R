@@ -16,6 +16,7 @@ library(imfr)
 library(kableExtra)
 library(datawizard)
 library(varhandle)
+library(stargazer)
 library(ggpubr)
 options(digits=2)
 #Loading data

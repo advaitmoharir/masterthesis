@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.6)  18 JUN 2022 13:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.6)  18 JUN 2022 19:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -738,7 +738,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 339--341
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [5]
-<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=330, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=332, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 343.
@@ -752,7 +752,7 @@ Overfull \hbox (52.92097pt too wide) in paragraph at lines 343--343
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [6]
-<thesis_files/figure-latex/unnamed-chunk-3-2.pdf, id=337, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/unnamed-chunk-3-2.pdf, id=339, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-3-2.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-2.pdf  used on input line 344.
@@ -792,7 +792,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 363--365
 
  []
 
-<figure/caltrends.jpg, id=381, 578.16pt x 289.08pt>
+<figure/caltrends.jpg, id=383, 578.16pt x 289.08pt>
 File: figure/caltrends.jpg Graphic file (type jpg)
 <use figure/caltrends.jpg>
 Package pdftex.def Info: figure/caltrends.jpg  used on input line 369.
@@ -824,7 +824,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 446--449
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [13]
-<figure/calplacebo.jpg, id=433, 578.16pt x 289.08pt>
+<figure/calplacebo.jpg, id=435, 578.16pt x 289.08pt>
 File: figure/calplacebo.jpg Graphic file (type jpg)
 <use figure/calplacebo.jpg>
 Package pdftex.def Info: figure/calplacebo.jpg  used on input line 464.
@@ -834,7 +834,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 470--472
 
  []
 
-<figure/calmspe.jpg, id=443, 578.16pt x 289.08pt>
+<figure/calmspe.jpg, id=445, 578.16pt x 289.08pt>
 File: figure/calmspe.jpg Graphic file (type jpg)
 <use figure/calmspe.jpg>
 Package pdftex.def Info: figure/calmspe.jpg  used on input line 491.
@@ -941,61 +941,87 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [25
 
-] [26]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 728.
+]
+Underfull \hbox (badness 10000) in paragraph at lines 680--682
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 683--685
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 694--696
+
+ []
+
+
+Underfull \vbox (badness 1097) has occurred while \output is active []
+
+[27] [28]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 760.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 2065) in paragraph at lines 733--735
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[29
+
+
+]
+Underfull \hbox (badness 2065) in paragraph at lines 768--770
 []\T1/lmr/m/n/12 (+20) Athey, S., Bay-ati, M., Doud-chenko, N., Im-bens, G., & Khos-ravi, K.
  []
 
 
-Underfull \hbox (badness 2698) in paragraph at lines 733--735
+Underfull \hbox (badness 2698) in paragraph at lines 768--770
 \T1/lmr/m/n/12 (+20) (2021). Ma-trix com-ple-tion meth-ods for causal panel data mod-els.
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 733--735
+Underfull \hbox (badness 1803) in paragraph at lines 768--770
 \T1/lmr/m/it/12 (+20) Jour-nal of the Amer-i-can Sta-tis-ti-cal As-so-ci-a-tion\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 116\T1/lmr/m/n/12 (+20) (536), 1716--1730.
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[27
-
-
-]
-Underfull \hbox (badness 1910) in paragraph at lines 757--759
+Underfull \hbox (badness 1910) in paragraph at lines 798--800
 \T1/lmr/m/n/12 (+20) con-for-mal in-fer-ence method for coun-ter-fac-tual and syn-thetic con-trols.
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 757--759
+Underfull \hbox (badness 1803) in paragraph at lines 798--800
 \T1/lmr/m/it/12 (+20) Jour-nal of the Amer-i-can Sta-tis-ti-cal As-so-ci-a-tion\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 116\T1/lmr/m/n/12 (+20) (536), 1849--1864.
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[28]
-Underfull \hbox (badness 4001) in paragraph at lines 799--801
+[30]
+Underfull \hbox (badness 1406) in paragraph at lines 834--836
+\T1/lmr/m/n/12 (+20) thetic con-trol ap-proach. \T1/lmr/m/it/12 (+20) De-fence and Peace Eco-nomics\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 0\T1/lmr/m/n/12 (+20) (0), 1--20.
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[31]
+Underfull \hbox (badness 4001) in paragraph at lines 849--851
 \T1/lmr/m/n/12 (+20) mea-sured. \T1/lmr/m/it/12 (+20) The Amer-i-can Jour-nal of Psy-chol-ogy\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 15\T1/lmr/m/n/12 (+20) (2), 201--292.
  []
 
-[29] (./thesis.aux)
+[32] (./thesis.aux)
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3C1931B059E8B224132A20E9D03F13FD;5339.
+(rerunfilecheck)             Checksum: 5E9A7A26EBE555901536B9915D00C62A;5251.
  ) 
 Here is how much of TeX's memory you used:
- 15785 strings out of 480253
- 260283 string characters out of 5892937
- 577355 words of memory out of 5000000
- 33061 multiletter control sequences out of 15000+600000
- 541885 words of font info for 165 fonts, out of 8000000 for 9000
+ 15797 strings out of 480253
+ 260464 string characters out of 5892937
+ 578390 words of memory out of 5000000
+ 33062 multiletter control sequences out of 15000+600000
+ 541892 words of font info for 165 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,12n,77p,1674b,417s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,12n,77p,2310b,417s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 pdfTeX warning (dest): name{ref-callaway_difference-differences_2021} has been referenced but does not exist, replaced by a fixed one
 
@@ -1006,10 +1032,10 @@ pdfTeX warning (dest): name{ref-goodman-bacon_difference-differences_2021} has b
 pdfTeX warning (dest): name{ref-nagaraj_measuring_nodate} has been referenced but does not exist, replaced by a fixed one
 
 {c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (45 pages, 1090853 bytes).
+Output written on thesis.pdf (48 pages, 1101622 bytes).
 PDF statistics:
- 746 PDF objects out of 1000 (max. 8388607)
- 635 compressed objects within 7 object streams
- 175 named destinations out of 1000 (max. 500000)
+ 787 PDF objects out of 1000 (max. 8388607)
+ 673 compressed objects within 7 object streams
+ 186 named destinations out of 1000 (max. 500000)
  39207 words of extra memory for PDF output out of 42996 (max. 10000000)
 

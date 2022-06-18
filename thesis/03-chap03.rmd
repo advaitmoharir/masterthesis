@@ -6,7 +6,7 @@ library(knitr)
 library(tidyselect)
 ```
 
-# Estimating measurement error in Indian GDP using synthetic control
+# Estimating measurement error in India's GDP using SCM
 
 Chapter - 1 introduced the issue of measurement error in GDP estimation, focussing specifically on the debate in India. Lack of income - side estimates, and metholodoligcal opacity make it difficult to assess the extent to which India's GDP is over/under estimated. Experts are forced to rely on sector - specific anomalies or rely on contradictions observed in fast - moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
 \linebreak
@@ -17,13 +17,49 @@ The synthetic control method offers to be a promising alternative in this regard
 In this chapter, I use the synthetic control method and the generalied synthetic control method to construct a counterfactual series for India's GDP. The synthetic control is constructed using a donor pool of countries similar to India - in this case, a set of emerging market economies as defined by the IMF. The treatment occurs at the year 2011, when the base year of the GDP series was changed from 2004-05 to 2011 - 12, along with the change in methodology of measurement. I find that XXX,
 \linebreak
 
-The rest of this chapter is structured as follows. Section 3.1 presents a brief overview of the literature on measurement error in GDP, and application to synthetic control for GDP. Section 3.2 specifieis the econometric metholodgy and discusses the data and the sources. Section 3.3 presents the key results, and Section 3.4 consists of robustness checks. The final section discusses the findings, their implications and concludes.
+The rest of this chapter is structured as follows. Section 3.1 presents a brief overview of the literature on measurement error in GDP, and application to synthetic control for GDP. Section 3.2 specifieis the econometric methodology and discusses the data and the sources. Section 3.3 presents the key results, and Section 3.4 consists of robustness checks. The final section discusses the findings, their implications and concludes.
 
 ## Literature Review
 
-## Econometric Methodology
+Measurement error in macroeconomic data and GDP in particular has been studied extensively. In recent times, scholars have focused on improving measurement. Two strands of literature have emerged: the "forecast" error approach examines the difference between forecasted or revised estimates and actual GDP, and characterizes, whether revisions represent measurement errors or "noise", or an efficient forecast accounting for all relavant information , or "news". (Mankiw1, Mankiw2, Arouba 2008). The second strand, which I focus on, looks at the differences between the income - method and expenditure - method estimates of GDP, as described in Chapter - 1. Since both quantities are estimates of the same unobservable (actual output), the gap between the two is only due to a measurement error.  @aruoba_improving_2016 show that information from *both* estimates can be used to optimally extract the true GDP. By treating both estimates as noisy, and using Bayesian estimation with multiple types of measurement error models, they construct a third estimate, which diagnostic tests show as being broadly representative. @jacobs_can_2022 uses a similar framework, but incorporates multiple revised estimates of noisy data, instead of a single vintage. The authors show that their estimates are less likely to undergo revisions compared to @aruoba_improving_2016. Their estimates also puts more weight on expenditure - side data, which is more readily available, and whose historical decompositions shows a larger share of "news" relative to the income - side estimates. @chang_measurement_2018 take a different approach, by using a pre - analysis plan to estimate effect of measurement error on the results of empirical papers in top journals. The authors find that replacing GDP with its revised versions does not change the key results, but using GDI instead changes the results substantially. Overall, the existing literature highlights the importance of reconciliation between various sources and releases of GDP estimates.
+\linebreak
+
+The SCM and its various offshoots have been applied extensively to estimate counterfactual GDP. @abadie_economic_2003 study the impact of terrorism in the 1960s on the per - capita GDP in the Basque County. The paper finds that there was a 10% decline in growth relative to the synthetic control not affected by terrorism. @abadie_comparative_2015 examine the impact of the German re - unification in 1990 on West Germany's per capita GDP, and find a negative effect relative to synthetic West Germany. @billmeier_assessing_2013 looks at the impact of economic liberalization on a number of Latin American, Asian and Sfrican coutnries' real GDP, and find that while the impact was positive for most, there was no significant impact from the later liberalization episodes, especially those is Africa. Most of these studies focus on GDP of European countries, with papers on developing economies being much more scarce.
+\linebreak
+
+@mayberry_economic_2022 examines the effect of the Nuclear Weapons Development programme on Pakistan's GDP, and finds that per capita GDP would have been higher by $718 on average, had the pogramme not been implemented. @singhal_economic_2016 study the impact of counterinsurgency programs to the Naxalite (Maoist) movement and find that implementing the same in one state led to a significant rise in its per capita Net State Domestic Product, relative to a synthetic control of other states where such policies were not implemented. This study differs from the existing literature in two ways: one, to my knowledge this is the first paper implementing the SCM to construct a counter factual aggregate GDP series for India. Second, this study is also the first to use the SCM to study the impact of the base year policy change on GDP, which differentiates it from the studies carried out so far, which look at GDP revisions and sectoral data (see Chapter -1 for a detailed survey).
+
+## Econometric Approach
+
+
+
+
 
 ## Data
+
+In this section, I introduce the data used for the construction of the synthetic control and describe the sources. The synthetic control consists of countries similar to India, without the treatment. I choose 19 countries from the International Monetary Fund's(IMF) World Economic Outlook List of Emerging Market Economies (EMEs). A country is classified as an EME if it demonstrates strong and stable growth, production of high value - added growth, and increased integration in global trade and financial markets. The following countries (other than India) were classified as being EMEs over the period 2010 - 2020: Argentina, Brazil, Chile, China, Colombia, Egypt, Hungary, Indonesia, Iran, Malaysia, Mexico, the Phillipines, Poland, Russia, Saudi Arabia, South Africa,  Thailand and Turkey.
+\linebreak
+
+The dataset consists of 551 observations over the period 1991 - 2019. The outcome variable of interest is log real GDP in local currency units (LCU). Following the literature on growth and applications of synthetic controls to GDP [@billmeier_assessing_2013;@acemoglu_democracy_2019], I include the following covariates: Gross Investment as a share of GDP, trade (sum of exports and imports) as a share of GDP, Gross Primary School Enrollment and Gross Secondary School Enrollment. The data for all variables is obtained from the World Development Indicators (WDI) database maintained by the World Bank.
+\linebreak
+
+
+\begin{table}[!htbp] \centering 
+  \caption{ Summary Statistics} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Variable & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+GDP (log) & 551 & 30.0 & 2.7 & 26.0 & 37.0 \\ 
+Investment & 538 & 23.0 & 6.4 & 12.0 & 44.0 \\ 
+Trade & 547 & 64.0 & 39.0 & 14.0 & 220.0 \\ 
+Primary Enrollment & 551 & 106.0 & 9.6 & 78.0 & 166.0 \\ 
+Secondry Enrollment & 551 & 83.0 & 17.0 & 30.0 & 121.0 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table}
 
 ## Results
 

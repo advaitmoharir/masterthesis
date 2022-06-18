@@ -1,0 +1,33 @@
+\contentsline {chapter}{Summary}{1}{chapter*.9}%
+\contentsline {chapter}{Chapter 1: GDP Measurement in India and the World}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}History of GDP Measurement}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}World}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}India}{4}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}GDP Measurement: Methodologies}{4}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Production/ Output Method}{4}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Income Method}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Expenditure Method}{4}{subsection.1.2.3}%
+\contentsline {section}{\numberline {1.3}The Indian GDP Debate}{4}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}The Nagaraj - CSO Debate}{4}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Subramanian's Cross- Country Approach}{6}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Conclusion}{8}{section.1.4}%
+\contentsline {chapter}{Chapter 2: The Synthetic Control Method}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Introduction}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Formal Aspects}{11}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Setup}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Estimation}{12}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Inference}{14}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Advantages and Limitations of SCM}{16}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Alternative Estimators}{18}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Generalized Synthetic Control}{20}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Framework}{20}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Estimation and Inference}{21}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Conclusion}{23}{section.2.6}%
+\contentsline {chapter}{Chapter 3: Estimating measurement error in Indian GDP using SCM}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Literature Review}{26}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Econometric Approach}{27}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Data}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Results}{28}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Robustness Checks}{28}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Discussion and Conclusion}{28}{section.3.6}%
+\contentsline {chapter}{References}{29}{chapter*.16}%
