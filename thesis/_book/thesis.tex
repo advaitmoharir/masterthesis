@@ -171,20 +171,15 @@
 }
 
 \Dedication{
-	You can have a dedication here if you wish.
+	
 }
 
 \Preface{
-	This is an example of a thesis setup to use the reed thesis document class
- (for LaTeX) and the R bookdown package, in general.
+	
 }
 
 \Abstract{
-	The preface pretty much says it all.
-
- \par
-
- Second paragraph of abstract starts here.
+	
 }
 
 \usepackage{setspace}\onehalfspacing
@@ -244,10 +239,7 @@
 		\begin{acknowledgements}
 		I want to thank a few people.
 	\end{acknowledgements}
-		\begin{preface}
-		This is an example of a thesis setup to use the reed thesis document class
-  (for LaTeX) and the R bookdown package, in general.
-	\end{preface}
+		
 		\hypersetup{linkcolor=blue}
 	\setcounter{secnumdepth}{2}
 	\setcounter{tocdepth}{2}
@@ -256,16 +248,9 @@
 		\listoftables
 		
 		\listoffigures
-		\begin{abstract}
-		The preface pretty much says it all.
-
-  \par
-
-  Second paragraph of abstract starts here.
-	\end{abstract}
-		\begin{dedication}
-		You can have a dedication here if you wish.
-	\end{dedication}
+		
+		
+		
 	\mainmatter % here the regular arabic numbering starts
 	\pagestyle{fancyplain} % turns page numbering back on
 	
@@ -764,8 +749,6 @@
  \caption{Evolution of Log GDP for India and Synthetic India (GSCM)}\label{fig:indgsyn}
  \end{figure}
  \newpage
-
- Figures \ref{fig:indgsyn} and \ref{fig:indgsyngap} show the estimated counterfactual log GDP and actual GDP, and the gap between the two respectively, as measured using the GSCM. As with the SCM, the pre - intervention fit of the counter factual matches the actual trend, and then diverges post - 2011. While the two results look similar, the magnitude of the gap post treatment is different, with the difference exceeding 0.3 log points in case of the GSCM.
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/indiagsynthgap} 
@@ -774,6 +757,8 @@
 
  \caption{Log GDP gap between India and Synthetic India (GSCM)}\label{fig:indgsyngap}
  \end{figure}
+ Figures \ref{fig:indgsyn} and \ref{fig:indgsyngap} show the estimated counterfactual log GDP and actual GDP, and the gap between the two respectively, as measured using the GSCM. As with the SCM, the pre - intervention fit of the counter factual matches the actual trend, and then diverges post - 2011. While the two results look similar, the magnitude of the gap post treatment is different, with the difference exceeding 0.3 log points in case of the GSCM.
+ \newpage
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/indiagsynthc2} 
@@ -832,7 +817,6 @@
  \linebreak
 
  As discussed in Chapter - 2, Fisher's exact p -values to evaluate the probability of getting the same result had the treatment been randomly assigned to some other country, instead of India. Table - 3.3 presents the p - values below.
- \linebreak
  \begin{table}[h!!]
  \centering
  \begin{tabular}{rrr}
@@ -863,6 +847,7 @@
  \caption{Fisher's exact p - values}
  \end{table}
  The p - value for India is 0.053, indicating that there is a 5.3\% probability of getting the same results as those for India. However, the size of the p - value has a lower bound by construction, as it is simply a function of the number of donor units, in this case 1/19. This makes it a unreliably metric for inference.
+ \newpage
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/msperatio} 
@@ -917,7 +902,44 @@
 
  \caption{Evolution of log GDP for actual and synthetic India with backdated treatment (SCM)}\label{fig:scmbd}
  \end{figure}
- Figure \ref{fig:scmbd} shows the results of backdating implemented using the SCM.
+ Figure \ref{fig:scmbd} shows the results of backdating implemented using the SCM. Between 2005 and 2011, the synthetic India line closely tracks the actual India line, meeting the first criterion, and ruling out anticipation effects. However, this pattern continues post - 2011 as well, and the first signs of divergence appear only near 2016, five years after the actual treatment, which raises concerns about the credibility of the SCM estimates.
+ \newpage
+ \begin{figure}
+
+ {\centering \includegraphics[width=1\linewidth]{figure/indiagsynthbd} 
+
+ }
+
+ \caption{Evolution of log GDP for actual and synthetic India with backdated treatment (GSCM)}\label{fig:gscmbd}
+ \end{figure}
+ Figure \ref{fig:gscmbd} shows the results of backdating implemented using the GSCM. As previously, there is no gap between the two lines for the period 2005 - 2011. However, the two trends begin to diverge around the actual treatment year, satisfying both conditions for robustness. The backdating procedure indicates that the GSCM estimates are robust relative to SCM.
+ \linebreak
+
+ \textbf{Quarterly data}: This robustness check replaces yearly data with quarterly data for the outcome variable. This provides a more granular measure of the GDP, and significantly increases number of observations, attenuating the bias of both estimators. I implement this only for the GSCM, as the SCM requires data for predictors, which was not available on a quarterly basis.
+ \linebreak
+
+ The data for quarterly real GDP is taken from the International Monetary Fund's (IMF) International Financial Statistics (IFS) database. The same donor countries were used. The time period is from 1996 Q2 to 2019 Q4, yielding a dataset of 1147 observations.
+ \begin{figure}
+
+ {\centering \includegraphics[width=1\linewidth]{figure/indiagsynthqtr} 
+
+ }
+
+ \caption{Evolution of log GDP for actual and synthetic India with quarterly data (GSCM)}\label{fig:gqtr}
+ \end{figure}
+ Figure \ref{fig:gqtr} shows the results of the above robustness test estimated using the GSCM. The pre - treatment fit remains good prior to 2011. The divergence begins not immediately at 2011 Q1, but almost a year later. However, the overall patterns evolve similar to the SCM and Baseline GSCM results, confirming the robustness of the GSCM results to the use of quarterly data.
+ \linebreak
+
+ \hypertarget{discussion-and-conclusion}{%
+ \section{Discussion and Conclusion}\label{discussion-and-conclusion}}
+
+ In this chapter, I use the SCM and GSCM to estimate a counterfactual trajectory of India's real GDP. In doing so, I attempt to quantify the extent of conjectured GDP overestimation post - 2011. The SCM results suggest that real GDP growth has been over estimated by 2.6\% on average since the change in base year. However, these results are sensitive to specification, and not fully robust to backdating. The GSCM results, with and without covariates imply that the over-estimation has been between -0.5\% and 3\% on average. The baseline GSCM results are robust to backdating and usage of quarterly data, but statistically insignificant, as are the results with covariates.
+ \linebreak
+
+ As discussed before, both the SCM and GSCM perform poorly with low sample size, which is the case in the specifications with predictors, as a number of observations are missing for many countries. Furthermore, a caveat to keep in mind while interpreting these results is that inference for synthetic control and its class of models is an evolving enterprise, and that any results, significant or otherwise need to be interpreted with caution.
+ \linebreak
+
+ With regards to the two issues mentioned above, multiple promising avenues have opened up, which serve as a natural extension to this project. The first pertains to development of methods of conformal inference, and exact t - tests by Victor Chernozhukov and co - authors (\protect\hyperlink{ref-chernozhukov_t-test_2021}{Chernozhukov, Wuthrich, et al., 2021}; \protect\hyperlink{ref-chernozhukov_exact_2021}{Chernozhukov, Wüthrich, et al., 2021}). As these methods of inference apply to a large class of causal models, their application to generate uncertainty bounds for SCM results seems like a feasible next step. The second avenue is the development of matrix completion methods for causal models (\protect\hyperlink{ref-athey_matrix_2021}{Athey et al., 2021}), which uses observed control outcome data to impute missing data. Finally, the synthetic difference - in - difference method, which combines the two namesake techniques (\protect\hyperlink{ref-arkhangelsky_synthetic_2021}{Arkhangelsky et al., 2021}) is shown to be more efficient and unbiased relative to both individual methods. The applications of these three novelties form the basis for future research projects regadrding applying the SCM to GDP data.
 
  \backmatter
 

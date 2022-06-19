@@ -1,4 +1,4 @@
-\contentsline {chapter}{Summary}{1}{chapter*.9}%
+\contentsline {chapter}{Summary}{1}{chapter*.6}%
 \contentsline {chapter}{Chapter 1: GDP Measurement in India and the World}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}History of GDP Measurement}{4}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}World}{4}{subsection.1.1.1}%
@@ -30,4 +30,5 @@
 \contentsline {section}{\numberline {3.4}Results}{29}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Inference}{35}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5}Robustness Checks}{37}{section.3.5}%
-\contentsline {chapter}{References}{39}{chapter*.28}%
+\contentsline {section}{\numberline {3.6}Discussion and Conclusion}{40}{section.3.6}%
+\contentsline {chapter}{References}{43}{chapter*.27}%
