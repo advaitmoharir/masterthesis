@@ -21,7 +21,7 @@ The rest of this chapter is structured as follows. Section 3.1 presents a brief 
 
 ## Literature Review
 
-Measurement error in macroeconomic data and GDP in particular has been studied extensively. In recent times, scholars have focused on improving measurement. Two strands of literature have emerged: the "forecast" error approach examines the difference between forecasted or revised estimates and actual GDP, and characterizes, whether revisions represent measurement errors or "noise", or an efficient forecast accounting for all relavant information , or "news". (Mankiw1, Mankiw2, Arouba 2008). The second strand, which I focus on, looks at the differences between the income - method and expenditure - method estimates of GDP, as described in Chapter - 1. Since both quantities are estimates of the same unobservable (actual output), the gap between the two is only due to a measurement error.  @aruoba_improving_2016 show that information from *both* estimates can be used to optimally extract the true GDP. By treating both estimates as noisy, and using Bayesian estimation with multiple types of measurement error models, they construct a third estimate, which diagnostic tests show as being broadly representative. @jacobs_can_2022 uses a similar framework, but incorporates multiple revised estimates of noisy data, instead of a single vintage. The authors show that their estimates are less likely to undergo revisions compared to @aruoba_improving_2016. Their estimates also puts more weight on expenditure - side data, which is more readily available, and whose historical decompositions shows a larger share of "news" relative to the income - side estimates. @chang_measurement_2018 take a different approach, by using a pre - analysis plan to estimate effect of measurement error on the results of empirical papers in top journals. The authors find that replacing GDP with its revised versions does not change the key results, but using GDI instead changes the results substantially. Overall, the existing literature highlights the importance of reconciliation between various sources and releases of GDP estimates.
+Measurement error in macroeconomic data and GDP in particular has been studied extensively. In recent times, scholars have focused on improving measurement. Two strands of literature have emerged: the "forecast" error approach examines the difference between forecasted or revised estimates and actual GDP, and characterizes, whether revisions represent measurement errors or "noise", or an efficient forecast accounting for all relavant information , or "news" [@mankiw_are_1984;@mankiw_news_1986;@aruoba_improving_2013]. The second strand, which I focus on, looks at the differences between the income - method and expenditure - method estimates of GDP, as described in Chapter - 1. Since both quantities are estimates of the same unobservable (actual output), the gap between the two is only due to a measurement error.  @aruoba_improving_2016 show that information from *both* estimates can be used to optimally extract the true GDP. By treating both estimates as noisy, and using Bayesian estimation with multiple types of measurement error models, they construct a third estimate, which diagnostic tests show as being broadly representative. @jacobs_can_2022 uses a similar framework, but incorporates multiple revised estimates of noisy data, instead of a single vintage. The authors show that their estimates are less likely to undergo revisions compared to @aruoba_improving_2016. Their estimates also puts more weight on expenditure - side data, which is more readily available, and whose historical decompositions shows a larger share of "news" relative to the income - side estimates. @chang_measurement_2018 take a different approach, by using a pre - analysis plan to estimate effect of measurement error on the results of empirical papers in top journals. The authors find that replacing GDP with its revised versions does not change the key results, but using GDI instead changes the results substantially. Overall, the existing literature highlights the importance of reconciliation between various sources and releases of GDP estimates.
 \linebreak
 
 The SCM and its various offshoots have been applied extensively to estimate counterfactual GDP. @abadie_economic_2003 study the impact of terrorism in the 1960s on the per - capita GDP in the Basque County. The paper finds that there was a 10% decline in growth relative to the synthetic control not affected by terrorism. @abadie_comparative_2015 examine the impact of the German re - unification in 1990 on West Germany's per capita GDP, and find a negative effect relative to synthetic West Germany. @billmeier_assessing_2013 looks at the impact of economic liberalization on a number of Latin American, Asian and Sfrican coutnries' real GDP, and find that while the impact was positive for most, there was no significant impact from the later liberalization episodes, especially those is Africa. Most of these studies focus on GDP of European countries, with papers on developing economies being much more scarce.
@@ -100,18 +100,17 @@ Which countries is synthetic India composed of? Figure \@ref(fig:weights) shows 
 I now present the results of the counter factual estimates generated by the GSCM below. Three specifications were run: without covariates, with economic covariates (trade and investment) only, and with all covariates.
 
 
-```{r indgsyn, echo=FALSE, fig.align="center", out.width="100%",fig.asp=0.62, fig.cap="Evolution of Log GDP for India and Synthetic India (GSCM)"}
+```{r indgsyn, echo=FALSE, fig.align="center", out.width="100%", fig.cap="Evolution of Log GDP for India and Synthetic India (GSCM)"}
 
 include_graphics("figure/indiagsynth.jpeg")
 ```
+\newpage
+Figures \@ref(fig:indgsyn) and \@ref(fig:indgsyngap) show the estimated counterfactual log GDP and actual GDP, and the gap between the two respectively, as measured using the GSCM. As with the SCM, the pre - intervention fit of the counter factual matches the actual trend, and then diverges post - 2011. While the two results look similar, the magnitude of the gap post treatment is different, with the difference exceeding 0.3 log points in case of the GSCM. 
 
-```{r indgsyngap, echo=FALSE, fig.align="center", fig.asp=0.62,out.width="100%", fig.cap="Evolution of Log GDP for India and Synthetic India (GSCM)"}
+```{r indgsyngap, echo=FALSE, fig.align="center",out.width="100%", fig.cap="Log GDP gap between India and Synthetic India (GSCM)"}
 include_graphics("figure/indiagsynthgap.jpeg")
 ```
 
-\vspace{-5truemm}
-
-Figures \@ref(fig:indgsyn) and \@ref(fig:indgsyngap) show the estimated counterfactual log GDP and actual GDP, and the gap between the two respectively, as measured using the GSCM. As with the SCM, the pre - intervention fit of the counter factual matches the actual trend, and then diverges post - 2011. While the two results look similar, the magnitude of the gap post treatment is different, with the difference exceeding 0.3 log points in case of the GSCM. 
 
 ```{r indgsync1, echo=FALSE, fig.align="center",out.width="100%", fig.cap="Evolution of Log GDP for India and Synthetic India with economic covariates (GSCM)"}
 include_graphics("figure/indiagsynthc2.jpeg")
@@ -167,9 +166,11 @@ The last section presented the results of the estimated counterfactual GDP using
 As discussed in Chapter - 2, Fisher's exact p -values to evaluate the probability of getting the same result had the treatment been randomly assigned to some other country, instead of India. Table - 3.3 presents the p - values below.
 \linebreak
 
-\begin{table}[h!]
+
+
+\begin{table}[h!!]
 \centering
-\begin{tabular}{llr}
+\begin{tabular}{rrr}
 \hline
 Country& Type & p - value\\
 \hline
@@ -203,11 +204,47 @@ The p - value for India is 0.053, indicating that there is a 5.3% probability of
 include_graphics("figure/msperatio.jpeg")
 ```
 
+Figure \@ref(fig:msper) shows the ratio of post period and pre - period MSPE. The MSPE is a measure of how close the fit between the actual outcome variable and the synthetic control is. The figure shows the ratio of the MSPE calculated post 2011 and pre 2011 for all donor countries as well as India, serving as a placebo test. The ratio is much higher for India than for the donor pool, indicating that the post treatment fit deviates significantly from the pre - treatment fit to a much larger magnitude relative to other countries. While this is a good starting point to establish the credibility of the synthetic control, it is not a sampling - based statistical test (like a t - test). In the case of the SCM, this is difficult to implement due to absence of a well defined sampling mechanism. Hence, additional robustness tests are required, which are discussed in the next section.
+
+\begin{table}[h!!]
+\centering
+\begin{tabular}{cccc}
+\hline
+Model & Average ATT & Std. Err. & p - value\\
+\hline
+Baseline GSCM&0.166& 0.256 & 0.516\\
+\hline
+GSCM with economic covariates & 0.094 & 0.139 & 0.499\\
+\hline
+GSCM with all covariates & 0.013 & 0.154 & 0.928\\
+\hline
+\end{tabular}
+\caption{ Average ATT and p - values for GSCM specifications}
+\end{table}
+
+Table 3.4 shows the average Average Treatment Effect on the Treated, which is simply the mean of the difference between the actual and counterfactual log GDP estimated via GSCM, and the associated p -values. It is important to note that the p - values are calculated in a completely different way from the SCM: rather than a permutation test, uncertainty bounds and variance is estimated using a parametric bootstrap (for details, see Chapter - 2). The results indicate that the mean ATT magnitude falls with the inclusion of covariates and that none of the specifications yield statistically significant results.
+\linebreak
+
+The lack of significant results could be due to two reasons: one, while the GSCM does allow the inclusion of co -variates with an incomplete panel, the dropping of observations reduces sample size by 50, which is 10% of the sample. Reduced sample size due to sparse covariate data affects the unbiasedness of the GSCM estimator significantly. Second, @xu_generalized_2017 cautions against a straightforward interpretation of results when the number of donor units is less than 40. Since I use only 19 donor countries, the results are prone to bias. 
+
 
 ## Robustness Checks
 
+I implement two robustness checks:
 
-## Discussion and Conclusion
+**Backdating**: The treatment is assigned a few years/quarters prior to the actual intervention, and the SCM and GSCM are estimated with the new pre and post treatment periods. The results are robust if:
 
+a. The pre - treatment fit does not change between the new and old treatment year, indicating the absence of any anticipation effect.
 
+b. The gap between the synthetic and actual outcome variable of interest starts around the same time as the actual treatment.
+\linebreak
 
+I implement the SCM and GSCM by backdating the treatment to the year 2005. This year is chosen so as to allow sufficient pre - intervention time periods (15 years), as atleast 10 years is the minimum recommended for effective implementation of the GSCM.
+
+\newpage 
+
+```{r scmbd, echo=FALSE, fig.align="center",out.width="100%", fig.cap="Evolution of log GDP for actual and synthetic India with backdated treatment (SCM)"}
+include_graphics("figure/indiasynthbd.jpeg")
+```
+
+Figure \@ref(fig:scmbd) shows the results of backdating implemented using the SCM. 
