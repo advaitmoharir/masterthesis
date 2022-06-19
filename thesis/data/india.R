@@ -18,7 +18,7 @@ library(datawizard)
 library(varhandle)
 library(stargazer)
 library(ggpubr)
-options(digits=2)
+options(digits=3)
 #Loading data
 
 data<-WDI(country=c("AR", "BR", "CL","CN", "CO", "EG", "HU","IN",
@@ -203,8 +203,9 @@ ggsave("figure/weights.jpeg",width=8,height=4, device = "jpeg")
 #P values table
 
 tab1<-data_out%>%grab_signficance()
-
-kable(tab1[1:10,c(1,2,7)], "markdown")
+#Get table in md and tex
+kable(tab1[1:10,c(1,2,7)], "markdown")#for xaringan slides
+kable(tab1[1:10,c(1,2,7)], "latex")# for thesis pdf
 ##
 p3<-output%>%
   select(time_unit,real_y,gsynth_base)%>%
@@ -275,13 +276,10 @@ diff_gr<-output%>%
   filter(time_unit>2010)
 #diff in growth rates
 
-#plotting
-p10<-diff_gr%>%
-  pivot_longer(2:5)%>%
-  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
-  scale_colour_Publication(name="", labels=c("1","2","3","4"))+theme_Publication()+
-  labs(x="",y="difference in GDP growth")
+#table output
 kable(diff_gr*100, "markdown")
+kable(diff_gr*100, "latex")
+
 #######################################################
 #######################################################
 #############ROBUSTNESS CHECKS######################33
