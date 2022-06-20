@@ -66,6 +66,7 @@ lot: true
 lof: true
 ---
 
+```{=html}
 <!--
 Above is the YAML (YAML Ain't Markup Language) header that includes a lot of 
 metadata used to produce the document.  Be careful with spacing in this header!
@@ -78,7 +79,7 @@ If you'd like to include a comment that won't be produced in your resulting file
 
 If you receive a duplicate label error after knitting, make sure to delete the index.Rmd file and then knit again.
 -->
-
+```
 ```{r include_packages, include=FALSE}
 # This chunk ensures that the thesisdown package is
 # installed and loaded. This thesisdown package includes
@@ -111,15 +112,14 @@ library(thesisdown)
 options(width = 70)
 ```
 
+```{=html}
 <!--
 The acknowledgments, preface, dedication, and abstract are added into the PDF
 version automatically by inputting them in the YAML at the top of this file.
 Alternatively, you can put that content in files like 00--prelim.Rmd and
 00-abstract.Rmd like done below.
 -->
-
-
-
+```
 ```{r eval=!knitr::is_latex_output(), child=here::here("prelims", "00--prelim.Rmd")}
 
 ```
@@ -128,17 +128,15 @@ Alternatively, you can put that content in files like 00--prelim.Rmd and
 
 ```
 
+```{=html}
 <!-- The {.unnumbered} option here means that the introduction will be 
 "Chapter 0." You can also use {-} for no numbers on chapters.
 -->
-
+```
 # Summary {.unnumbered}
 
-This thesis consists of three chapters. The first chapter titled " GDP Measurement in India and the World" provides a broad overview of the historical evolution of GDP measurement. I first describe the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception by William Petty in the early 17th century, to the globally accepted and harmonized definition as set out by the United Nations. I then provide a brief history of national acconting in India, before turning my focus to the three methods of output measurement. I then delve into the debate on measurement issues in Indian GDP, focussing on issues emerging in real GDP measurement post 2011.
-\linebreak
+This thesis consists of three chapters. The first chapter titled "GDP Measurement in India and the World" provides a broad overview of the historical evolution of GDP measurement. I first describe the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception by William Petty in the early 17th century, to the globally accepted and harmonized definition as set out by the United Nations. I then provide a brief history of national accounting in India, before turning my focus to the three methods of output measurement. I then delve into the debate on measurement issues in Indian GDP, focussing on issues emerging in real GDP measurement post 2011. \linebreak
 
-The second chapter, titled "The Synthetic Control Method" takes a deep dive into the synthetic control method (SCM), which I use to estimate measurement error in Indian GDP in the next chapter. I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address the lacunae of the SCM. I then delve deeper into the generalized SCM, a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two.
-\linebreak
+The second chapter, titled "The Synthetic Control Method" takes a deep dive into the synthetic control method (SCM), which I use to estimate measurement error in Indian GDP in the next chapter. I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address the lacunae of the SCM. I then review the generalized SCM, a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two. \linebreak
 
 The final chapter, titled "Estimating measurement error in India's GDP using SCM" uses the SCM and GSCM to construct counter factual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
-

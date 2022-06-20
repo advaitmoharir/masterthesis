@@ -1,0 +1,18 @@
+`r if(knitr:::is_latex_output()) '\\appendix'`
+
+`r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'` 
+
+
+# Appendices
+
+## Appendix A: Model Selection for GSCM
+
+Below is the algorithm describing the steps used in the leave one out cross - validation prcedure used to select the optimal number of factors used to estimate the IFE factor model in the GSCM. This is adapted directly from @xu_generalized_2017.
+
+**Step - 1**: Start with a given number of factors $r$. If not specified the package automatically sets $r=5$. Estimate the IFE model using only control group data, and obtain $\hat{\beta}$ and $\hat{F}$
+
+**Step - 2**: Start a loop that goes for $T_{0}$ treatment periods:
+
+   (a) In round $s \in (1,....,T_{0})$, hold back data for all treated units at time $s$. Using the rest of the data, run an OLS regression, to get factor loadings for each treated unit $i$
+   
+

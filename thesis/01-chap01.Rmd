@@ -9,12 +9,9 @@ However, India's GDP numbers have been scrutinized even more than usual, especia
 
 The third issue has caused many to question the veracity of GDP estimates in the recent years. This followed by the lack of good quality data alternatives raise an important question -  what is the extent of measurement error in India's GDP? I begin the chapter by tracing the history of GDP and national accounting in the world and India. I then discuss the various methods of GDP estimation in Section XX. In Section XXX, I delve into the Indian GDO measurement debate, focussing  on two major critiques: one, the exchange between between R. Nagaraj and the Central Statistical Organization on the veracity of the real GDP series with base year 2011, and two, the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers, and their changing relationship with correlates of GDP.  Section YYY concludes.
 
-## History of GDP Measurement
+## GDP: A Brief History
 
-### World
-
-### India
-
+The Gross Domestic Product (GDP) is a 20th century creation. 
 ## GDP Measurement: Methodologies
 
 ### Production/ Output Method

@@ -31,4 +31,6 @@
 \contentsline {subsection}{\numberline {3.4.1}Inference}{35}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5}Robustness Checks}{37}{section.3.5}%
 \contentsline {section}{\numberline {3.6}Discussion and Conclusion}{40}{section.3.6}%
-\contentsline {chapter}{References}{43}{chapter*.27}%
+\contentsline {chapter}{Appendix A: Appendices}{43}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Appendix A: Model Selection for GSCM}{43}{section.A.1}%
+\contentsline {chapter}{References}{45}{appendix*.27}%

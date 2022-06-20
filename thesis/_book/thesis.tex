@@ -258,11 +258,9 @@
  \chapter*{Summary}\label{summary}}
  \addcontentsline{toc}{chapter}{Summary}
 
- This thesis consists of three chapters. The first chapter titled '' GDP Measurement in India and the World'' provides a broad overview of the historical evolution of GDP measurement. I first describe the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception by William Petty in the early 17th century, to the globally accepted and harmonized definition as set out by the United Nations. I then provide a brief history of national acconting in India, before turning my focus to the three methods of output measurement. I then delve into the debate on measurement issues in Indian GDP, focussing on issues emerging in real GDP measurement post 2011.
- \linebreak
+ This thesis consists of three chapters. The first chapter titled ``GDP Measurement in India and the World'' provides a broad overview of the historical evolution of GDP measurement. I first describe the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception by William Petty in the early 17th century, to the globally accepted and harmonized definition as set out by the United Nations. I then provide a brief history of national accounting in India, before turning my focus to the three methods of output measurement. I then delve into the debate on measurement issues in Indian GDP, focussing on issues emerging in real GDP measurement post 2011. \linebreak
 
- The second chapter, titled ``The Synthetic Control Method'' takes a deep dive into the synthetic control method (SCM), which I use to estimate measurement error in Indian GDP in the next chapter. I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address the lacunae of the SCM. I then delve deeper into the generalized SCM, a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two.
- \linebreak
+ The second chapter, titled ``The Synthetic Control Method'' takes a deep dive into the synthetic control method (SCM), which I use to estimate measurement error in Indian GDP in the next chapter. I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address the lacunae of the SCM. I then review the generalized SCM, a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two. \linebreak
 
  The final chapter, titled ``Estimating measurement error in India's GDP using SCM'' uses the SCM and GSCM to construct counter factual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
 
@@ -941,6 +939,25 @@
 
  With regards to the two issues mentioned above, multiple promising avenues have opened up, which serve as a natural extension to this project. The first pertains to development of methods of conformal inference, and exact t - tests by Victor Chernozhukov and co - authors (\protect\hyperlink{ref-chernozhukov_t-test_2021}{Chernozhukov, Wuthrich, et al., 2021}; \protect\hyperlink{ref-chernozhukov_exact_2021}{Chernozhukov, Wüthrich, et al., 2021}). As these methods of inference apply to a large class of causal models, their application to generate uncertainty bounds for SCM results seems like a feasible next step. The second avenue is the development of matrix completion methods for causal models (\protect\hyperlink{ref-athey_matrix_2021}{Athey et al., 2021}), which uses observed control outcome data to impute missing data. Finally, the synthetic difference - in - difference method, which combines the two namesake techniques (\protect\hyperlink{ref-arkhangelsky_synthetic_2021}{Arkhangelsky et al., 2021}) is shown to be more efficient and unbiased relative to both individual methods. The applications of these three novelties form the basis for future research projects regadrding applying the SCM to GDP data.
 
+ \appendix
+
+ \hypertarget{appendices}{%
+ \chapter{Appendices}\label{appendices}}
+
+ \hypertarget{appendix-a-model-selection-for-gscm}{%
+ \section{Appendix A: Model Selection for GSCM}\label{appendix-a-model-selection-for-gscm}}
+
+ Below is the algorithm describing the steps used in the leave one out cross - validation prcedure used to select the optimal number of factors used to estimate the IFE factor model in the GSCM. This is adapted directly from Xu (\protect\hyperlink{ref-xu_generalized_2017}{2017}).
+
+ \textbf{Step - 1}: Start with a given number of factors \(r\). If not specified the package automatically sets \(r=5\). Estimate the IFE model using only control group data, and obtain \(\hat{\beta}\) and \(\hat{F}\)
+
+ \textbf{Step - 2}: Start a loop that goes for \(T_{0}\) treatment periods:
+ \begin{enumerate}
+ \def\labelenumi{(\alph{enumi})}
+ \tightlist
+ \item
+   In round \(s \in (1,....,T_{0})\), hold back data for all treated units at time \(s\). Using the rest of the data, run an OLS regression, to get factor loadings for each treated unit \(i\)
+ \end{enumerate}
  \backmatter
 
  \hypertarget{references}{%
