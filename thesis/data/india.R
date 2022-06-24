@@ -1,5 +1,4 @@
 #installing packages
-library(tidyverse)
 library(dplyr)
 library(tidysynth)
 library(ggplot2)
