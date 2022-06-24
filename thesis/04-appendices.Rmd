@@ -3,9 +3,7 @@
 `r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'` 
 
 
-# Appendices
-
-## Appendix A: Model Selection for GSCM
+# Counterfactual GDP estimates using Matrix Completion
 
 Below is the algorithm describing the steps used in the leave one out cross - validation prcedure used to select the optimal number of factors used to estimate the IFE factor model in the GSCM. This is adapted directly from @xu_generalized_2017.
 
