@@ -1,6 +1,7 @@
 #installing packages
 library(dplyr)
 library(tidysynth)
+library(tidyr)
 library(ggplot2)
 library(WDI)
 library(readxl)
@@ -123,15 +124,24 @@ control2<- gsynth(gdp~treated+trade+inv+primenr+secenr,min.T0=8, data = data_ctr
                   CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
 
 
+#with matrix xompletion - for Appendix
+control3<- gsynth(gdp~treated+trade+inv,min.T0=8, data = data_ctr,
+                  index = c("country","year"),estimator="mc",inference = "nonparametric",force="two-way",
+                  CV = TRUE, r = c(0, 5), se =TRUE, parallel=TRUE,nboots=1000, seed=09800)
+
+
+
 #Updating output df
 output$control1<-control1[["Y.ct"]]
 output$control2<-control2[["Y.ct"]]
+output$control3<-control3[["Y.ct"]]
 
 #Renaming columns
 output<-output%>%rename(synth=synth_y,
                         gsynth_base=gsynth_baseline,
                         gsynth_ctr1=control1,
-                        gsynth_ctr2=control2)
+                        gsynth_ctr2=control2,
+                        gsynth_ctr3=control3)
 ######################PLOTS#################
 ###########################################
 
@@ -234,6 +244,17 @@ p4<-output%>%
   labs(x="",y="log(GDP)")
 
 ggsave("figure/indiagsynthc2.jpeg",width=6,height=4, device = "jpeg")
+
+p5<-output%>%
+  select(time_unit,real_y,gsynth_ctr3)%>%
+  pivot_longer(2:3)%>%
+  ggplot(aes(x=time_unit, y=value, color=name))+geom_line(size=0.8)+
+  geom_vline(xintercept = 2011, linetype="dotted")+xlim(1991,2020)+
+  scale_colour_Publication(name="", labels=c("Synthetic India (GSCM+ Matrix Completion)","India"))+theme_Publication()+
+  labs(x="",y="log(GDP)")
+
+ggsave("figure/indiagsynthmc.jpeg",width=6,height=4, device = "jpeg")
+
 
 ##GAP PLOTS#
 p5<-output%>%
@@ -472,4 +493,23 @@ tab<-smoking_out%>%grab_signficance()
   
 kable(tab[1:10,c(1,2,7)], "latex")
 
+#################NAGRAJ FIGS#############
+
+#Reading csv
+nagaraj<-read.csv("data/nagaraj.csv")
+colnames(nagaraj)[6]<-"Utilites"
+colnames(nagaraj)[8]<-"Hotels and restaurants"
+
+p20<-nagaraj%>%
+  filter(Year==2012)%>%
+  pivot_longer(3:10)%>%
+  ggplot(aes(x=name, y=value, fill=Base))+theme_Publication()+scale_colour_Publication()+
+  geom_col(position="dodge")+labs(x="", y="Growth (%)")+coord_flip()
+ggsave("nagaraj1.jpeg", width=8, height=4)
+
+nagaraj%>%
+  filter(Year==2013)%>%
+  pivot_longer(3:10)%>%
+  ggplot(aes(x=name, y=value, fill=Base))+
+  geom_col(position="dodge")+coord_flip()+labs(x="Sector", y="Growth rate",caption="Figure 1.1b: Disaggregated GDP growth rates by sector for the year 2013-14.")
 
