@@ -500,16 +500,16 @@ nagaraj<-read.csv("data/nagaraj.csv")
 colnames(nagaraj)[6]<-"Utilites"
 colnames(nagaraj)[8]<-"Hotels and restaurants"
 
-p20<-nagaraj%>%
+nagaraj%>%
   filter(Year==2012)%>%
   pivot_longer(3:10)%>%
   ggplot(aes(x=name, y=value, fill=Base))+theme_Publication()+scale_colour_Publication()+
   geom_col(position="dodge")+labs(x="", y="Growth (%)")+coord_flip()
-ggsave("nagaraj1.jpeg", width=8, height=4)
+ggsave("figure/nagaraj1.jpeg", width=6, height=4)
 
 nagaraj%>%
   filter(Year==2013)%>%
   pivot_longer(3:10)%>%
-  ggplot(aes(x=name, y=value, fill=Base))+
-  geom_col(position="dodge")+coord_flip()+labs(x="Sector", y="Growth rate",caption="Figure 1.1b: Disaggregated GDP growth rates by sector for the year 2013-14.")
-
+  ggplot(aes(x=name, y=value, fill=Base))+theme_Publication()+scale_colour_Publication()+
+  geom_col(position="dodge")+labs(x="", y="Growth (%)")+coord_flip()
+ggsave("figure/nagaraj2.jpeg", width=6, height=4)
