@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.23)  23 JUN 2022 23:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.6.25)  25 JUN 2022 01:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -69,7 +69,7 @@ Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
 ) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.sty
-Package: microtype 2022/06/20 v3.0e Micro-typographical refinements (RS)
+Package: microtype 2022/06/23 v3.0f Micro-typographical refinements (RS)
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count197
@@ -80,19 +80,19 @@ Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1045.
 LaTeX Info: Redefining \leftprotrusion on input line 1046.
 LaTeX Info: Redefining \rightprotrusion on input line 1056.
-LaTeX Info: Redefining \textls on input line 1240.
+LaTeX Info: Redefining \textls on input line 1234.
 \MT@outer@kern=\dimen139
-LaTeX Info: Redefining \textmicrotypecontext on input line 1864.
+LaTeX Info: Redefining \textmicrotypecontext on input line 1858.
 \MT@listname@count=\count199
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2022/06/20 v3.0e Definitions specific to pdftex (RS)
-LaTeX Info: Redefining \lsstyle on input line 902.
-LaTeX Info: Redefining \lslig on input line 902.
+File: microtype-pdftex.def 2022/06/23 v3.0f Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 900.
+LaTeX Info: Redefining \lslig on input line 900.
 \MT@outer@space=\skip58
 )
 Package microtype Info: Loading configuration file microtype.cfg.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2022/06/20 v3.0e microtype main configuration file (RS)
+File: microtype.cfg 2022/06/23 v3.0f microtype main configuration file (RS)
 )) (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2022/01/06 v1.3d Standard LaTeX Color (DPC)
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
@@ -709,173 +709,199 @@ Underfull \hbox (badness 10000) in paragraph at lines 273--275
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[3] [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 317--320
+[3]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 281.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 281.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 281.
+
+Underfull \hbox (badness 10000) in paragraph at lines 286--288
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 289--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--331
+Underfull \hbox (badness 10000) in paragraph at lines 292--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 332--334
+Underfull \hbox (badness 10000) in paragraph at lines 295--297
 
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 335--337
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 338--340
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 346--348
-
- []
-
-[7]
-<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=348, 469.755pt x 325.215pt>
-File: thesis_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
-<use thesis_files/figure-latex/unnamed-chunk-3-1.pdf>
-Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 350.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (52.92097pt too wide) in paragraph at lines 350--350
- [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 298--300
+
+ []
+
+[6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 332--335
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--338
+
+ []
+
+
+Underfull \vbox (badness 4217) has occurred while \output is active []
 
 [8]
-<thesis_files/figure-latex/unnamed-chunk-3-2.pdf, id=353, 469.755pt x 325.215pt>
-File: thesis_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
-<use thesis_files/figure-latex/unnamed-chunk-3-2.pdf>
-Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-2.pdf  used on input line 351.
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
+\T1/lmr/m/it/12 (+20) and Po-lit-i-cal Weekly\T1/lmr/m/n/12 (+20) .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--354
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--357
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--360
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
+
+ []
+
+[10]
+<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=365, 469.755pt x 325.215pt>
+File: thesis_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
+<use thesis_files/figure-latex/unnamed-chunk-3-1.pdf>
+Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-1.pdf  used on input line 370.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (52.92097pt too wide) in paragraph at lines 351--351
+Overfull \hbox (52.92097pt too wide) in paragraph at lines 370--370
+ [] 
+ []
+
+<thesis_files/figure-latex/unnamed-chunk-3-2.pdf, id=366, 469.755pt x 325.215pt>
+File: thesis_files/figure-latex/unnamed-chunk-3-2.pdf Graphic file (type pdf)
+<use thesis_files/figure-latex/unnamed-chunk-3-2.pdf>
+Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-2.pdf  used on input line 371.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (52.92097pt too wide) in paragraph at lines 371--371
  [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[9 <./thesis_files/figure-latex/unnamed-chunk-3-1.pdf>] [10 <./thesis_files/figure-latex/unnamed-chunk-3-2.pdf>]
+[11 <./thesis_files/figure-latex/unnamed-chunk-3-1.pdf>] [12 <./thesis_files/figure-latex/unnamed-chunk-3-2.pdf>]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 359--361
+Underfull \hbox (badness 10000) in paragraph at lines 379--381
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--369
+Underfull \hbox (badness 10000) in paragraph at lines 387--389
 
  []
 
 
 Underfull \vbox (badness 1348) has occurred while \output is active []
 
-[11
+[13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 390--392
 \T1/lmr/bx/n/12 (+20) differences_2021?[][]\T1/lmr/m/n/12 (+20) ).
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--372
+Underfull \hbox (badness 10000) in paragraph at lines 390--392
 
  []
 
-<figure/caltrends.jpg, id=400, 578.16pt x 289.08pt>
+<figure/caltrends.jpg, id=412, 578.16pt x 289.08pt>
 File: figure/caltrends.jpg Graphic file (type jpg)
 <use figure/caltrends.jpg>
-Package pdftex.def Info: figure/caltrends.jpg  used on input line 376.
+Package pdftex.def Info: figure/caltrends.jpg  used on input line 396.
 (pdftex.def)             Requested size: 416.83289pt x 208.41533pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[12]
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 392.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 392.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 392--394
-
- []
-
-[13 <./figure/caltrends.jpg>]
-Underfull \vbox (badness 5847) has occurred while \output is active []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 453--456
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 412.
+
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 412.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 412--414
+
+ []
+
+[15 <./figure/caltrends.jpg>]
+Underfull \vbox (badness 5847) has occurred while \output is active []
+
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 473--476
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15]
-<figure/calplacebo.jpg, id=454, 578.16pt x 289.08pt>
+[17]
+<figure/calplacebo.jpg, id=466, 578.16pt x 289.08pt>
 File: figure/calplacebo.jpg Graphic file (type jpg)
 <use figure/calplacebo.jpg>
-Package pdftex.def Info: figure/calplacebo.jpg  used on input line 471.
+Package pdftex.def Info: figure/calplacebo.jpg  used on input line 491.
 (pdftex.def)             Requested size: 416.83289pt x 208.41533pt.
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 477--479
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 497--499
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[17 <./figure/calplacebo.jpg>]
-<figure/calmspe.jpg, id=473, 578.16pt x 289.08pt>
+[19 <./figure/calplacebo.jpg>]
+<figure/calmspe.jpg, id=485, 578.16pt x 289.08pt>
 File: figure/calmspe.jpg Graphic file (type jpg)
 <use figure/calmspe.jpg>
-Package pdftex.def Info: figure/calmspe.jpg  used on input line 498.
+Package pdftex.def Info: figure/calmspe.jpg  used on input line 518.
 (pdftex.def)             Requested size: 416.83289pt x 208.41533pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--544
+Underfull \hbox (badness 10000) in paragraph at lines 562--564
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[18 <./figure/calmspe.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 545--547
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 553--555
-
- []
-
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 556--558
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 559--561
+[20 <./figure/calmspe.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 565--567
 
  []
 
@@ -883,332 +909,379 @@ Underfull \hbox (badness 10000) in paragraph at lines 559--561
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 567--569
+Underfull \hbox (badness 10000) in paragraph at lines 573--575
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 576--578
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 579--581
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 587--589
 
  []
 
 
 Underfull \vbox (badness 3000) has occurred while \output is active []
 
-[22]
-Underfull \hbox (badness 10000) in paragraph at lines 578--581
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 599--601
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 629--632
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 633--635
-
- []
-
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 636--638
+Underfull \hbox (badness 10000) in paragraph at lines 598--601
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 644--646
+Underfull \hbox (badness 10000) in paragraph at lines 619--621
+
+ []
+
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 649--652
 
  []
 
 
-Overfull \hbox (58.14587pt too wide) in paragraph at lines 650--664
+Underfull \hbox (badness 10000) in paragraph at lines 653--655
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 656--658
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 664--666
+
+ []
+
+
+Overfull \hbox (58.14587pt too wide) in paragraph at lines 670--684
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 647--667
+Underfull \hbox (badness 10000) in paragraph at lines 667--687
 
  []
 
-[25] [26]
+[27] [28]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 673--675
+Underfull \hbox (badness 10000) in paragraph at lines 693--695
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 676--678
+Underfull \hbox (badness 10000) in paragraph at lines 696--698
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 679--681
+Underfull \hbox (badness 10000) in paragraph at lines 699--701
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[27
+[29
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 687--689
+Underfull \hbox (badness 10000) in paragraph at lines 707--709
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 690--692
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 701--703
-
- []
-
-
-Underfull \vbox (badness 1097) has occurred while \output is active []
-
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 704--724
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 725--727
+Underfull \hbox (badness 10000) in paragraph at lines 710--712
 
  []
 
 [30]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 728.
+Underfull \hbox (badness 10000) in paragraph at lines 718--720
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 721--723
+
+ []
+
+
+Underfull \hbox (badness 1308) in paragraph at lines 733--736
+\T1/lmr/m/n/12 (+20) where $\OML/lmm/m/it/12 Y[]$ \T1/lmr/m/n/12 (+20) is the ob-served GDP of donor coun-try $\OML/lmm/m/it/12 j$ \T1/lmr/m/n/12 (+20) in ab-sence of the
+ []
+
+
+Underfull \hbox (badness 1577) in paragraph at lines 733--736
+\T1/lmr/m/n/12 (+20) treat-ment, and $\OML/lmm/m/it/12 w[]$ \T1/lmr/m/n/12 (+20) is the op-ti-mal weight as-signed by the SCM, un-der
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--736
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 747--749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--770
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 771--773
+
+ []
+
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 774.
 (c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<figure/indiasynth.jpeg, id=652, 433.62pt x 289.08pt>
+<figure/indiasynth.jpeg, id=672, 433.62pt x 289.08pt>
 File: figure/indiasynth.jpeg Graphic file (type jpg)
 <use figure/indiasynth.jpeg>
-Package pdftex.def Info: figure/indiasynth.jpeg  used on input line 736.
+Package pdftex.def Info: figure/indiasynth.jpeg  used on input line 782.
 (pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-<figure/indiasynthgap.jpeg, id=654, 433.62pt x 289.08pt>
+<figure/indiasynthgap.jpeg, id=674, 433.62pt x 289.08pt>
 File: figure/indiasynthgap.jpeg Graphic file (type jpg)
 <use figure/indiasynthgap.jpeg>
-Package pdftex.def Info: figure/indiasynthgap.jpeg  used on input line 745.
+Package pdftex.def Info: figure/indiasynthgap.jpeg  used on input line 791.
 (pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
+[34 <./figure/indiasynth.jpeg>]
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `fig:indiasyn' on page 35 undefined on input line 797.
 
-[31 <./figure/indiasynth.jpeg>]
-
-LaTeX Warning: Reference `fig:indiasyn' on page 32 undefined on input line 751.
-
-<figure/weights.jpeg, id=662, 578.16pt x 289.08pt>
+<figure/weights.jpeg, id=682, 578.16pt x 289.08pt>
 File: figure/weights.jpeg Graphic file (type jpg)
 <use figure/weights.jpeg>
-Package pdftex.def Info: figure/weights.jpeg  used on input line 755.
+Package pdftex.def Info: figure/weights.jpeg  used on input line 801.
 (pdftex.def)             Requested size: 416.83289pt x 208.41533pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 751--760
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 761--763
-
- []
-
-[32 <./figure/indiasynthgap.jpeg> <./figure/weights.jpeg>]
-<figure/indiagsynth.jpeg, id=668, 433.62pt x 289.08pt>
-File: figure/indiagsynth.jpeg Graphic file (type jpg)
-<use figure/indiagsynth.jpeg>
-Package pdftex.def Info: figure/indiagsynth.jpeg  used on input line 767.
-(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-[33 <./figure/indiagsynth.jpeg>]
-<figure/indiagsynthgap.jpeg, id=674, 433.62pt x 289.08pt>
-File: figure/indiagsynthgap.jpeg Graphic file (type jpg)
-<use figure/indiagsynthgap.jpeg>
-Package pdftex.def Info: figure/indiagsynthgap.jpeg  used on input line 776.
-(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-[34 <./figure/indiagsynthgap.jpeg>]
-<figure/indiagsynthc2.jpeg, id=681, 433.62pt x 289.08pt>
-File: figure/indiagsynthc2.jpeg Graphic file (type jpg)
-<use figure/indiagsynthc2.jpeg>
-Package pdftex.def Info: figure/indiagsynthc2.jpeg  used on input line 786.
-(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-<figure/indiagsynthc1.jpeg, id=682, 433.62pt x 289.08pt>
-File: figure/indiagsynthc1.jpeg Graphic file (type jpg)
-<use figure/indiagsynthc1.jpeg>
-Package pdftex.def Info: figure/indiagsynthc1.jpeg  used on input line 794.
-(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 800--802
-
- []
-
-[35 <./figure/indiagsynthc2.jpeg> <./figure/indiagsynthc1.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 838--840
+Underfull \hbox (badness 10000) in paragraph at lines 797--806
 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[36] [37]
-<figure/msperatio.jpeg, id=701, 433.62pt x 289.08pt>
-File: figure/msperatio.jpeg Graphic file (type jpg)
-<use figure/msperatio.jpeg>
-Package pdftex.def Info: figure/msperatio.jpeg  used on input line 875.
-(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 881--899
+[35 <./figure/indiasynthgap.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 807--809
 
  []
 
-[38 <./figure/msperatio.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 913--915
+<figure/indiagsynth.jpeg, id=688, 433.62pt x 289.08pt>
+File: figure/indiagsynth.jpeg Graphic file (type jpg)
+<use figure/indiagsynth.jpeg>
+Package pdftex.def Info: figure/indiagsynth.jpeg  used on input line 813.
+(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36 <./figure/weights.jpeg>] [37 <./figure/indiagsynth.jpeg>]
+<figure/indiagsynthgap.jpeg, id=697, 433.62pt x 289.08pt>
+File: figure/indiagsynthgap.jpeg Graphic file (type jpg)
+<use figure/indiagsynthgap.jpeg>
+Package pdftex.def Info: figure/indiagsynthgap.jpeg  used on input line 822.
+(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
+[38 <./figure/indiagsynthgap.jpeg>]
+<figure/indiagsynthc2.jpeg, id=704, 433.62pt x 289.08pt>
+File: figure/indiagsynthc2.jpeg Graphic file (type jpg)
+<use figure/indiagsynthc2.jpeg>
+Package pdftex.def Info: figure/indiagsynthc2.jpeg  used on input line 832.
+(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
+<figure/indiagsynthc1.jpeg, id=705, 433.62pt x 289.08pt>
+File: figure/indiagsynthc1.jpeg Graphic file (type jpg)
+<use figure/indiagsynthc1.jpeg>
+Package pdftex.def Info: figure/indiagsynthc1.jpeg  used on input line 840.
+(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 846--848
+
+ []
+
+[39 <./figure/indiagsynthc2.jpeg> <./figure/indiagsynthc1.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 884--886
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40] [41]
+<figure/msperatio.jpeg, id=725, 433.62pt x 289.08pt>
+File: figure/msperatio.jpeg Graphic file (type jpg)
+<use figure/msperatio.jpeg>
+Package pdftex.def Info: figure/msperatio.jpeg  used on input line 921.
+(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 927--945
+
+ []
+
+[42 <./figure/msperatio.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 959--961
 \T1/lmr/m/n/12 (+20) around the same time as the ac-tual treat-ment.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 913--915
+Underfull \hbox (badness 10000) in paragraph at lines 959--961
 
  []
 
-[39]
-<figure/indiasynthbd.jpeg, id=717, 433.62pt x 289.08pt>
+[43]
+<figure/indiasynthbd.jpeg, id=740, 433.62pt x 289.08pt>
 File: figure/indiasynthbd.jpeg Graphic file (type jpg)
 <use figure/indiasynthbd.jpeg>
-Package pdftex.def Info: figure/indiasynthbd.jpeg  used on input line 921.
+Package pdftex.def Info: figure/indiasynthbd.jpeg  used on input line 967.
 (pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
-[40 <./figure/indiasynthbd.jpeg>]
-<figure/indiagsynthbd.jpeg, id=723, 433.62pt x 289.08pt>
+[44 <./figure/indiasynthbd.jpeg>]
+<figure/indiagsynthbd.jpeg, id=746, 433.62pt x 289.08pt>
 File: figure/indiagsynthbd.jpeg Graphic file (type jpg)
 <use figure/indiagsynthbd.jpeg>
-Package pdftex.def Info: figure/indiagsynthbd.jpeg  used on input line 931.
+Package pdftex.def Info: figure/indiagsynthbd.jpeg  used on input line 977.
 (pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
 
-Underfull \hbox (badness 2253) in paragraph at lines 937--939
+Underfull \hbox (badness 2253) in paragraph at lines 983--985
 []\T1/lmr/m/n/12 (+20) Figure [][]3.10[][] shows the re-sults of back-dat-ing im-ple-mented us-ing the
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 937--939
+Underfull \hbox (badness 1038) in paragraph at lines 983--985
 \T1/lmr/m/n/12 (+20) treat-ment year, sat-is-fy-ing both con-di-tions for ro-bust-ness. The back-dat-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 937--939
+Underfull \hbox (badness 10000) in paragraph at lines 983--985
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 940--942
+Underfull \hbox (badness 10000) in paragraph at lines 986--988
 
  []
 
-<figure/indiagsynthqtr.jpeg, id=725, 433.62pt x 289.08pt>
+<figure/indiagsynthqtr.jpeg, id=748, 433.62pt x 289.08pt>
 File: figure/indiagsynthqtr.jpeg Graphic file (type jpg)
 <use figure/indiagsynthqtr.jpeg>
-Package pdftex.def Info: figure/indiagsynthqtr.jpeg  used on input line 946.
+Package pdftex.def Info: figure/indiagsynthqtr.jpeg  used on input line 992.
 (pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[41 <./figure/indiagsynthbd.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 952--954
+[45 <./figure/indiagsynthbd.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 998--1000
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 958--960
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1006
 
  []
 
-[42 <./figure/indiagsynthqtr.jpeg>]
-Underfull \hbox (badness 10000) in paragraph at lines 961--963
+[46 <./figure/indiagsynthqtr.jpeg>]
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
 
  []
 
-[43] [44
+[47] [48
 
 ]
 Appendix A.
-[45] [46
+[49] [50
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[47
+[51
 
 ]
-Underfull \hbox (badness 2065) in paragraph at lines 1029--1031
+Underfull \hbox (badness 2065) in paragraph at lines 1075--1077
 [][]\T1/lmr/m/n/12 (+20) Athey, S., Bay-ati, M., Doud-chenko, N., Im-bens, G., & Khos-ravi, K.
  []
 
 
-Underfull \hbox (badness 2698) in paragraph at lines 1029--1031
+Underfull \hbox (badness 2698) in paragraph at lines 1075--1077
 \T1/lmr/m/n/12 (+20) (2021). Ma-trix com-ple-tion meth-ods for causal panel data mod-els.
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 1029--1031
+Underfull \hbox (badness 1803) in paragraph at lines 1075--1077
 \T1/lmr/m/it/12 (+20) Jour-nal of the Amer-i-can Sta-tis-ti-cal As-so-ci-a-tion\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 116\T1/lmr/m/n/12 (+20) (536), 1716--1730.
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[48]
-Underfull \hbox (badness 1910) in paragraph at lines 1059--1061
+[52]
+Underfull \hbox (badness 1910) in paragraph at lines 1105--1107
 \T1/lmr/m/n/12 (+20) con-for-mal in-fer-ence method for coun-ter-fac-tual and syn-thetic con-trols.
  []
 
 
-Underfull \hbox (badness 1803) in paragraph at lines 1059--1061
+Underfull \hbox (badness 1803) in paragraph at lines 1105--1107
 \T1/lmr/m/it/12 (+20) Jour-nal of the Amer-i-can Sta-tis-ti-cal As-so-ci-a-tion\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 116\T1/lmr/m/n/12 (+20) (536), 1849--1864.
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[49]
-Underfull \hbox (badness 1609) in paragraph at lines 1098--1100
+[53]
+Underfull \hbox (badness 1609) in paragraph at lines 1144--1146
 [][]\T1/lmr/m/n/12 (+20) Mankiw, N. G., & Shapiro, M. (1986). \T1/lmr/m/it/12 (+20) News or noise? An anal-y-
  []
 
 
-Underfull \hbox (badness 2384) in paragraph at lines 1098--1100
+Underfull \hbox (badness 2384) in paragraph at lines 1144--1146
 \T1/lmr/m/it/12 (+20) sis of GNP re-vi-sions \T1/lmr/m/n/12 (+20) ({NBER} Work-ing Pa-per No. 1939). Na-
  []
 
 
-Underfull \hbox (badness 2343) in paragraph at lines 1098--1100
+Underfull \hbox (badness 2343) in paragraph at lines 1144--1146
 \T1/lmr/m/n/12 (+20) tional Bu-reau of Eco-nomic Re-search, Inc. Re-trieved from [][]$\T1/lmtt/m/n/12 https :
  []
 
 
-Underfull \hbox (badness 1406) in paragraph at lines 1101--1103
+Underfull \hbox (badness 1406) in paragraph at lines 1147--1149
 \T1/lmr/m/n/12 (+20) thetic con-trol ap-proach. \T1/lmr/m/it/12 (+20) De-fence and Peace Eco-nomics\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 0\T1/lmr/m/n/12 (+20) (0), 1--20.
  []
 
 
-Underfull \hbox (badness 4001) in paragraph at lines 1116--1118
+Underfull \hbox (badness 4001) in paragraph at lines 1165--1167
 \T1/lmr/m/n/12 (+20) mea-sured. \T1/lmr/m/it/12 (+20) The Amer-i-can Jour-nal of Psy-chol-ogy\T1/lmr/m/n/12 (+20) , \T1/lmr/m/it/12 (+20) 15\T1/lmr/m/n/12 (+20) (2), 201--292.
  []
 
-[50] (./thesis.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[54] [55] (./thesis.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 0BD8DBC0570E078BCA89B90A0243AADC;5546.
+(rerunfilecheck)             Checksum: 61B6D2A8F9E7E226AC134F9F581A3F78;5629.
  ) 
 Here is how much of TeX's memory you used:
- 16101 strings out of 479997
- 267744 string characters out of 5887024
- 587922 words of memory out of 5000000
- 33568 multiletter control sequences out of 15000+600000
- 541984 words of font info for 166 fonts, out of 8000000 for 9000
+ 16190 strings out of 479997
+ 268963 string characters out of 5887024
+ 588103 words of memory out of 5000000
+ 33616 multiletter control sequences out of 15000+600000
+ 561097 words of font info for 196 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,12n,77p,2739b,530s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
@@ -1217,14 +1290,11 @@ pdfTeX warning (dest): name{ref-callaway_difference-differences_2021} has been r
 
 pdfTeX warning (dest): name{ref-goodman-bacon_difference-differences_2021} has been referenced but does not exist, replaced by a fixed one
 
-
-pdfTeX warning (dest): name{ref-nagaraj_measuring_nodate} has been referenced but does not exist, replaced by a fixed one
-
-{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (60 pages, 2287439 bytes).
+{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}<c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/hp/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
+Output written on thesis.pdf (65 pages, 2346838 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 825 compressed objects within 9 object streams
- 220 named destinations out of 1000 (max. 500000)
- 39262 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 1003 PDF objects out of 1200 (max. 8388607)
+ 854 compressed objects within 9 object streams
+ 227 named destinations out of 1000 (max. 500000)
+ 49502 words of extra memory for PDF output out of 51595 (max. 10000000)
 

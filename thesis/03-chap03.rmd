@@ -31,9 +31,38 @@ The SCM and its various offshoots have been applied extensively to estimate coun
 
 ## Econometric Approach
 
+The aim of the empirical exercise in this chapter is to construct a counterfactual real GDP series for India. The setup is as follows: I compare the trajectory of India's actual GDP to the trend of "synthetic" India, constructed using a weighted average of predictors and real GDP of donor countries. The treatment happens in the year 2011, when the Central Statistical Organization (CSO) changed the base year from 2004 to 2011, as well started using the MCA21 database to estimate manufacturing output instead of the RBI database. Hence, the specific intervention is the *change in methodology used to measure secoral output*. The assumption here is that no such exogenous intervention took place in the donor countries. 
+\linebreak
+
+The gap between actual and synthetic GDP is the estimated measurement error for India. However, this error is not the same as the classical measurement error, where the unknown observable (latent variable) is measured with a additive, random error term. The treatment in this case is simply a change in methodology, and hence the error is the discrepancy that would have arisen had there been a comparable alternate measure of Indian GDP. The error is defined through an eccounting rather than a econometric framework.
+\linebreak
+
+I now present the identification strategy using the SCM and GSCM. As both models have been discussed in detail in Chapter - 2, I only outline the salient details here. Let effect of change in methodology on India's GDP be $\alpha_{1t}= Y_{1t}-Y^{N}_{1t}$, where $Y_{1t}$ is India's observed real GDP, while $Y^{N}_{1t}$ is the counterfactual, which is assumed to have the underlying factor model as follows:
+
+\begin{equation}
+Y^{N}_{1t}= \delta_{t}+\mathbf{\theta_{t} Z_{i}}+\mathbf{\lambda_{t} \mu_{i}}+ \epsilon_{it}
+(\#eq:eq99)
+\end{equation}
+
+where $\delta_{t}$ is the time trend, $\mathbf{Z_{i}}$ is a vector of observed covariates not affected by the intervention and $\mathbf{ \lambda_{t}}$ is a vector of unobserved common factors. $\mathbf{\theta_{t}}$ and $\mathbf{\mu_{i}}$ are vectors of unknown parameters and unknown factor loadings respectively. $\epsilon_{it}$ is the zero-mean error term. The covariates include gross investment share, the trade share (sum of imports and exports to GDP), as well as the gross primary school enrollment and secondary school enrollment ratios. The effect of the intervention on Indian GDP is given by
+
+\begin{equation}
+\hat{\alpha_{1t}}={Y_{1t}}-\hat{Y^{N}_{1t}}={Y_{1t}}-\sum_{j=2}^{J+1}w^{*}_{j}Y^{N}_{jt}
+(\#eq:eq88)
+\end{equation}
+
+where $Y^{N}_{jt}$ is the observed GDP of donor country $j$ in absence of the treatment, and $w^{*}_{j}$ is the optimal weight assigned by the SCM, under the restriction that the sum of weights is one and that they are positive. 
+\linebreak
+
+Maintaining consistency of notation, the counterfactual GDP is measured in the GSCM via a linear IFE model given by:
+
+\begin{equation}
+\hat{Y_{1t}^{N}}=x_{1t}'\hat{\beta}+\hat{\lambda_{1}'}\hat{f_{t}}
+(\#eq:eq009)
+\end{equation}
 
 
-
+where $x_{1t}$ consists of the covariates described above, $\hat{\lambda_{1}}$ are the estimated common factors for India, and $\hat{f_{t}}$ are the estimated factor loadings. The steps used to estimate the parameters are descibed in Chapter - 2. 
 
 ## Data
 
