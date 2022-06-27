@@ -167,7 +167,7 @@
 	\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \Acknowledgements{
-	I want to thank a few people.
+	This thesis was possible due to the support of many people. I would like to express my gratitude to my primary supervisor, Prof.~Federico Crudu. His guidance, expertise and belief in my abilities pushed me to do my best. I would also like to thank my secondary supervisor, Prof.~Guiliano Curatola for his suggestions and advice. Profs. Arjun Jayadev and Anand Shrivastava of Azim Premji University provided vital feedback through various stages of my work. I would also like to thank the University of Siena for providing academic support and an ideal atmosphere to carry out research. Finally, my research would be incomplete if not for the emotional succour and care from my parents and brother back in India. Their patience and encouragement gave me the motivation needed to cross the finish line, and it is to them that I dedicate this thesis.
 }
 
 \Dedication{
@@ -210,7 +210,7 @@
 	\end{center}
 	\begin{center}
 		\begin{huge}
-			Estimating measurement error in India's GDP\\
+			Measurement Issues in India's GDP\\
 			\vspace{3mm}
 			\Large A synthetic control approach
 		\end{huge}
@@ -227,7 +227,8 @@
 	\hfill
 	\begin{minipage}[t]{0.47\textwidth}\raggedleft
 		{\large{\textbf{Candidato:}\\
-				Advait Moharir}}
+				Advait Moharir\\
+				Matricola: 103431}}
 	\end{minipage}
 	\vspace{2mm} %modificare questo valore in caso il frontespizio non entri in una sola pagina
 	%\vfill
@@ -237,7 +238,7 @@
 	\frontmatter % this stuff will be roman-numbered
 	\pagestyle{empty} % this removes page numbers from the frontmatter
 		\begin{acknowledgements}
-		I want to thank a few people.
+		This thesis was possible due to the support of many people. I would like to express my gratitude to my primary supervisor, Prof.~Federico Crudu. His guidance, expertise and belief in my abilities pushed me to do my best. I would also like to thank my secondary supervisor, Prof.~Guiliano Curatola for his suggestions and advice. Profs. Arjun Jayadev and Anand Shrivastava of Azim Premji University provided vital feedback through various stages of my work. I would also like to thank the University of Siena for providing academic support and an ideal atmosphere to carry out research. Finally, my research would be incomplete if not for the emotional succour and care from my parents and brother back in India. Their patience and encouragement gave me the motivation needed to cross the finish line, and it is to them that I dedicate this thesis.
 	\end{acknowledgements}
 		
 		\hypersetup{linkcolor=blue}
@@ -258,23 +259,23 @@
  \chapter*{Summary}\label{summary}}
  \addcontentsline{toc}{chapter}{Summary}
 
- This thesis consists of three chapters. Chapter-\protect\hyperlink{ch1}{1} titled ``GDP Measurement in India and the World'' provides a broad overview of the history of national accounting. I begin by describing the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception by William Petty in the early 17th century, to the its eventual standardization and universal recognition in the 20th century. I then briefly describe the various methods of GDP accounting, before delving into the debate on measurement issues in Indian GDP. I conclude by summarizing the debate and stressing on the need for alternative methods to estimate the accuracy of national income statistics in India.
+ This thesis consists of three chapters. Chapter-\protect\hyperlink{ch1}{1} titled ``GDP Measurement in India and the World'' provides a broad overview of the history of national accounting. I begin by describing the origins of GDP as a key macroeconomic statistic and a proxy of welfare, tracing its evolution from its conception in the early 17th century, to its standardization and universal recognition in the 20th century. I then briefly describe the various methods of GDP accounting, before delving into the debate on measurement issues in Indian GDP. I conclude by summarizing the debate and stressing on the need for alternative methods to estimate the accuracy of national income statistics in India.
  \linebreak
 
  Chapter-\protect\hyperlink{ch2}{2}, titled ``The Synthetic Control Method'' explores the synthetic control method (SCM). I begin by providing a brief introduction to the method, followed by a technical overview of the SCM. I then comment on the various advantages and disadvantages of the SCM, and review the alternative methods which have emerged in recent times to address its lacunae. I then describe the generalized synthetic control method (GSCM), a flexible and widely used alternative to the SCM, and conclude by listing the salient differences between the two. \linebreak
 
- Chapter-\protect\hyperlink{ch3}{3}, titled ``Estimating measurement error in India's GDP using SCM'' uses the SCM and GSCM to construct a counterfactual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics, and its usage in the SOuth Asian context. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
+ Chapter-\protect\hyperlink{ch3}{3}, titled ``Estimating measurement error in India's GDP using SCM'' uses the SCM and GSCM to construct a counterfactual GDP series, using data from 19 donor countries. I begin by reviewing the literature on GDP measurement error, and synthetic control in macroeconomics, and its usage in the South Asian context. I then specify the identification strategy, describe the data sources, and present the results. Finally, I do a number of robustness checks, and end with a discussion of the results and avenues for future research.
 
  \hypertarget{ch1}{%
  \chapter{GDP Measurement in India and the World}\label{ch1}}
 
- Economic growth and its determinants are a key area of macroeconomic research. The question of achieving sustained and inclusive growth is the cornerstone of economic policy for most developing countries. Statistical measurement of GDP and related macroeconomic aggregates to identify the sectors of the economy that are performing well and those that are stagnating is crucial. Consequently, the measurement of GDP and related magnitudes are an object of scrutiny from academia, media and policymakers.
+ Economic growth and its determinants are a key area of macroeconomic research. The question of achieving sustained and inclusive growth is a key goal of economic policy for most developing countries. Accurate measurement of GDP and related macroeconomic aggregates is crucial in evaluating how each sector of the economy is performing. Consequently, the measurement of GDP and related magnitudes is an object of constant scrutiny from academia, media and policymakers.
  \linebreak
 
- However, India's GDP numbers have been scrutinized even more than usual, especially over the last decade. Commentators have identified several issues in the data post-2011, the major ones listed as follows. One, the assumption that the informal and formal sectors grow at the same rates has led to an overestimation bias in the output of the manufacturing sector. Recent research has found a significant difference in manufacturing output as computed by formal and informal sector surveys (\protect\hyperlink{ref-bhattacharya_great_2019}{Bhattacharya, 2019}). Two, inappropriate deflators have been applied to nominal GDP data, and applying the right deflators leads to significant differences in output estimates. Finally, the focal point of debate has centred on the use of a new database, called the MCA21 database. Critics have pointed out that along with other issues like firm misclassification and lack of state-level data, the assumption that non-reporting firms contribute positively to growth has led to a ``blowing up'' of manufacturing output.
+ However, India's GDP numbers have been scrutinized even more than usual, especially over the last decade. Commentators have identified several issues in the data post-2011, the major ones listed as follows. One, the assumption that the informal and formal sectors grow at the same rates has led to an overestimation bias in the output of the manufacturing sector. Recent research has found a significant difference in manufacturing output as reported by formal and informal sector surveys (\protect\hyperlink{ref-bhattacharya_great_2019}{Bhattacharya, 2019}). Two, inappropriate deflators have been applied to nominal GDP data, and applying the right deflators leads to significant differences in output estimates. Finally, the focal point of debate has been the use of a new database, called the MCA21 database. Critics have pointed out that along with other issues like firm misclassification and lack of state-level data, the assumption that non-reporting firms contribute positively to growth has led to a ``blowing up'' of manufacturing output.
  \linebreak
 
- The third issue has caused many to question the veracity of GDP estimates in recent years. This, along with the lack of good quality data alternatives raise an important question - is India's GDP overestimated, and if so, by how much? In this thesis, I attempt to tackle this question. This chapter sets the context for the empirical exercise implemented in Chapter-\protect\hyperlink{ch3}{3}, by first providing a historical overview of GDP and national accounting (Section \protect\hyperlink{his}{1.1}). The rest of the chapter is structured as follows. Section \protect\hyperlink{met}{1.2}, discusses the three methods of GDP measurement - namely the production, income and expenditure methods. In Section \protect\hyperlink{deb}{1.3}, I present the Indian GDP debate, focussing on two major critiques: one, the exchange between economist R. Nagaraj and the Central Statistical Organization on the veracity of the real GDP series with the base year 2011, and two, the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers, and their changing relationship with key correlates of GDP. Section \protect\hyperlink{ccn}{1.4} concludes.
+ The third issue has caused many to question the veracity of GDP estimates in recent years. This, along with the lack of good quality data alternatives give rise to an important question - is India's GDP overestimated, and if so, by how much? In this thesis, I attempt to tackle this question. This chapter sets the context for the empirical exercise implemented in Chapter-\protect\hyperlink{ch3}{3}, by first providing a historical overview of GDP and national accounting (Section \protect\hyperlink{his}{1.1}). The rest of the chapter is structured as follows. Section \protect\hyperlink{met}{1.2}, discusses the three methods of GDP measurement - namely the production, income and expenditure methods. In Section \protect\hyperlink{deb}{1.3}, I present the Indian GDP debate, focussing on two major critiques: one, the exchange between economist R. Nagaraj and the Central Statistical Organization on the veracity of the real GDP series with the base year 2011, and two, the concerns raised by Arvind Subramanian, the former Chief Economic Advisor on the recent growth numbers, and their changing relationship with key correlates of GDP. Section \protect\hyperlink{ccn}{1.4} concludes.
 
  \hypertarget{his}{%
  \section{National Accounting: A Brief History}\label{his}}
@@ -284,7 +285,7 @@
  the sum of the gross value added of all the institutional units resident in a territory engaged in production (that is, gross value added at basic prices) plus any taxes, minus any subsidies, on products not included in the value of their 
  outputs.
  \end{quote}
- This is an almost universally accepted definition of GDP. However, such precise definitions of output aggregates are a recent phenomenon, with the first edition of the SNA only appearing in the mid-20th century. The origins of national accounting can be traced back to British official William Petty, who first produced estimates of income, expenditure and population in the 17th century to show that England had sufficient resources to raise taxes and take on its neighbours in the Anglo-Dutch war. In this period, warfare was the key motivation for estimating national output, with estimates prioritizing different goals for prosperity, ranging from increasing trade to reducing domestic government debt (\protect\hyperlink{ref-coyle_gdp_2014}{Coyle, 2014}). An innovation in establishing a stable benchmark for what constitutes national income came in form of Adam Smith's \emph{Wealth of Nations}, which stressed the difference between productive and unproductive work (\protect\hyperlink{ref-smith_wealth_2000}{Smith, 2000}). Smith stressed that only labour that adds tangible value is productive, and this net the national debt was the national income. In this definition, services were unproductive and subtracted from the total output.
+ This is an almost universally accepted definition of GDP. However, such precise definitions of output aggregates are a recent phenomenon, with the first edition of the SNA only appearing in the mid-20th century. The origins of national accounting can be traced back to British official William Petty, who first produced estimates of income, expenditure and population in the 17th century to show that England had sufficient resources to raise taxes and take on its neighbours in the Anglo-Dutch war. In this period, warfare was the key motivation for estimating national output, with estimates prioritizing different goals for prosperity, ranging from increasing trade to reducing domestic government debt (\protect\hyperlink{ref-coyle_gdp_2014}{Coyle, 2014}). An innovation in establishing a stable benchmark for what constitutes national income came in form of Adam Smith's \emph{The Wealth of Nations}, which stressed the difference between productive and unproductive work (\protect\hyperlink{ref-smith_wealth_2000}{Smith, 2000}). Smith stressed that only labour that adds tangible value is productive, and this net the national debt was the national income. In this definition, services were unproductive and subtracted from the total output.
  \linebreak
 
  Modern national income accounting was born as a consequence of the Great Depression and the Second World War. Colin Clark in the UK and Simon Kuznets in the US worked on providing income estimates for their respective countries. Kuznets's estimates of output during the Great Depression period were crucial to justifying the subsequent recovery plan (\protect\hyperlink{ref-kuznets_national_1934}{Kuznets, 1934}). During this time, there was a clash of ideas about whether government spending should be included in national income accounting. Kuznets argued for its exclusion, saying that active fiscal spending increased growth independent of individual welfare. This was abandoned in favour of the inclusion of government spending as many economists and government officials argued for its necessity in expanding output during wartime (\protect\hyperlink{ref-keynes_how_2010}{Keynes, 2010}). The Second World War was crucial in cementing the notion of government spending as adding to rather than subtracting from production. More importantly, national output explicitly became an indicator of prosperity and not welfare.
@@ -293,10 +294,10 @@
  The first two decades of the post-war era, characterized as the Golden Age was characterized by rapid growth and low inflation and unemployment in the United States and Europe. National account statistics began to be standardized, and the United Nations established the SNA in 1953. The ideas of demand management and the importance of public spending in ensuring full employment outlined in Keynes' General Theory (\protect\hyperlink{ref-keynes_general_2016}{Keynes, 2016}) centralized the notion that government can control output. This period also saw the Cold War emerge between the US and the Soviet Union, and led to the development of exchange rate and purchasing power parity (PPP) adjusted GDP to make international comparisons. The notion of GDP as an end in itself was challenged due to the crises of the 1970s like stagflation, and the critiques offered by movements like environmentalism (\protect\hyperlink{ref-schumacher_small_1993}{Schumacher, 1993}). This led to the creation of alternative measures of development like the Human Development Index (HDI).
  \linebreak
 
- The next two decades were marked by a shift in the understanding of the causes of growth: fiscal policy receded into the background, while monetary policy and price stability took centre - stage. Growth theory endogenized technology, and human capital, arguing that innovation and R\&D create a virtuous cycle (\protect\hyperlink{ref-romer_increasing_1986}{Romer, 1986}, \protect\hyperlink{ref-romer_endogenous_1990}{1990}). The key challenge during this period was the measurement of services: with the GDP largely originating from the need to estimate the material constraints of the economy, measuring the value of services, especially public services proved to be difficult as inputs are difficult to quantify. With explosion and innovation and variety, GDP also fell short in accounting for rapid changes in prices and improvements in quality. This led the Boskin Commission in the US to conclude that inflation was overstated and growth understated by an average of 1.3\% points (\protect\hyperlink{ref-oulton_implications_1998}{Oulton, 1998}). This paved the way to the usage of hedonic price indices, which uses qualitative characteristics of products to explain their prices. Secondly, software purchases were now not seen as intermediate goods, but as investments due to their role in enhancing productivity. While controversial, both these methodological changes shaped GDP measurement significantly in this period.
+ The next two decades were marked by a shift in the understanding of the causes of growth: fiscal policy receded into the background, while monetary policy and price stability took centre - stage. Growth theory endogenized technology, and human capital, arguing that innovation and R\&D create a virtuous cycle (\protect\hyperlink{ref-romer_increasing_1986}{Romer, 1986}, \protect\hyperlink{ref-romer_endogenous_1990}{1990}). The key challenge during this period was the measurement of services: measuring the value of services, especially public services proved to be difficult as inputs are difficult to quantify. Furthermore, the GDP was well suited only to account for the material constraints of the economy. With explosion and innovation and variety, GDP also fell short in accounting for rapid changes in prices and improvements in quality. This led the Boskin Commission in the US to conclude that inflation was overstated and growth understated by an average of 1.3\% points (\protect\hyperlink{ref-oulton_implications_1998}{Oulton, 1998}). This paved the way to the usage of hedonic price indices, which uses qualitative characteristics of products to explain their prices. Secondly, software purchases were now not seen as intermediate goods, but as investments due to their role in enhancing productivity. While controversial, both these methodological changes shaped GDP measurement significantly in this period.
  \linebreak
 
- The 2008 financial crisis led to questions about the role of financial services in GDP, as the output share of the sector remained high despite large-scale bankruptcies during this period. Contributions of this sector are measured in a fuzzy manner - in proportion to risks that banks and institutions take relative to their outstanding balances, leasing studies to conclude that the sectoral output may be overstated from anywhere between one-half to one-fifth (\protect\hyperlink{ref-haldane_what_2011}{Haldane \& Madouros, 2011}). Another emerging concern was the limitations of GDP in incorporating the role of the informal or so-called shadow economy, due to the arbitrary nature of what is measured and what is not. This has changed in recent times, with the use of time-use surveys and other calibrations to incorporate this aspect into GDP calculations.
+ The 2008 financial crisis led to questions about the role of financial services in GDP, as the output share of the sector remained high despite large-scale bankruptcies during this period. Contributions of this sector are measured in a fuzzy manner - in proportion to risks that banks and institutions take relative to their outstanding balances, leading studies to conclude that the sectoral output may be overstated from anywhere between one-half to one-fifth (\protect\hyperlink{ref-haldane_what_2011}{Haldane \& Madouros, 2011}). Another emerging concern was the limitation of GDP in incorporating the role of the informal or so-called shadow economy, due to the arbitrary nature of what is measured and what is not. This has changed in recent times, with the use of time-use surveys and other calibrations to incorporate this aspect into GDP calculations.
  \linebreak
 
  Finally, studies on the link between prosperity and happiness, as well as challenges like climate change have led to the emergence of movements pushing for expansion of GDP to incorporate sustainability and other aspects of well-being (\protect\hyperlink{ref-easterlin_happinessincome_2010}{Easterlin, McVey, Switek, Sawangfa, \& Zweig, 2010}). While the debate is shifting in many advanced companies, the primacy of growth in lifting people out of poverty in developing countries, as well as helping reduce inequality (\protect\hyperlink{ref-milanovic_global_2013}{Milanovic, 2013}) means that GDP will continue to remain a centrepiece of economic discourse in the years to come.
@@ -313,12 +314,12 @@
  \begin{equation}
  \text{GDP(O)}= \text{Value of output (less change in inventories)} - \text{Intermediate goods}
  \end{equation}
- The tracking of intermediate and final goods is often tricky; the development of the input-output method by economist Wassily Leontief formalized the production method systematically, allowing the tracking of the goods going into production and the value of the final output. This method became attractive to estimate GDP in planning-based economies and was widely adopted in the USSR (\protect\hyperlink{ref-tretyakova_input-output_1976}{Tretyakova \& Birman, 1976}).
+ The tracking of intermediate and final goods is often tricky; the development of the input-output method by economist Wassily Leontief formalized the production method systematically, allowing the tracking of the goods going into production and the value of the final output. This method became attractive for GDP estimation in planning-based economies and was widely adopted in the USSR (\protect\hyperlink{ref-tretyakova_input-output_1976}{Tretyakova \& Birman, 1976}).
 
  \hypertarget{income-method}{%
  \subsection{Income Method}\label{income-method}}
 
- The income method looks at the economy from a different point of view and measures the GDP as the sum of incomes earned. All output in the economy yields income from the various factors of production. The first component is the compensation of employees (COE), consisting of wages earned in cash and kind by workers employed, as well as any kind of benefits provided by employers, like social security or a provident fund. The second component includes income earned on property, and income earned from entrepreneurship. The former consists of rent and interest, while the latter consists of profits and dividends. Together, these constitute the Operating Surplus (OS). Finally, there is income earned by ``own-account'' production, consisting of self-employed workers and unincorporated enterprises, whose incomes do not fit into any of the neat categories defined above. This is called Mixed Income (MI). Adding these up, we get:
+ The income method looks at the economy from a different point of view and measures the GDP as the sum of incomes earned. All output in the economy yields income from various factors of production. The first component is the compensation of employees (COE), consisting of wages earned in cash and kind by workers, as well as any kind of benefits provided by employers, like social security or a provident fund. The second component includes income earned on property, and income earned from entrepreneurship. The former consists of rent and interest, while the latter consists of profits and dividends. Together, these constitute the Operating Surplus (OS). Finally, there is income earned by ``own-account'' production, consisting of self-employed workers and unincorporated enterprises, whose incomes do not fit into any of the neat categories defined above. This is called Mixed Income (MI). Adding these up, we get:
  \begin{equation}
  \text{GDP(I)= \text{COE}+\text{OS}+\text{MI}}
  \end{equation}
@@ -327,14 +328,14 @@
  \hypertarget{expenditure-method}{%
  \subsection{Expenditure Method}\label{expenditure-method}}
 
- The expenditure approach looks at the economy from the exact opposite vantage point as the production method. While the latter looks backward from a point of view of finished output, the former looks at all the input costs going into the economy, or the sum of expenditures. There are four components estimated in this approach. The first is Consumption (C), consisting of all expenditure by private consumers on goods and services. The second is Investment (I), which is the sum of all capital expenditure undertaken domestically by the private sector. The third component is Government (G), which includes both consumption expenditure and investment undertaken by the government, while the last component is net exports (X-M), which is the difference between money spent by foreigners on domestic goods, and domestic consumers on foreign goods and services. Together, we have
+ The expenditure approach looks at the economy from the exact opposite vantage point as the production method. While the latter looks backward from a point of view of finished output, the former looks at all the input costs going into the economy, or the sum of expenditures. There are four components estimated in this approach. The first is Consumption (C), consisting of all expenditure by private consumers on goods and services. The second is Investment (I), which is the sum of all capital expenditure undertaken domestically by the private sector. The third component is Government (G), which includes both consumption expenditure and investment undertaken by the government. The last component is net exports (X-M), which is the difference between money spent by foreigners on domestic goods, and domestic consumers on foreign goods and services. Together, we have
  \begin{equation}
  \text{GDP(E)}=\text{C+I+G+(X-M)}
  \end{equation}
  This approach is one of the most commonly used to estimate GDP. Increases and shortfalls in spending serve as a clear and precise way of communicating fluctuations in the economy, leading to this framework used often to explain the impact of policy on output. For example, the effect of fiscal stimulus (increase in G) on GDP during recessions is an oft-debated topic.
  \linebreak
 
- In India, GDP is estimated using the production and expenditure method. The former estimates gross value added (GVA) by eight sectors of the economy.\footnote{These are Agriculture and Allied Sectors, Mining, Manufacturing, Electricity and Utilities, Construction, Trade, Restaurants and Transport, Finance and Real Estate, and Public Administration and Defense.} The expenditure method uses the format described previously. However, there is little to no data estimated using the income method, due to the lack of regular survey data on household incomes.
+ In India, GDP is estimated using the production and expenditure method. The former estimates gross value added (GVA) by eight sectors of the economy.\footnote{These are: Agriculture and Allied Sectors, Mining, Manufacturing, Electricity and Utilities, Construction, Trade, Restaurants and Transport, Finance and Real Estate, and Public Administration and Defense.} The expenditure method uses the format described previously. However, there is little to no data estimated using the income method, due to the lack of regular survey data on household incomes.
  \linebreak
 
  With this brief overview of the history and measurement of GDP in mind, I now present the debate on the measurement of India's real GDP in the next section.
@@ -342,7 +343,7 @@
  \hypertarget{deb}{%
  \section{The Indian GDP Debate}\label{deb}}
 
- India's Central Statistics Office (CSO) is the agency responsible for publishing estimates of GDP since 1950. Following best practices, the CSO also undertakes revisions of the base year used to measure GDP with constant prices. Updating the base year is a routine practice and typically does not affect the sectoral as well as the aggregate growth trend. However, the set of national account statistics published after changing the base year from 2004 to 2011 has been subject to much scrutiny (\protect\hyperlink{ref-nair_base_2019}{Nair, 2019}; \protect\hyperlink{ref-sapre_analysis_2017}{Sapre \& Sengupta, 2017}). In this section, I discuss two major critiques: one regarding the methodology of measuring manufacturing output, while the other tackling the shift in the relationship between the new GDP numbers and some correlates.
+ India's Central Statistics Office (CSO) is the agency responsible for publishing estimates of GDP since 1950. Following best practices, the CSO also undertakes revisions of the base year used to measure GDP with constant prices. Updating the base year is a routine practice and typically does not affect the sectoral as well as the aggregate growth trend. However, the set of national account statistics published after changing the base year from 2004 to 2011 has been subject to much scrutiny (\protect\hyperlink{ref-nair_base_2019}{Nair, 2019}; \protect\hyperlink{ref-sapre_analysis_2017}{Sapre \& Sengupta, 2017}). In this section, I discuss two major critiques: the first questions the methodology of measuring manufacturing output, while the other examines the shift in the relationship between the new GDP numbers and some correlates.
 
  \hypertarget{the-nagaraj---cso-debate}{%
  \subsection{The Nagaraj - CSO Debate}\label{the-nagaraj---cso-debate}}
@@ -350,13 +351,13 @@
  The change in the methodology for measuring manufacturing output in the new real GDP series (base 2011) prompted an exchange between R Nagaraj, an economist at the Indira Gandhi Institute of Development Research (IGIDIR) and the CSO, in the pages of the \emph{Economic and Political Weekly}, the details of which I summarize below.
  \linebreak
 
- Nagaraj begins by pointing out that there is a significant difference in growth rates for the real GDP as estimated using the 2011 and 2004 series, at 6.6\% and 4.7\% respectively (\protect\hyperlink{ref-nagaraj_seeds_2015-1}{Nagaraj, 2015a}). The primary difference between the old and new series is driven by changes in measures of gross value added, savings and investment due to a change in the database used by the CSO. The new database, called MCA21 has been argued to be better as it contains firm returns filed with the Ministry of Corporate Affairs and has a much larger sample size. The veracity of the new series is questionable, however, due to differences in estimates reported by the Sub-Committee on Private Corporate Sector in its 2014 provisional report and the 2015 final report. PCS savings, investment and GVA shot up by 257\%, 34\% and 108\% respectively between the old and news reports. This combined with the fact that the MCA21 is not publicly available, and that the estimates were not vetted independently was a cause of great concern. Nagaraj stresses that caution must be exercised as the previous database used to measure manufacturing GVA suffered from poor response rates and insufficient filing data. This is supplemented by using a ``blow-up'' factor to compute the aggregates in proportion to the paid-up capital. Citing previous work, Nagaraj argues that relative to alternative sources, there has been a significant overestimation in the GVA numbers.
+ Nagaraj begins by pointing out that there is a significant difference in growth rates for the real GDP as estimated using the 2011 and 2004 series, at 6.6\% and 4.7\% respectively (\protect\hyperlink{ref-nagaraj_seeds_2015-1}{Nagaraj, 2015a}). The primary difference between the old and new series is due by changes in measures of gross value added, savings and investment. This is due to the adoption of a new database, called MCA21. The CSO argues that this is more representative as it contains firm returns filed with the Ministry of Corporate Affairs and has a much larger sample size. The veracity of the new series is questionable, however, due to differences in estimates reported by the Sub-Committee on Private Corporate Sector in its 2014 provisional report and the 2015 final report. PCS savings, investment and GVA shot up by 257\%, 34\% and 108\% respectively between the old and new reports. This combined with the fact that the MCA21 is not publicly available, and that the estimates were not vetted independently was a cause of great concern. Nagaraj stresses that caution must be exercised as the previous database used to measure manufacturing GVA suffered from poor response rates and insufficient filing data. This is supplemented by using a ``blow-up'' factor to compute the aggregates in proportion to the paid-up capital. Citing previous work, Nagaraj argues that relative to alternative sources, there has been a significant overestimation in the GVA numbers.
  \linebreak
 
- In its reply (\protect\hyperlink{ref-cso_no_2015}{CSO, 2015}), the CSO argues that concerns regarding the veracity of PCS output are misplaced. It begins by pointing out that the draft report cited by Nagaraj was a work in progress, and incomplete in many ways. The output in the draft report was restricted to the total revenue reported by the filing companies. However, in the final report the CSO felt that using data from individual components determining the revenue shows the complete picture better; hence the re-estimation and difference in final numbers. It also argues that the scaling-up factor was justified, as there is a deadline for companies to file returns with the database, and incomplete returns were accounted for using this method. Furthermore, paid-up capital for companies who were active but not filed was used to scale up, as no other parameter was available. The other reasons pertained to changes in definitions, usage of individual components of revenue instead of total revenue, and usage of better quality data. Finally, some reclassification and adjustments done to comply with SNA 2008 contributed to the gap between the two figures. Hence, the CSO argues that there is no reason to doubt the veracity of estimates post - 2011.
+ In its reply (\protect\hyperlink{ref-cso_no_2015}{CSO, 2015}), the CSO argues that concerns regarding the veracity of PCS output are misplaced. It begins by pointing out that the draft report cited by Nagaraj was a work in progress, and incomplete in many ways. The output in the draft report was restricted to the total revenue reported by the filing companies. However, in the final report the CSO felt that using data from individual components determining the revenue is more representative; hence the re-estimation and difference in final numbers. It also argues that the scaling-up factor was justified, as there is a deadline for companies to file returns with the database, and incomplete returns were accounted for using this method. Furthermore, paid-up capital for companies who were active but not filed was used to scale up, as no other parameter was available. The other reasons pertained to changes in definitions, usage of individual components of revenue instead of total revenue, and usage of better quality data. Finally, some reclassification and adjustments done to comply with SNA 2008 contributed to the gap between the two figures. Hence, the CSO argues that there is no reason to doubt the veracity of estimates post - 2011.
  \linebreak
 
- In his rejoinder (\protect\hyperlink{ref-nagaraj_seeds_2015}{Nagaraj, 2015b}), questions the usage of dis-aggregated revenue data instead of aggregate data, and argues that the drastic difference in estimates indicates a lack of consistency in the MCA21 database. The main critique centres on the usage of the `scaling-up' factor: as the number of companies sampled was lower in 2013-14 than the previous year, the scaling-up factor is larger, causing overestimation. He further argues that the problem of PCS estimation precedes this procedure, as very few firms with large output are legally registered, already causing the PCS to skew upwards.
+ In his rejoinder (\protect\hyperlink{ref-nagaraj_seeds_2015}{Nagaraj, 2015b}), questions the usage of dis-aggregated revenue data instead of aggregate data, and argues that the drastic difference in estimates indicates a lack of consistency in the MCA21 database. The main critique centres on the usage of the `scaling-up' factor: as the number of companies sampled was lower in 2013-14 than in the previous year, the scaling-up factor is larger, causing overestimation. He further argues that the problem of PCS estimation precedes this procedure, as very few firms with large output are legally registered, causing the PCS to skew upwards.
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/nagaraj1} 
@@ -373,7 +374,7 @@
 
  \caption{Disaggregated GDP growth rates by sector (2013-14). Source: Nagaraj (2015b).}\label{fig:nag2}
  \end{figure}
- Figures \ref{fig:nag1} and \ref{fig:nag2} show the disaggregated growth rates for gross value added by various sectors of the economy, using the 2004 and 2011 base years. Both figures are taken from Nagaraj's rejoinder. As mentioned before, while the change in base year leads to changes in levels, growth trends remain largely smooth. This principle holds broadly for most sectors in both figures, except for Hotels and Restaurants and Manufacturing. The growth numbers as estimated using the 2011 base are significantly larger than those with the old base. For the former, this could be explained due to the reclassification of many sectors to the Trade category, of which Hotels and Restaurants are a subset. However, for the latter, the gap is a cause of concern according to Nagaraj, as the only methodological change pertains to the usage of a new database, and the continued usage of the blowing up factor to account for incomplete data. Especially, for the years 2013-14, the direction of the trends are in opposite directions, with the old base estimating negative growth. Nagaraj concludes that ``seeds of doubt'' regarding the accuracy of the GDP figures, especially the growth rates of PCS GVA remain.
+ Figures \ref{fig:nag1} and \ref{fig:nag2} show the disaggregated growth rates for gross value added by various sectors of the economy, using the 2004 and 2011 base years. Both figures are taken from Nagaraj's rejoinder. As mentioned before, while the change in base year leads to changes in levels, growth trends remain largely smooth. This principle holds broadly for most sectors in both figures, except for Hotels and Restaurants, and Manufacturing. The growth numbers as estimated using the 2011 base are significantly larger than those with the old base. For the former, this could be explained due to the reclassification of many sectors to the Trade category, of which Hotels and Restaurants are a subset. However, for the latter, the gap is a cause of concern according to Nagaraj, as the only methodological change pertains to the usage of a new database, and the continued usage of the blowing up factor to account for incomplete data. Especially, for the years 2013-14, the direction of the trends are in opposite directions, with the old base estimating negative growth. Nagaraj concludes that ``seeds of doubt'' regarding the accuracy of the GDP figures, especially the growth rates of PCS GVA remain.
  \linebreak
 
  In a recent summary (\protect\hyperlink{ref-nagaraj_revisiting_2021}{Nagaraj, 2021}), Nagaraj reiterates these concerns and argues that PCS output remains overestimated. The Nagaraj- CSO debate shows that measurement of manufacturing area output is an area of concern. Other technical issues with the new series are detailed in \protect\hyperlink{ref-nagaraj_measuring_2016}{Nagaraj \& Srinivasan} (\protect\hyperlink{ref-nagaraj_measuring_2016}{2016}).
@@ -384,10 +385,10 @@
  Arvind Subramanian, India's former Chief Economic Advisor makes the case that India's GDP is overestimated using a different methodology (\protect\hyperlink{ref-subramanian_indias_2019}{Subramanian, 2019}). As a `smell test,' he compiles a list of 17 indicators strongly correlated with GDP growth (electricity consumption, vehicle sales, real credit etc.), and finds that pre-2011, 16 of these are positively correlated with GDP growth, but post - 2011, 11 indicators correlate \emph{negatively}. Given that average growth rates in both periods are similar, this is a concerning finding.
  \linebreak
 
- To further test this proposition, Subramanian runs two sets of regressions: first, a cross-sectional specification which regresses GDP growth on electricity, credit, export and import growth, along with their interactions with a time dummy \(T\), which accounts for tehe time periods before and after 2011, as well as an India dummy and its interaction with \(T\). The second is a panel specification, regressing the same variables, but with log levels, along with unit and time fixed effects. The coefficient of interest was that of India time dummy interaction which tells if India's GDP was overestimated post-2011 relative to pre-2011. The specification in essence follows a difference-in-difference structure, using a sample of more than 80 low and middle-income countries.
+ To further test this proposition, Subramanian runs two sets of regressions: first, a cross-sectional specification which regresses GDP growth on electricity, credit, export and import growth, along with their interactions with a time dummy \(T\), which accounts for the time periods before and after 2011, as well as an India dummy and its interaction with \(T\). The second is a panel specification, regressing the same variables, but with log levels,unit, and time fixed effects. The coefficient of interest was that of India and the time dummy interaction, which tells if India's GDP was overestimated post-2011 relative to pre-2011. The specification in essence follows a difference-in-difference structure, using a sample of more than 80 low and middle-income countries.
  \linebreak
 
- The idea is to identify a sample of countries which have a robust correlation between growth and some select indicators, and check if India's growth numbers fall into this broad pattern or not. Subramanian finds that the India time dummy interaction coefficient is statistically insignificant pre-2011 and significant post-2011 at 1\% levels, indicating that India is an outlier and that there is an overestimation of output relative to the pre-2011 period. Using these results, Subramanian argues that there is a 2.5\% overestimation in India's GDP annually from 2011-2016. Subramanian's explanation for these results, much like Nagaraj's centres on changes in manufacturing output measurement, particularly the shift from volume-based to value-based measurement. He concludes by calling for a re-examination of National Income Accounting, and transparency in government statistics.
+ The idea is to identify a sample of countries which have a robust correlation between growth and some select indicators, and check if India's growth numbers fall into this broad pattern or not. Subramanian finds that the India time dummy interaction coefficient is statistically insignificant pre-2011 and significant post-2011 at 1\% levels, indicating that India is an outlier and that there is an overestimation of output relative to the pre-2011 period. Using these results, Subramanian argues that there is a 2.5\% overestimation in India's GDP annually from 2011-2016. Subramanian's explanation for these results, much like Nagaraj's, centres on changes in manufacturing output measurement, particularly the shift from volume-based to value-based measurement. He concludes by calling for a re-examination of National Income Accounting, and transparency in government statistics.
 
  \hypertarget{ccn}{%
  \section{Conclusion}\label{ccn}}
@@ -400,18 +401,20 @@
  \hypertarget{ch2}{%
  \chapter{The Synthetic Control Method}\label{ch2}}
 
- The synthetic control method is a relatively recent innovation in causal inference. It was first introduced by Alberto Abadie and Javier Gardeabazal in their 2003 paper investigating estimating the impact of conflict on GDP in the Basque county (\protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal, 2003}). Since then, the method has been used widely to study the impact of policy interventions involving large economic units like cities, states or countries (\protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller, 2010}, \protect\hyperlink{ref-abadie_comparative_2015}{2015}). Nobel laureate Guido Imbens and Susan Athey call it ``arguably the most important innovation in the policy evaluation literature in the last 15 years'' in a recent review of applied econometrics (\protect\hyperlink{ref-athey_state_2017}{Athey \& Imbens, 2017}).
+ \newrobustcmd{\B}{\bfseries}
+
+ The synthetic control method is a relatively recent innovation in causal inference. It was first introduced by Alberto Abadie and Javier Gardeabazal in their 2003 paper investigating the impact of conflict on GDP in the Basque county (\protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal, 2003}). Since then, the method has been used widely to study the impact of policy interventions involving large economic units like cities, states or countries (\protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller, 2010}, \protect\hyperlink{ref-abadie_comparative_2015}{2015}). Nobel laureate Guido Imbens and Susan Athey call it ``arguably the most important innovation in the policy evaluation literature in the last 15 years'' in a recent review of applied econometrics (\protect\hyperlink{ref-athey_state_2017}{Athey \& Imbens, 2017}).
  \linebreak
 
- In this chapter, I present an overview of the synthetic control method (SCM), beginning with a non-technical introduction. In Section \protect\hyperlink{fmr}{2.2}, I examine the theory behind the method, focussing on the setup, estimation and inference. In Section \protect\hyperlink{advdisadv}{2.3}, I present the advantages and limitations of the SCM. I review the advances in the literature on alternative estimation methods in Section \protect\hyperlink{alt}{2.4}. In Section \protect\hyperlink{gscm}{2.5} I delve deeper into the mechanics of the generalized synthetic control methods (GSCM). Section \protect\hyperlink{conc}{2.6} concludes.
+ In this chapter, I present an overview of the synthetic control method (SCM), beginning with a non-technical introduction. In Section \protect\hyperlink{fmr}{2.2}, I examine the theory behind the method, focusing on the setup, estimation and inference. In Section \protect\hyperlink{advdisadv}{2.3}, I present the advantages and limitations of the SCM. I review the advances in the literature on alternative estimation methods in Section \protect\hyperlink{alt}{2.4}. In Section \protect\hyperlink{gscm}{2.5} I delve deeper into the mechanics of the generalized synthetic control methods (GSCM). Section \protect\hyperlink{conc}{2.6} concludes.
 
  \hypertarget{introduction}{%
  \section{Introduction}\label{introduction}}
 
- The SCM emerged in the context of comparative case studies. Case studies often study the effect of a policy or intervention on a particular outcome, by comparing it to other determinants of the outcome. For example, a medicine case study focuses on an ailment, while a political case study examines the impact of an electoral strategy. Comparative case studies compare one or more units exposed to the event or intervention of interest to one or more unexposed units. For example, \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) examines the impact of Proposition 99, a tobacco control program implemented in California and compares its impact on cigarette sales relative to other states. Only some units must be exposed to the intervention, while other comparable units are not.
+ The SCM emerged in the context of comparative case studies. Case studies often study the effect of a policy or intervention on a particular outcome, by comparing it to other determinants of the outcome. For example, a medicine case study focuses on an ailment, while a political case study examines the impact of an electoral strategy. Comparative case studies compare one or more units exposed to the event or intervention of interest to one or more unexposed units. For example, \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) examine the impact of Proposition 99, a tobacco control program implemented in California, and compares its impact on cigarette sales relative to other states. Only some units must be exposed to the intervention, while other comparable units are not.
  \linebreak
 
- Comparative case studies have been used in economics for a long time. However, studies typically relied on the comparison between one unit where a policy was implemented (also called `treatment' unit) to a similar unit, where the policy did not take place (also called `control' unit). A classic example is the study by \protect\hyperlink{ref-card_impact_1990}{Card} (\protect\hyperlink{ref-card_impact_1990}{1990}). Card examines the impact of the Mariel boatlift, which brought Cuban workers to Miami, on the wages of low-skilled workers. He considers various single `control' cities like Houston or Philadelphia, where no such event took place to estimate the difference between wages. The key assumption here is that wages in Miami and the control city would be the same, had the boatlift not taken place. This method is the classic difference-in-difference approach, which has been since used widely in economics (\protect\hyperlink{ref-card_minimum_1994}{Card \& Krueger, 1994}; \protect\hyperlink{ref-dube_minimum_2010}{Dube, Lester, \& Reich, 2010}), with interesting updates to the original methodology (\protect\hyperlink{ref-goodman-bacon_difference_differences_2021}{\textbf{goodman-bacon\_difference\_differences\_2021?}}; \protect\hyperlink{ref-callaway_difference_differences_2021}{\textbf{callaway\_difference\_differences\_2021?}}).
+ Comparative case studies have been used in economics for a long time. However, studies typically relied on the comparison between one unit where a policy was implemented (also called `treatment' unit) to a similar unit, where the policy did not take place (also called `control' unit). A classic example is the study by \protect\hyperlink{ref-card_impact_1990}{Card} (\protect\hyperlink{ref-card_impact_1990}{1990}). Card examines the impact of the Mariel boatlift, which brought Cuban workers to Miami, on the wages of low-skilled workers. He considers various single `control' cities like Houston or Philadelphia, where no such event took place to estimate the difference between wages. The key assumption here is that wages in Miami and the control city would be the same, had the boatlift not taken place. This method is the classic difference-in-difference approach, which has been since used widely in economics (\protect\hyperlink{ref-card_minimum_1994}{Card \& Krueger, 1994}; \protect\hyperlink{ref-dube_minimum_2010}{Dube, Lester, \& Reich, 2010}), with interesting updates to the original methodology (\protect\hyperlink{ref-callaway_difference_differences_2021}{Callaway \& Sant'Anna, 2021}; \protect\hyperlink{ref-goodman-bacon_difference_differences_2021}{Goodman-Bacon, 2021}).
  \linebreak
 
  Synthetic control builds upon difference-in-differences, with the key difference being that instead of considering a single control, a weighted average of a group of controls is considered. When the control group is small in number, their weighted average provides a better unit of comparison than any single entity (\protect\hyperlink{ref-abadie_using_2021}{Abadie, 2021}). Specifically, the estimator chooses the weights such that this combination of control units reflects the treated unit closely. This is the approach followed in \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}). The authors use a weighted average of cigarette sales, composed of 38 states, to study the impact of Proposition 99 in California.
@@ -421,7 +424,7 @@
 
  }
 
- \caption{Synthetic Control of Californoa}\label{fig:prop}
+ \caption{Synthetic Control of California. Source: Abadie et al. (2010).}\label{fig:prop}
  \end{figure}
  Figure \ref{fig:prop} shows the per capita cigarette sales in California and synthetic California from 1970-2000. According to the SCM model, synthetic California is an estimation of what cigarette sales in California would have been, had Proposition 99 not existed. The gap between the two trends post the treatment year (1988), shows that cigarette sales would have been significantly higher in the counterfactual, indicating that the law was successful in reducing tobacco consumption in California. Thus, the SCM offers a very clean and intuitive way to estimate the causal effect of a policy intervention with a small number of large units, like cities, counties or countries. In the next section, I introduce the formal model and elaborate on how estimation and inference take place.
 
@@ -433,13 +436,14 @@
  \hypertarget{setup}{%
  \subsection{Setup}\label{setup}}
 
- Assume that \(i=1\) is the first unit is the unit where the intervention occurred or the treated unit. The rest of the units, from \(i=2,3...,J+1\), form the set of units unaffected by the treatment and are referred to as the donor pool. Let the data be observed for \(T\) periods, where the first \(T_0\) periods are those before the intervention. The outcome of interest observed for unit \(i\) at time \(t\) is referred to as \(Y_{it}\). We also observe \(k\) predictors of the outcome \(i\), \(X_{1i},......,X_{ki}\). The vectors \(\mathbf{X}_{1},…,\mathbf{X}_{j+1}\) contain the values of the predictors for units \(i = 1,…,J + 1\), respectively. The \(k \times J\) matrix, \(\mathbf{X}_{0} = [\mathbf{X}_{2},..., \mathbf{X}_{J+1}]\), collects the values of the predictors for the J untreated units.
+ Assume that \(i=1\) is the unit where the intervention occurred, or the treated unit. The rest of the units, from \(i=2,3...,J+1\), form the set of units unaffected by the treatment and are referred to as the donor pool. Let the data be observed for \(T\) periods, where the first \(T_0\) periods are those before the intervention. The outcome of interest observed for unit \(i\) at time \(t\) is referred to as \(Y_{it}\). We also observe \(k\) predictors of the outcome \(i\), \(X_{1i},......,X_{ki}\). The vectors \(\mathbf{X}_{1},…,\mathbf{X}_{j+1}\) contain the values of the predictors for units \(i = 1,…,J + 1\), respectively. The \(k \times J\) matrix, \(\mathbf{X}_{0} = [\mathbf{X}_{2},..., \mathbf{X}_{J+1}]\), collects the values of the predictors for the \(J\) untreated units.
  \linebreak
 
- For unit \(i=1\) in time \(t\), the potential response \emph{without} the intervention is defined as \(Y^{N}_{it}\), while for the unit \emph{with} by the intervention \(i=1\) at time \(t>T_0\), the potential response is defined as \(Y^{I}_{1t}\). Thus the effect of the intervention at \(t>T_0\) is given by
+ For unit \(i=1\) at time \(t\), the potential response \emph{without} the intervention is defined as \(Y^{N}_{1t}\), while for the unit \emph{with} by the intervention \(i=1\) at time \(t>T_0\), the potential response is defined as \(Y^{I}_{1t}\). Thus the effect of the intervention at \(t>T_0\) is given by
 
  \[\alpha_{1t}= Y^{I}_{1t}-Y^{N}_{1t}.\]
- Since the unit of interest is observed after \(T0\), we have \(Y_{1t}=Y^{I}_{1t}\). The unknown response is the counterfactual, which is the evolution of the outcome of interest in absence of the intervention for \(t>T0\). Now, let \(D_{it}\) take the value 1 if unit \(i\) is exposed to the intervention and 0 otherwise. Then the observed outcome \(Y_{it}\) is given by
+
+ Since the unit of interest is observed after \(T_0\), we have \(Y_{1t}=Y^{I}_{1t}\). The unknown response is the counterfactual, which is the evolution of the outcome of interest in the absence of the intervention for \(t>T_0\). Now, let \(D_{it}\) take the value 1 if unit \(i\) is exposed to the intervention and 0 otherwise. Then the observed outcome \(Y_{it}\) is given by
  \begin{equation}
  Y_{it}= Y^{N}_{it} + \alpha_{it} D_{it}.
  \label{eq:eq1}
@@ -449,7 +453,7 @@
  D_{it} = 
  \begin{cases} 
  1 &  i=1, t>T_0 \\
-  0 &\text{otherwise}.
+ 0 &\text{otherwise}.
  \end{cases}
  \label{eq:eq2}
  \end{equation}
@@ -470,7 +474,7 @@
  \end{equation}
  where \(\delta_{t}\) is the time trend, \(\mathbf{Z}_{i}\) consists of covariates not affected by the intervention and \(\boldsymbol{\lambda}_{t}\) contains unobserved common factors. \(\boldsymbol{\theta}_{t}\) and \(\boldsymbol{\mu}_{i}\) are unknown parameters and unknown factor loadings respectively. \(\epsilon_{it}\) is the zero-mean error term. Now, consider a \((J\times 1)\) vector of weights \(\mathbf{W}=(w_{2},..,w_{j+1})'\), where each weight is positive and the sum of weights equals one. Thus, the weighted value of the outcome variable is
  \begin{equation}
- \sum_{j=2}^{J+1}w_{j}Y^{N}_{jt}= \delta_{t}+\boldsymbol{\theta}_{t}\sum_{j=2}^{J+1}w_{j}\mathbf{Z}_{j}+\boldsymbol{\lambda}_{t}\sum_{j=2}^{J+1}w_{j}\boldsymbol{\mu}_{j}+\epsilon_{jt}.
+ \sum_{j=2}^{J+1}w_{j}Y^{N}_{jt}= \delta_{t}+\boldsymbol{\theta}_{t}\sum_{j=2}^{J+1}w_{j}\mathbf{Z}_{j}+\boldsymbol{\lambda}_{t}\sum_{j=2}^{J+1}w_{j}\boldsymbol{\mu}_{j}+\sum_{j=2}^{J+1}w_{j}\epsilon_{jt}.
  \label{eq:eq5}
  \end{equation}
  Suppose there exist a set of optimal weights \((w_{2}^{*},...,w_{j}^{*})\), such that,
@@ -485,7 +489,7 @@
 
  These set of weights \((w_{2}^{*},...,w_{j}^{*})\) are such that the weighted sum of each observed outcome variable for the donor group, in the pre-intervention period \(T_0\) (\(Y_{j1},..., Y_{jT_0}\)) equals the respective outcome variable for the treated unit before the intervention (\(Y_{11},...,Y_{1T_0}\)). Similarly, the weighted sum of donor group covariates equals the covariates for the treated unit. In the Proposition 99 example, all the variables on the right-hand side would be the observed per capita cigarette sales in California before 1988, while the terms on the left-hand side denote the weighted sum of per capita cigarette sales in the donor states. From Equation \eqref{eq:eq4}, we have
  \begin{equation}
- \hat{Y}^{N}_{1t}=\sum_{j=2}^{J+1}w_{j}Y^{N}_{jt}.
+ \hat{Y}^{N}_{1t}=\sum_{j=2}^{J+1}w^{*}_{j}Y^{N}_{jt}.
  \label{eq:eq6}
  \end{equation}
  and
@@ -493,15 +497,17 @@
  \hat{\alpha}_{1t}={Y_{1t}}-\hat{Y}^{N}_{1t}.
  \label{eq:eq7}
  \end{equation}
- Equation \eqref{eq:eq6} states that the estimated synthetic control for the unobserved outcome is given by the weighted average of the observed outcome variables in the donor group. This is true as each observation of the estimated synthetic control (\(\hat{Y}^{N}_{1t}\)) is the weighted average of each observation in the donor group (Equations 6-10). Once the synthetic control is estimated, the treatment effect for the affected unit is simply the difference between the observed outcome and the estimated unobserved outcome in \(t>T_0\), as shown in Equation \eqref{eq:eq7}.
+ Equation \eqref{eq:eq6} states that the estimated synthetic control for the unobserved outcome is given by the weighted average of the observed outcome variables in the donor group. This is true as each observation of the estimated synthetic control (\(\hat{Y}^{N}_{1t}\)) is the weighted average of each observation in the donor group. Once the synthetic control is estimated, the treatment effect for the affected unit is simply the difference between the observed outcome and the estimated unobserved outcome in \(t>T_0\), as shown in Equation \eqref{eq:eq7}.
  \linebreak
 
  How are the optimal weights determined? \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) argue that the weights should be chosen so that the synthetic control best resembles the pre-treatment values of the predictors of the outcome variable. As stated before, \(\mathbf{X}_1\) contains the pre-treatment values of the covariates which predict the outcome variable for the treated unit, while \(\mathbf{X}_0\) refers to the same for the donor units. Then, the vector of weights \(\mathbf{W^*}\), minimizes
 
  \[||\mathbf{X}_1-\mathbf{X}_{0}\mathbf{W}||=\sqrt{(\mathbf{X}_1-\mathbf{X}_{0} \mathbf{W})' \mathbf{V}(\mathbf{X}_1-\mathbf{X}_{0} \mathbf{W})}.\]
+
  The matrix \(\mathbf{V}\) measures the discrepancy between \(\mathbf{X}_1\) and \(\mathbf{X}_0\). The choice of \(\mathbf{V}\) is an important one and influences the quality of the pre-intervention fit. \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) choose \(\mathbf{V}\), such that the synthetic control minimizes the mean squared prediction error (MSPE)
 
- \[ \sum_{t \in T_0}(Y_{1t}- w_{2}(\mathbf{V})Y_2{t}-...-w_{J+1}(\mathbf{V})Y_{J+1t})^2.\]
+ \[\sum_{t \in T_0}(Y_{1t}- w_{2}(\mathbf{V})Y_2{t}-...-w_{J+1}(\mathbf{V})Y_{J+1t})^2.\]
+
  The MSPE is a measure of the distance between the outcome variable of the treated unit (\(Y_{1t}\)) and the predicted outcome variable generated by the synthetic control. It is crucial to infer the outcome of the synthetic control, which is explained in the next section.
 
  \hypertarget{inference}{%
@@ -514,7 +520,7 @@
 
  }
 
- \caption{Per-capita cigarette sales gaps in California and placebo gaps in 19 control states}\label{fig:placebo}
+ \caption{Per-capita cigarette sales gaps in California and placebo gaps in 19 control states. Source: Abadie et al. (2010).}\label{fig:placebo}
  \end{figure}
  Figure \ref{fig:placebo} shows the gap in the per capita cigarette sales in the placebo states as well as California. The cigarette sale gap is highest in the state of California, showing that the effect of Proposition 99 was significant in size. The sample is restricted to 19 states, as units with a pre-intervention MSPE greater than 2 times that of California are discarded. This is done to exclude states which are too similar to California.
  \linebreak
@@ -542,67 +548,68 @@
 
  }
 
- \caption{Ratio of post and pre-treatment MSPE in California and donor states}\label{fig:mspe}
+ \caption{Ratio of post and pre-treatment MSPE in California and donor states.}\label{fig:mspe}
  \end{figure}
- To better understand how to interpret this test statistic, consider again the Proposition 99 example. Figure \ref{fig:mspe} shows the value of the test statistic, i.e.~the ratio of the post-treatment to the pre-treatment MSPE for the treated state (California) and each of the states belonging to the donor pool. The MSPE is the squared value of the Euclidean distance between the fitted cigarette sales and actual cigarette sales. If Proposition 99 had a significant effect on cigarette sales in California, then the pre-treatment trend of California and synthetic California overlap, and diverge in the post-treatment period. Hence, the ratio of the two MSPEs should be the largest for California, which is exactly what is seen in Figure \ref{fig:mspe}. Furthermore, using equation \eqref{eq:eq10} the corresponding p-values of this statistic can be computed, as shown in Table 2.1.
+ To better understand how to interpret this test statistic, consider again the Proposition 99 example. Figure \ref{fig:mspe} shows the value of the test statistic, i.e.~the ratio of the post-treatment to the pre-treatment MSPE for the treated state (California), and each of the states belonging to the donor pool. The MSPE is the squared value of the Euclidean distance between the fitted cigarette sales and actual cigarette sales. If Proposition 99 had a significant effect on cigarette sales in California, then the pre-treatment trend of California and synthetic California overlap, and diverge in the post-treatment period. Hence, the ratio of the two MSPEs should be the largest for California, which is exactly what is seen in Figure \ref{fig:mspe}.
+ \newpage
  \begin{table}[h!!]
  \centering
  \begin{tabular}{llr}
  \hline
  \hline
- \textbf{Unit name} & \textbf{Type}&\textbf{p-values}\\
+ \B {Unit name} & \B {Type}&\B {p-values}\\
  \hline
  \hline
- California & Treated & 0.0256410\\
+ California & Treated & 0.025\\
  \hline
- Georgia & Donor & 0.0512821\\
+ Georgia & Donor & 0.051\\
  \hline
- Virginia & Donor & 0.0769231\\
+ Virginia & Donor & 0.076\\
  \hline
- Indiana & Donor & 0.1025641\\
+ Indiana & Donor & 0.102\\
  \hline
- West Virginia & Donor & 0.1282051\\
+ West Virginia & Donor & 0.128\\
  \hline
- Connecticut & Donor & 0.1538462\\
+ Connecticut & Donor & 0.153\\
  \hline
- Nebraska & Donor & 0.1794872\\
+ Nebraska & Donor & 0.179\\
  \hline
- Missouri & Donor & 0.2051282\\
+ Missouri & Donor & 0.205\\
  \hline
- Texas & Donor & 0.2307692\\
+ Texas & Donor & 0.230\\
  \hline
- Idaho & Donor & 0.2564103\\
+ Idaho & Donor & 0.256\\
  \hline
  \end{tabular}
- \label{tab:tab1}
- \caption{p-values for the Post-Pre Intervention MSPE Ratio for select states}
+ \caption{p-values for the Post-Pre Intervention MSPE Ratio for select states.}
+ \label{tab:t21}
  \end{table}
- The p-value for California is about 2.5\%, making the test statistic significant at 5\%.
+ Furthermore, using equation \eqref{eq:eq10} the corresponding p-values of this statistic can be computed, as shown in Table \ref{tab:t21}. The p-value for California is about 2.5\%, making the test statistic significant at 5\%.
 
  \hypertarget{advdisadv}{%
  \section{Advantages and Limitations of SCM}\label{advdisadv}}
 
- The standard synthetic control method, estimated as per \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) has several advantages. The first distinct advantage of the standard SCM is that it gives a transparent fit. Specifically, the discrepancy between the treated unit and the combination of the donor units can be seen clearly. This can be done by computing the difference between the pre-treatment averages of the variables of interest for the treated unit and the corresponding synthetic control. In continuation, the weights assigned to each of the donor units are also easily accessible, which allows the researcher to understand which units are more similar to the treated unit, and which are not. Secondly, synthetic control methods preclude extrapolation due to the constraint that the sum of the weights is one. A regression model, in contrast, allows for negative weights. Finally, SCM provides a safeguard against `specification searches,' which means cherry-picking models which yield a known result. This is avoided in SCM, as all the information used to compute the estimator is taken from the pre-intervention period, while the counterfactual for the post-intervention period remains unknown. Finally, SCM results are geometrically intuitive and can be easily visualized, and interpreted through placebo and exact test statistics.
+ The standard synthetic control method, estimated as per \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}) has several advantages. The first distinct advantage of the standard SCM is that it gives a transparent fit. Specifically, the discrepancy between the treated unit and the combination of the donor units can be seen clearly. This can be done by computing the difference between the pre-treatment averages of the variables of interest for the treated unit and the corresponding synthetic control. Furthermore, the weights assigned to each of the donor units are also easily accessible, which allows the researcher to understand which units are similar to the treated unit, and which are not. Secondly, synthetic control methods preclude extrapolation due to the constraint that the sum of the weights is one. A regression model, in contrast, allows for negative weights. Thirdly, SCM provides a safeguard against `specification searches,' i.e.~cherry-picking models which yield a known result. This is avoided with SCM, as all the information used to compute the estimator is taken from the pre-intervention period, while the counterfactual for the post-intervention period remains unknown. Finally, SCM results are geometrically intuitive and can be easily visualized and interpreted through placebo and exact test statistics.
  \linebreak
 
- However, the standard SCM has some limitations, two of which I highlight here. The first, elaborated by \protect\hyperlink{ref-ferman_cherry_2020}{Ferman, Pinto, \& Possebom} (\protect\hyperlink{ref-ferman_cherry_2020}{2020}), relates to specification searching opportunities. The choice of contributors to the synthetic control is often a matter of discretion, and hence it is possible to try and test several combinations which yield a desired pre-treatment fit and post-treatment trend. There is significant room for such searches when the number of pre-treatment periods is close to those used in common applications. While the distance function is minimized algorithmically, which limits the bias, the function itself is endogenously chosen by the researcher, creating the potential for bias and ``p-hacking''(\protect\hyperlink{ref-cunningham_causal_2021}{Cunningham, 2021}).
+ However, the standard SCM has some limitations, two of which I highlight here. The first, elaborated by \protect\hyperlink{ref-ferman_cherry_2020}{Ferman, Pinto, \& Possebom} (\protect\hyperlink{ref-ferman_cherry_2020}{2020}), relates to specification searching opportunities. The choice of contributors to the synthetic control is often a matter of discretion, and hence it is possible to try and test several combinations which yield a desired pre-treatment fit and post-treatment trend. There is significant room for such searches when the number of pre-treatment periods is close to those used in common applications. While the distance function is minimized algorithmically, which limits the bias, the function itself is endogenously chosen by the researcher, creating the potential for bias and ``p-hacking'' (\protect\hyperlink{ref-cunningham_causal_2021}{Cunningham, 2021}).
  \linebreak
 
- Another common critique centres on the restriction placed on weights: that they must be positive and sum up to one. In technical terms, this is the ``convex hull assumption,'' wherein the weighted average (or convex combination) of the predictors of the donor pool falls close to the convex hull of these points. This restriction leads to sparse distribution of weights, with a small number of units contributing heavily to the synthetic control, and many units contributing close to zero. Since there are typically multiple predictors, and they are to be determined such that the synthetic control resembles the treated unit both in terms of the outcome and the predictors, the weights of the predictors and the control units are jointly optimized. However, multiple studies have shown that the weights produced by algorithms using such joint optimization procedures are unstable and sub-optimal (\protect\hyperlink{ref-becker_estimating_2017}{Becker \& Klößner, 2017}; \protect\hyperlink{ref-klosner_comparative_2018}{Klößner, Kaul, Pfeifer, \& Schieler, 2018}). \protect\hyperlink{ref-kuosmanen_design_2021}{Kuosmanen, Zhou, Eskelinen, \& Malo} (\protect\hyperlink{ref-kuosmanen_design_2021}{2021}) use insights from game theory to show that the true optimum of this estimation procedure is a corner solution, which assigns all the weight to a single predictor, which defeats the purpose of the SCM. These limitations, along with some others (\protect\hyperlink{ref-doudchenko_balancing_2016}{Doudchenko \& Imbens, 2016}; \protect\hyperlink{ref-gobillon_regional_2016}{Gobillon \& Magnac, 2016}) have led to the development of alternatives to the SCM.
+ Another common critique centres on the restriction placed on weights: that they must be positive and sum up to one. In technical terms, this is the ``convex hull assumption,'' wherein the weighted average (or convex combination) of the predictors of the donor pool falls close to the convex hull of these points. This restriction leads to sparse distribution of weights, with a small number of units contributing heavily to the synthetic control, and many units contributing close to zero. Since there are typically multiple predictors, and they are to be determined such that the synthetic control resembles the treated unit both in terms of the outcome and the predictors, the weights of the predictors and the control units are jointly optimized. However, multiple studies have shown that the weights produced by algorithms using such joint optimization procedures are unstable and sub-optimal (\protect\hyperlink{ref-becker_estimating_2017}{Becker \& Klößner, 2017}; \protect\hyperlink{ref-klosner_comparative_2018}{Klößner, Kaul, Pfeifer, \& Schieler, 2018}). \protect\hyperlink{ref-kuosmanen_design_2021}{Kuosmanen, Zhou, Eskelinen, \& Malo} (\protect\hyperlink{ref-kuosmanen_design_2021}{2021}) use insights from game theory to show that the true optimum of this estimation procedure is a corner solution, which assigns all the weight to a single predictor and defeats the purpose of the SCM. These limitations, along with some others (\protect\hyperlink{ref-doudchenko_balancing_2016}{Doudchenko \& Imbens, 2016}; \protect\hyperlink{ref-gobillon_regional_2016}{Gobillon \& Magnac, 2016}) have led to the development of alternatives to the SCM.
 
  \hypertarget{alt}{%
  \section{Alternative Estimators}\label{alt}}
 
- Since its introduction in \protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal} (\protect\hyperlink{ref-abadie_economic_2003}{2003}), the synthetic control method has become a popular tool of causal inference. However, it has also been criticised for reasons mentioned in the previous section; the critiques have also spawned many alternatives. Some of these are improvements to the standard SCM, while others use different estimation techniques altogether. \protect\hyperlink{ref-ferman_synthetic_2021}{Ferman \& Pinto} (\protect\hyperlink{ref-ferman_synthetic_2021}{2021}) deals with the issue of imperfect pre-treatment fit. When the matching of pre-treatment predictors of the treated and the donor units is imperfect, the SCM estimator is biased, even for a large pre-treatment period. However, using a demeaned version of the SCM reduces the bias of the estimator relative to difference-in-differences. \protect\hyperlink{ref-ben-michael_augmented_2021}{Ben-Michael, Feller, \& Rothstein} (\protect\hyperlink{ref-ben-michael_augmented_2021}{2021}) also deals with the issue of bias but instead proposes a bias correction by modifying the regression specification, called the augmented SCM. The predictor matching discrepancy is corrected in this case, by using a penalty term, which is a synthetic control estimator applied to residuals. Extrapolation is penalized with a ridge estimator, which improves pre-treatment fit. The SCM can also be extended to include multiple treated units, which leads to a multiplicity of possible solutions and more scope for matching discrepancy. \protect\hyperlink{ref-abadie_penalized_2021}{Abadie \& L'Hour} (\protect\hyperlink{ref-abadie_penalized_2021}{2021}) proposes a penalizer for pairwise discrepancies between treated and control units, in a multiple unit setup.
+ Since its introduction in \protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal} (\protect\hyperlink{ref-abadie_economic_2003}{2003}), the synthetic control method has become a popular tool of causal inference. However, it has also been criticised for reasons mentioned in the previous section; the critiques have also spawned many alternatives. Some of these are improvements to the standard SCM, while others use different estimation techniques altogether. \protect\hyperlink{ref-ferman_synthetic_2021}{Ferman \& Pinto} (\protect\hyperlink{ref-ferman_synthetic_2021}{2021}) deal with the issue of imperfect pre-treatment fit. When the matching of pre-treatment predictors of the treated and donor units is imperfect, the SCM estimator is biased, even for a large pre-treatment period. However, using a demeaned version of the SCM reduces the bias of the estimator relative to difference-in-differences. \protect\hyperlink{ref-ben-michael_augmented_2021}{Ben-Michael, Feller, \& Rothstein} (\protect\hyperlink{ref-ben-michael_augmented_2021}{2021}) also deal with the issue of bias but instead proposes a bias correction by modifying the regression specification, called the augmented SCM. The predictor matching discrepancy is corrected in this case, by using a penalty term, which is a synthetic control estimator applied to residuals. Extrapolation is penalized with a ridge estimator, which improves pre-treatment fit. The SCM can also be extended to include multiple treated units, which leads to a multiplicity of possible solutions and more scope for matching discrepancy. \protect\hyperlink{ref-abadie_penalized_2021}{Abadie \& L'Hour} (\protect\hyperlink{ref-abadie_penalized_2021}{2021}) propose a penalizer for pairwise discrepancies between treated and control units, in a multiple unit setup.
  \linebreak
 
- A subset of the literature uses matrix completion methods for SCM estimation. This involves assuming a nonlinear factor model for the untreated units, allowing for missing values, which are then estimated using matrix completion methods. Linear combinations of the estimated matrix are then used to construct the synthetic controls. This can be done in a setup without covariates (\protect\hyperlink{ref-amjad_robust_2018}{Amjad, Shah, \& Shen, 2018}), and with covariates (\protect\hyperlink{ref-amjad_mrsc_2019}{Amjad, Misra, Shah, \& Shen, 2019}). \protect\hyperlink{ref-athey_matrix_2021}{Athey, Bayati, Doudchenko, Imbens, \& Khosravi} (\protect\hyperlink{ref-athey_matrix_2021}{2021}) assume that the untreated units are composed of a matrix and a random error term, and the matrix values are estimated using completion techniques. Their methodology allows for the inclusion of covariates and various fixed effects. Some other papers allow for regression-based weights and extrapolation. \protect\hyperlink{ref-doudchenko_balancing_2016}{Doudchenko \& Imbens} (\protect\hyperlink{ref-doudchenko_balancing_2016}{2016}) allow for negative weights that may not sum up to one, where the weights are regularized using an elastic net (a combination of lasso and ridge) to impose penalties. The augmented SCM also allows negative weights, as does the GSCM (\protect\hyperlink{ref-xu_generalized_2017}{Xu, 2017}). \protect\hyperlink{ref-arkhangelsky_synthetic_2021}{Arkhangelsky, Athey, Hirshberg, Imbens, \& Wager} (\protect\hyperlink{ref-arkhangelsky_synthetic_2021}{2021}) introduces an estimator that includes not only control unit weights but also pre-intervention time weights, called the synthetic difference-in-difference estimator.
+ A subset of the literature uses matrix completion methods for SCM estimation. This involves assuming a nonlinear factor model for the untreated units, allowing for missing values, which are then estimated using matrix completion methods. Linear combinations of the estimated matrix are then used to construct the synthetic controls. This can be done in a setup without covariates (\protect\hyperlink{ref-amjad_robust_2018}{Amjad, Shah, \& Shen, 2018}), and with covariates (\protect\hyperlink{ref-amjad_mrsc_2019}{Amjad, Misra, Shah, \& Shen, 2019}). \protect\hyperlink{ref-athey_matrix_2021}{Athey, Bayati, Doudchenko, Imbens, \& Khosravi} (\protect\hyperlink{ref-athey_matrix_2021}{2021}) assume that the untreated units are composed of a matrix and a random error term, and the matrix values are estimated using completion techniques. Their methodology allows for the inclusion of covariates and various fixed effects. Some other papers allow for regression-based weights and extrapolation. \protect\hyperlink{ref-doudchenko_balancing_2016}{Doudchenko \& Imbens} (\protect\hyperlink{ref-doudchenko_balancing_2016}{2016}) allow for negative weights that may not sum up to one, where the weights are regularized using an elastic net (a combination of lasso and ridge) to impose penalties. The augmented SCM also allows negative weights, as does the GSCM (\protect\hyperlink{ref-xu_generalized_2017}{Xu, 2017}). \protect\hyperlink{ref-arkhangelsky_synthetic_2021}{Arkhangelsky, Athey, Hirshberg, Imbens, \& Wager} (\protect\hyperlink{ref-arkhangelsky_synthetic_2021}{2021}) introduce an estimator that includes not only control unit weights but also pre-intervention time weights, called the synthetic difference-in-difference estimator.
  \linebreak
 
- Finally, studies have proposed alternatives to the inference procedure adopted by \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}), which uses a permutation test (the SC is calculated by considering every possible control unit). \protect\hyperlink{ref-hahn_synthetic_2017}{Hahn \& Shi} (\protect\hyperlink{ref-hahn_synthetic_2017}{2017}) show that for the placebo tests to be valid the symmetry assumption must hold i.e.~the distribution of the difference between the pre-treatment outcome variable and the estimated synthetic control must be identical. The authors show that this may not always hold for the standard SCM and propose using the following test: comparing the value of treatment effects of \(T-T_{0}\) post-intervention periods to the distribution of the same values computed for every subset for that number of periods. \protect\hyperlink{ref-chernozhukov_exact_2021}{Chernozhukov, Wüthrich, \& Zhu} (\protect\hyperlink{ref-chernozhukov_exact_2021}{2021}) suggests a conformal inference procedure, starting by assuming that the counterfactual is composed of a mean unbiased proxy and an error term. With the pre and post-intervention outcomes differing only by the treatment effect, the distribution of a function of the post-intervention error terms should be the same as that of a random permutation of the same. In the case of the SCM, this can be tested by setting the proxy as the synthetic control and implementing the test on the residuals computed via least squares. \protect\hyperlink{ref-chernozhukov_t-test_2021}{Chernozhukov, Wuthrich, \& Zhu} (\protect\hyperlink{ref-chernozhukov_t-test_2021}{2021}) provides a methodology for computing an exact t-test for the SC estimator.
+ Finally, studies have proposed alternatives to the inference procedure adopted by \protect\hyperlink{ref-abadie_synthetic_2010}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_synthetic_2010}{2010}), which uses a permutation test (the SC is calculated by considering every possible control unit). \protect\hyperlink{ref-hahn_synthetic_2017}{Hahn \& Shi} (\protect\hyperlink{ref-hahn_synthetic_2017}{2017}) show that for the placebo tests to be valid the symmetry assumption must hold i.e.~the distribution of the difference between the pre-treatment outcome variable and the estimated synthetic control must be identical. The authors show that this may not always hold for the standard SCM and propose using the following test: comparing the value of treatment effects of \(T-T_{0}\) post-intervention periods to the distribution of the same values computed for every subset for that number of periods. \protect\hyperlink{ref-chernozhukov_exact_2021}{Chernozhukov, Wüthrich, \& Zhu} (\protect\hyperlink{ref-chernozhukov_exact_2021}{2021}) suggest a conformal inference procedure, starting by assuming that the counterfactual is composed of a mean unbiased proxy and an error term. With the pre and post-intervention outcomes differing only by the treatment effect, the distribution of a function of the post-intervention error terms should be the same as its random permutation. In the case of the SCM, this can be tested by setting the proxy as the synthetic control and implementing the test on the residuals computed via least squares. \protect\hyperlink{ref-chernozhukov_t-test_2021}{Chernozhukov, Wuthrich, \& Zhu} (\protect\hyperlink{ref-chernozhukov_t-test_2021}{2021}) provide a methodology for computing an exact t-test for the SC estimator.
  \linebreak
 
- The literature on the synthetic control method is thus rich and developing fast. For the remained of the chapter, I delve deeper into the generalized synthetic control method, which includes many of the advances in the literature - specifically, the inclusion of multiple treated units, regression-based weights, and robust inference procedures.
+ The literature on the synthetic control method is rich, and developing fast. For the remainder of the chapter, I delve deeper into the generalized synthetic control method, which includes many of the advances in the literature - specifically multiple treated units, regression-based weights, and robust inference procedures.
 
  \hypertarget{gscm}{%
  \section{Generalized Synthetic Control}\label{gscm}}
@@ -617,7 +624,7 @@
 
  In this section and the next one, I stick to the notation used in \protect\hyperlink{ref-xu_generalized_2017}{Xu} (\protect\hyperlink{ref-xu_generalized_2017}{2017}). Let \(Y_{it}\) be the outcome of interest for unit \(i\) and time \(t\), and let \(O\) and \(C\) denote the total number of units in the treatment and control groups, with \(N\) total units. All units are observed for \(T\) periods, with the pre-treatment periods denoted by \(T_{0, i}\) for each unit. The post-treatment period is given by \(q_{i}=T-T_{0,i}\). It is assumed that \(Y_{it}\) is given by a linear factor model
  \begin{equation}
- Y_{it}=\delta_{it} D_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it}.
+ Y_{it}=\delta_{it} D_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it}
  \end{equation}
  where \(D_{it}\) equals 1 if \(i\) is exposed to treatment, and zero otherwise. \(\delta_{it}\) is the treatment effect, and \(x_{it}\) is a \((k \times 1)\) vector of observed covariates, while \(\beta\) is \((k \times 1)\) vector of unobserved parameters. \(f_{t}\) is a \((r \times 1)\) vector of unobserved common factors and \(\lambda_{i}\) is a vector of factor loadings. \(\epsilon_{it}\) is the zero-mean idiosyncratic error term. The parameter of interest is \(\delta_{it}\); more specifically we are interested in estimating the average treatment effect on the treated unit, given by the sum of \(\delta_{it}\) for each unit, divided by the treatment period.
  \linebreak
@@ -626,21 +633,20 @@
 
  \[Y_{it}(1)=\delta_{it}+ x_{it}'\beta+ \lambda_{i}'f_{t}+\epsilon_{it},\]
 
- \[Y_{it}(0)=x_{it}'\beta + \lambda_{i}'f_{t}+\epsilon_{it}\]
+ \[Y_{it}(0)=x_{it}'\beta + \lambda_{i}'f_{t}+\epsilon_{it}.\]
 
  Hence, we have that \(\delta_{it}= Y_{it}(1)-Y_{it}(0).\)
 
  Let the control and treated units be subscripted from 1 to \(N_{CO}\) and \(N_{CO+1}\) to \(N\) respectively. Then, stacking the control units together yields
  \begin{equation}
- Y_{CO}=X_{CO} \beta+ F \Lambda_{CO}'+\epsilon_{CO}
+ Y_{CO}=X_{CO} \beta+ F \Lambda_{CO}'+\epsilon_{CO}.
  \end{equation}
- where \(Y_{CO}\) and \(\epsilon_{CO}\) are matrices sized \((T \times N_{CO})\), \(X_{CO}\) is of dimension \((T \times N_{CO} \times p)\), while \(\Lambda_{CO}\) is a \((N_{CO} \times R)\) matrix. Hence, the objects \(X_{CO} \beta\) and \(F\Lambda_{CO}'\), are of size \((T \times N_{CO})\).
- \newpage
+ where \(Y_{CO}\) and \(\epsilon_{CO}\) are matrices sized \((T \times N_{CO})\), \(X_{CO}\) is of dimension \((T \times N_{CO} \times p)\), while \(\Lambda_{CO}\) is a \((N_{CO} \times R)\) matrix. Hence, the products \(X_{CO} \beta\) and \(F\Lambda_{CO}'\), are of size \((T \times N_{CO})\).
 
  \hypertarget{estimation-and-inference}{%
  \subsection{Estimation and Inference}\label{estimation-and-inference}}
 
- We are interested in estimating the treatment effect on the treated unit \(i\), at time \(t\), given by \(\hat{\delta_{it}}= Y_{it}(1)-\hat{Y_{it}(0)}\). \(\hat{Y_{it}(0)}\) is imputed using the following three steps:
+ We are interested in estimating the treatment effect on the treated unit \(i\), at time \(t\), given by \(\hat{\delta}_{it}= Y_{it}(1)-\hat{Y}_{it}(0)\). \(\hat{Y}_{it}(0)\) is imputed using the following three steps:
  \linebreak
  \begin{enumerate}
  \def\labelenumi{\arabic{enumi}.}
@@ -648,7 +654,7 @@
  \item
    Estimate an IFE model using only the control group data to obtain
  \end{enumerate}
- \[(\hat{\beta},\hat{F},\hat{\Lambda_{co}})=\arg\min_{\tilde{\beta},\tilde{F},\tilde{\Lambda}}\sum_{i\in C}(Y_{i}-X_{i} \tilde{\beta}-\tilde{F}\tilde{\lambda_{i}})'(Y_{i}-X_{i}\tilde{\beta}-\tilde{F}\tilde{\lambda_{i}}),\]
+ \[(\hat{\beta},\hat{F},\hat{\Lambda}_{co})=\arg\min_{\tilde{\beta},\tilde{F},\tilde{\Lambda}}\sum_{i\in C}(Y_{i}-X_{i} \tilde{\beta}-\tilde{F}\tilde{\lambda}_{i})'(Y_{i}-X_{i}\tilde{\beta}-\tilde{F}\tilde{\lambda}_{i}),\]
 
  \[s.t. \frac{\tilde{F}'\tilde{F}}{T}=I_{r}
  , \Lambda_{CO}'\Lambda_{CO}=\text{diagonal}.\]
@@ -685,67 +691,65 @@
  \hypertarget{conc}{%
  \section{Conclusion}\label{conc}}
 
- In this chapter, I introduced the synthetic control method and examined the formal aspects of setup, estimation and inference. This was followed by a brief overview of the advantages and limitations of the method, and a review of the literature dealing with alternative estimation techniques. Finally, I explored the generalized synthetic control method that extends the standard SCM to a multi-unit setting.
- \linebreak
+ In this chapter, I introduced the synthetic control method and examined the formal aspects of setup, estimation and inference. This was followed by a brief overview of the advantages and limitations of the method, and a review of the literature dealing with alternative estimation techniques. Finally, I explored the generalized synthetic control method.
 
- Both the SCM and GSCM estimate counterfactual trajectories for a treated unit of interest, and under a set of assumptions identify the average treatment effect on the treated unit. However, the underlying models, estimation method and inference for both techniques are completely different. The most important difference lies regarding extrapolation: the GSCM allows for extrapolation and admits negative weights, while the SCM does not. The GSCM assumes a linear factor model with interactive fixed effects, while the SCM has no IFE. The SCM matches on predictors of the outcome of interest and does not use data on the outcome of interest itself. However, the GSCM uses both and hence allows estimating the ATT with and without covariates. Finally, the SCM relies on ratios of pre and post-treatment RMSPE and computes Fisher's exact p-values for inference, with no way to compute confidence intervals. The GSCM uses a parametric bootstrap approach to compute variance and confidence intervals for the estimated ATT. Table 2.2 summarizes the difference between the two.
+ Both the SCM and GSCM estimate counterfactual trajectories for a treated unit of interest, and under a set of assumptions identify the average treatment effect on the treated unit. However, the underlying models, estimation methods and inference for both techniques are completely different. The most important difference lies regarding extrapolation: the GSCM allows for extrapolation and admits negative weights, while the SCM does not. The GSCM assumes a linear factor model with interactive fixed effects, while the SCM has no IFE. The SCM matches on predictors of the outcome of interest and does not use data on the outcome of interest itself. However, the GSCM uses both and hence allows estimating the ATT with and without covariates. Finally, the SCM relies on ratios of pre and post-treatment RMSPE and computes Fisher's exact p-values for inference, with no way to compute confidence intervals. The GSCM uses a parametric bootstrap approach to compute variance and confidence intervals for the estimated ATT. Table \ref{tab:t22} summarizes the difference between the two.
  \begin{table}[h!!]
  \centering
  \resizebox{\textwidth}{!}{\begin{tabular}{lll}
  \hline
- \hline
- \textbf{Criteria} & \textbf{SCM}&\textbf{GSCM}\\
- \hline
+ \textbf{\B Criteria} & \textbf{\B SCM}&\textbf{\B GSCM}\\
  \hline
  Underlying model & Linear factor model & Linear factor model with IFE\\
- Matching & Covariates Only & Covariates and Outcome Variable\\
+ Matching & Covariates only & Covariates and Outcome Variable\\
  Inference & Fisher's exact p-values & Parametric bootstrap\\
  Extrapolation&No&Yes\\
  Multiple Treated Units & No & Yes\\
  Variable Treatment Periods&No&Yes\\
  \hline
  \end{tabular}}
- \caption{Differences between the SCM and GSCM Estimators}
+ \caption{Differences between the SCM and GSCM Estimators.}
+ \label{tab:t22}
  \end{table}
  \linebreak
 
- Both the SCM and GSCM provide different but simple and powerful ways to establish the causal effects of interventions on a variable or a group of variables of interest. While the interpretation of the final estimate(s) of interest are similar, it is important to remember the vast differences in the underlying models and estimation strategies. Hence, appropriate care must be taken and the caveats kept in mind while applying these estimators to study questions of economic policy. In the next chapter, I implement the SCM and GSCM to estimate counterfactual trajectories for India's GDP.
+ Both the SCM and GSCM provide different, but simple and powerful ways to establish the causal effects of interventions on a variable or a group of variables of interest. While the interpretation of the final estimate(s) of interest are similar, it is important to remember the vast differences in the underlying models and estimation strategies. Hence, appropriate care must be taken and the caveats kept in mind while applying these estimators to study questions of economic policy. In the next chapter, I implement the SCM and GSCM to estimate counterfactual trajectories for India's GDP.
 
  \hypertarget{ch3}{%
- \chapter{Estimating measurement error in India's GDP using SCM}\label{ch3}}
+ \chapter{Estimating Measurement Error in India's GDP using SCM}\label{ch3}}
 
- Chapter-\protect\hyperlink{ch1}{1} introduced the issue of measurement error in GDP estimation, focusing specifically on the debate in India. The lack of income-side estimates and methodological opacity makes it difficult to assess the extent to which India's GDP is over/underestimated. Experts are forced to rely on sector-specific anomalies or rely on contradictions observed in fast-moving sectoral data, making it difficult to make causal claims about aggregate data. The key difficulty, in summary, is to estimate a counterfactual GDP series.
+ Chapter-\protect\hyperlink{ch1}{1} introduced the issue of measurement error in GDP estimation, focusing specifically on the debate in India. The lack of income-side estimates and methodological opacity makes it difficult to assess the extent to which India's GDP is over/underestimated. Experts are forced to rely on sector-specific anomalies or on contradictions observed in fast-moving sectoral data, making it difficult to make causal claims about aggregate output. The key problem lies in estimating a counterfactual GDP series, which would serve as a benchmark with which the observed GDP can be compared.
  \linebreak
 
- The synthetic control method offers to be a promising alternative in this regard. Chapter-\protect\hyperlink{ch2}{2} establishes the SCM to be a popular tool to find the causal effect of a policy/intervention on a large unit like a country, state or city. A clean research design, backed with minimal data is sufficient to construct a plausible counterfactual, making its usage attractive for the Indian case, where quality data is scarce.
+ The synthetic control method offers to be a promising alternative. Chapter-\protect\hyperlink{ch2}{2} establishes the SCM as a popular tool to find the causal effect of a policy or intervention on a large unit like a country, state or city. A clean research design, backed with minimal data, is sufficient to construct a plausible counterfactual, making it a feasible alternative for the Indian case.
  \linebreak
 
- In this chapter, I use the SCM and the generalized synthetic control method (SCM) to construct a counterfactual series for India's GDP. The synthetic control is constructed using a donor pool of countries similar to India - in this case, a set of emerging market economies as defined by the IMF. The treatment occurs in the year 2011 when the base year of the GDP series was changed from 2004-05 to 2011 - 12, along with the change in the methodology of measurement. I find that real GDP growth is overestimated by 2.6\% and 3\% on average between 2011 and 2019, as estimated by the SCM and baseline GSCM respectively. The SCM results are significant at 10\%, while the GSCM results are statistically insignificant and not robust to the inclusion of covariates.
+ In this chapter, I use the SCM and the generalized synthetic control method (SCM) to construct a counterfactual series for India's GDP. The synthetic control is constructed using a donor pool of countries similar to India - in this case, a set of emerging market economies as defined by the IMF. The treatment occurs in the year 2011 when the base year of the GDP series was changed from 2004-05 to 2011-12, along with a change in the database and methodology used to measure manufacturing output. I find that real GDP growth is overestimated by 2.6\% and 3\% on average between 2011 and 2019, as estimated by the SCM and baseline GSCM respectively. The SCM results are significant at 10\%, while the GSCM results are statistically insignificant and not robust to the inclusion of covariates.
  \linebreak
 
- The rest of this chapter is structured as follows. Section \protect\hyperlink{lit}{3.1} presents a brief overview of the literature on measurement error in GDP and application to synthetic control for GDP. Section \protect\hyperlink{ec}{3.2} specifies the econometric methodology while Section \protect\hyperlink{dat}{3.3} discusses the data and the sources. Section \protect\hyperlink{res}{3.4} presents the key results, and Section \protect\hyperlink{rob}{3.5} consists of robustness checks. The final section discusses the findings and their implications, and concludes.
+ The rest of this chapter is structured as follows. Section \protect\hyperlink{lit}{3.1} presents a brief overview of the literature on measurement error in GDP and application to synthetic control for GDP. Section \protect\hyperlink{ec}{3.2} specifies the econometric methodology while Section \protect\hyperlink{dat}{3.3} discusses the data and the sources. Section \protect\hyperlink{res}{3.4} presents the key results, and Section \protect\hyperlink{rob}{3.5} consists of robustness checks. Section \protect\hyperlink{conc3}{3.6} discusses the findings and concludes.
 
  \hypertarget{lit}{%
  \section{Literature Review}\label{lit}}
 
- Measurement error in macroeconomic data and GDP, in particular, has been studied extensively. In recent times, scholars have focused on improving measurement. Two strands of literature have emerged: the ``forecast'' error approach examines the difference between forecasted or revised estimates and actual GDP, and characterizes, whether revisions represent measurement errors or ``noise,'' or an efficient forecast accounting for all relevant information, or ``news'' (\protect\hyperlink{ref-aruoba_improving_2013}{Aruoba, Diebold, Nalewaik, Schorfheide, \& Song, 2013}; \protect\hyperlink{ref-mankiw_are_1984}{Mankiw, Runkle, \& Shapiro, 1984}; \protect\hyperlink{ref-mankiw_news_1986}{Mankiw \& Shapiro, 1986}). The second strand, which I focus on, looks at the differences between the income - method and expenditure - method estimates of GDP, as described in Chapter - 1. Since both quantities are estimates of the same unobservable (actual output), the gap between the two is only due to a measurement error. \protect\hyperlink{ref-aruoba_improving_2016}{Aruoba, Diebold, Nalewaik, Schorfheide, \& Song} (\protect\hyperlink{ref-aruoba_improving_2016}{2016}) show that information from \emph{both} estimates can be used to optimally extract the true GDP. By treating both estimates as noisy, and using Bayesian estimation with multiple types of measurement error models, they construct a third estimate, which diagnostic tests show as being broadly representative. \protect\hyperlink{ref-jacobs_can_2022}{Jacobs, Sarferaz, Sturm, \& Norden} (\protect\hyperlink{ref-jacobs_can_2022}{2022}) uses a similar framework but incorporates multiple revised estimates of noisy data, instead of a single vintage. The authors show that their estimates are less likely to undergo revisions compared to \protect\hyperlink{ref-aruoba_improving_2016}{Aruoba, Diebold, Nalewaik, Schorfheide, \& Song} (\protect\hyperlink{ref-aruoba_improving_2016}{2016}). Their estimates also put more weight on expenditure-side data, which is more readily available, and whose historical decompositions show a larger share of ``news'' relative to the income-side estimates. \protect\hyperlink{ref-chang_measurement_2018}{Chang \& Li} (\protect\hyperlink{ref-chang_measurement_2018}{2018}) takes a different approach, by using a pre-analysis plan to estimate the effect of measurement error on the results of empirical papers in top journals. The authors find that replacing GDP with its revised versions does not change the key results, but using GDI instead changes the results substantially. Overall, the existing literature highlights the importance of reconciliation between various sources and releases of GDP estimates.
+ Measurement error in macroeconomic data and GDP in particular, has been studied extensively. In recent times, scholars have focused on improving measurement. Two strands of literature have emerged. The ``forecast'' error approach examines the difference between forecasted or revised estimates and actual GDP. It then characterizes whether revisions represent measurement errors, called ``noise,'' or an efficient forecast accounting for all relevant information, called ``news'' (\protect\hyperlink{ref-aruoba_improving_2013}{Aruoba, Diebold, Nalewaik, Schorfheide, \& Song, 2013}; \protect\hyperlink{ref-mankiw_are_1984}{Mankiw, Runkle, \& Shapiro, 1984}; \protect\hyperlink{ref-mankiw_news_1986}{Mankiw \& Shapiro, 1986}). The second strand, which I focus on, looks at the differences between the income - method and expenditure - method estimates of GDP, as described in Chapter - 1. Since both quantities are estimates of the same unobservable (actual output), the gap between the two is only due to a measurement error. \protect\hyperlink{ref-aruoba_improving_2016}{Aruoba, Diebold, Nalewaik, Schorfheide, \& Song} (\protect\hyperlink{ref-aruoba_improving_2016}{2016}) show that information from \emph{both} estimates can be used to optimally extract the true GDP. By treating both estimates as noisy, and using Bayesian estimation with multiple types of measurement error models, they construct a third estimate, which diagnostic tests show as being broadly representative. \protect\hyperlink{ref-jacobs_can_2022}{Jacobs, Sarferaz, Sturm, \& Norden} (\protect\hyperlink{ref-jacobs_can_2022}{2022}) use a similar framework but incorporates multiple revised estimates of noisy data, instead of a single vintage. The authors show that their estimates are less likely to undergo revisions compared to \protect\hyperlink{ref-aruoba_improving_2016}{Aruoba, Diebold, Nalewaik, Schorfheide, \& Song} (\protect\hyperlink{ref-aruoba_improving_2016}{2016}). Their estimates also put more weight on expenditure-side data, which is more readily available, and whose historical decompositions show a larger share of ``news'' relative to the income-side estimates. \protect\hyperlink{ref-chang_measurement_2018}{Chang \& Li} (\protect\hyperlink{ref-chang_measurement_2018}{2018}) take a different approach, by using a pre-analysis plan to estimate the effect of measurement error on the results of empirical papers in top journals. The authors find that replacing GDP with its revised versions does not change the key results, but using GDI instead changes them substantially. Overall, the existing literature highlights the importance of reconciliation between various sources and releases of GDP estimates.
  \linebreak
 
- The SCM and its various offshoots have been applied extensively to estimate counterfactual GDP. \protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal} (\protect\hyperlink{ref-abadie_economic_2003}{2003}) study the impact of terrorism in the 1960s on the per-capita GDP in Basque County. The paper finds that there was a 10\% decline in growth relative to the synthetic control not affected by terrorism. \protect\hyperlink{ref-abadie_comparative_2015}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_comparative_2015}{2015}) examines the impact of the German reunification in 1990 on West Germany's per capita GDP, and find a negative effect relative to synthetic West Germany. \protect\hyperlink{ref-billmeier_assessing_2013}{Billmeier \& Nannicini} (\protect\hyperlink{ref-billmeier_assessing_2013}{2013}) looks at the impact of economic liberalization on several Latin American, Asian and African countries' real GDP, and find that while the impact was positive for most, there was no significant impact from the later liberalization episodes, especially those in Africa. Most of these studies focus on the GDP of European countries, with papers on developing economies being much more scarce.
+ The SCM and its various offshoots have been applied extensively to estimate counterfactual GDP. \protect\hyperlink{ref-abadie_economic_2003}{Abadie \& Gardeazabal} (\protect\hyperlink{ref-abadie_economic_2003}{2003}) study the impact of terrorism in the 1960s on the per-capita GDP in Basque County. The paper finds that there was a 10\% decline in growth relative to the synthetic control not affected by terrorism. \protect\hyperlink{ref-abadie_comparative_2015}{Abadie, Diamond, \& Hainmueller} (\protect\hyperlink{ref-abadie_comparative_2015}{2015}) examine the impact of the German reunification in 1990 on West Germany's per capita GDP, and find a negative effect relative to synthetic West Germany. \protect\hyperlink{ref-billmeier_assessing_2013}{Billmeier \& Nannicini} (\protect\hyperlink{ref-billmeier_assessing_2013}{2013}) looks at the impact of economic liberalization on several Latin American, Asian and African countries' real GDP, and find that while the impact was positive for most, there was no significant impact from the late liberalization episodes, especially those in Africa. Most of these studies focus on the GDP of European countries, with very few papers on developing economies.
  \linebreak
 
- \protect\hyperlink{ref-mayberry_economic_2022}{Mayberry} (\protect\hyperlink{ref-mayberry_economic_2022}{2022}) examines the effect of the Nuclear Weapons Development programme on Pakistan's GDP, and finds that per capita GDP would have been higher by \$718 on average, had the program not been implemented. \protect\hyperlink{ref-singhal_economic_2016}{Singhal \& Nilakantan} (\protect\hyperlink{ref-singhal_economic_2016}{2016}) study the impact of counterinsurgency programs on the Naxalite (Maoist) movement and find that implementing the same in one state led to a significant rise in its per capita Net State Domestic Product, relative to a synthetic control of other states where such policies were not implemented. This study differs from the existing literature in two ways: one, to my knowledge this is the first paper implementing the SCM to construct a counterfactual aggregate GDP series for India. Second, this study is also the first to use the SCM to study the impact of the base year policy change on GDP, which differentiates it from the studies carried out so far, which look at GDP revisions and sectoral data (see Chapter -1 for a detailed survey).
+ \protect\hyperlink{ref-mayberry_economic_2022}{Mayberry} (\protect\hyperlink{ref-mayberry_economic_2022}{2022}) examines the effect of the Nuclear Weapons Development programme on Pakistan's GDP, and finds that per capita GDP would have been higher by \$718 on average, had the program not been implemented. \protect\hyperlink{ref-singhal_economic_2016}{Singhal \& Nilakantan} (\protect\hyperlink{ref-singhal_economic_2016}{2016}) study the impact of counterinsurgency programs on the Naxalite (Maoist) movement and find that implementing them in one state led to a significant rise in its per capita Net State Domestic Product, relative to a synthetic control of other states, where such policies were not implemented. This study differs from the existing literature in two ways: one, to my knowledge this is the first paper implementing the SCM to construct a counterfactual aggregate GDP series for India. Second, this study is also the first to use the SCM to study the impact of the base year policy change on GDP. The existing literature on this topic focusses on GDP revisions and sectoral data (see Chapter-\href{ch1}{1} for a detailed survey).
 
  \hypertarget{ec}{%
  \section{Econometric Approach}\label{ec}}
 
- The empirical exercise in this chapter aims to construct a counterfactual real GDP series for India. The setup is as follows: I compare the trajectory of India's actual GDP to the trend of ``synthetic'' India, constructed using a weighted average of predictors and the real GDP of donor countries. The treatment happens in the year 2011, when the Central Statistical Organization (CSO) changed the base year from 2004 to 2011, as well as started using the MCA21 database to estimate manufacturing output instead of the RBI database. Hence, the specific intervention is the \emph{change in methodology used to measure sectoral output}. The assumption here is that no such exogenous intervention took place in the donor countries.
+ The empirical exercise in this chapter aims to construct a counterfactual real GDP series for India. The setup is as follows: I compare the trajectory of India's actual GDP to the trend of ``synthetic'' India, constructed using a weighted average of predictors and the real GDP of donor countries. The treatment happens in the year 2011, when the Central Statistical Organization (CSO) changed the base year from 2004 to 2011, and started using the MCA21 database to estimate manufacturing output instead of the RBI database. Hence, the specific intervention is the \emph{change in methodology used to measure sectoral output}. The assumption here is that no such exogenous intervention took place in the donor countries.
  \linebreak
 
- The gap between actual and synthetic GDP is the estimated measurement error for India. However, this error is not the same as the classical measurement error, where the latent variable is measured with an additive, random error term. The treatment, in this case, is simply a change in methodology, and hence the error is the discrepancy that would have arisen had there been a comparable alternate measure of Indian GDP. The error is defined through an accounting rather than an econometric framework, where overestimation arises due to mismeasurement of output in certain sectors.
+ The gap between actual and synthetic GDP is the estimated measurement error for India. However, this error is not the same as the classical measurement error, where the latent variable is measured with an additive, random error term. The treatment, in this case, is simply a change in methodology, and hence the error is the discrepancy that would have arisen had there been a comparable alternative measure of Indian GDP. The error is defined through an accounting rather than an econometric framework, where overestimation arises due to mismeasurement of output in certain sectors.
  \linebreak
 
- I now present the identification strategy using the SCM and GSCM. As both models have been discussed in detail in Chapter - 2, I only outline the salient details here. Let the effect of change in methodology on India's GDP be \(\alpha_{1t}= Y_{1t}-Y^{N}_{1t}\), where \(Y_{1t}\) is India's observed real GDP, while \(Y^{N}_{1t}\) is the counterfactual, which is assumed to have the underlying factor model as follows:
+ I now present the identification strategy. As both the SCM and GSCM have been discussed in detail in Chapter-\protect\hyperlink{ch2}{2}, I only outline the salient features here. Let the effect of change in the methodology of measurement on India's GDP be \(\alpha_{1t}= Y_{1t}-Y^{N}_{1t}\), where \(Y_{1t}\) is India's observed real GDP, while \(Y^{N}_{1t}\) is the counterfactual, which is assumed to have the following underlying factor model:
  \begin{equation}
  Y^{N}_{1t}= \delta_{t}+\boldsymbol{\theta}_{t}\mathbf{Z}_{i}+\boldsymbol{\lambda}_{t} \boldsymbol{\mu}_{i}+ \epsilon_{it}.
  \label{eq:eq99}
@@ -758,7 +762,7 @@
  where \(Y^{N}_{jt}\) is the observed GDP of donor country \(j\) in absence of the treatment, and \(w^{*}_{j}\) is the optimal weight assigned by the SCM, under the restriction that the sum of weights is one and that they are positive.
  \linebreak
 
- Maintaining consistency of notation, the counterfactual GDP is measured in the GSCM via a linear IFE model given by:
+ The counterfactual GDP is measured in the GSCM via a linear IFE model given by:
  \begin{equation}
  \hat{Y}_{1t}^{N}=x_{1t}'\hat{\beta}+\hat{\lambda}_{1}'\hat{f}_{t}
  \label{eq:eq009}
@@ -768,13 +772,16 @@
  \hypertarget{dat}{%
  \section{Data}\label{dat}}
 
- In this section, I introduce the data used for the construction of the synthetic control and describe the sources. The synthetic control consists of countries similar to India, without the treatment. I choose 19 countries from the International Monetary Fund's (IMF) World Economic Outlook List of Emerging Market Economies (EMEs). A country is classified as an EME if it demonstrates strong and stable growth, production of high value-added growth, and increased integration in global trade and financial markets. The following countries (other than India) were classified as being EMEs over the period 2010 - 2020: Argentina, Brazil, Chile, China, Colombia, Egypt, Hungary, Indonesia, Iran, Malaysia, Mexico, the Philippines, Poland, Russia, Saudi Arabia, South Africa, Thailand and Turkey.
- \begin{table}[!htbp] \centering 
-   \label{} 
+ In this section, I introduce the data used for the construction of the synthetic control and describe the sources. The synthetic control consists of countries similar to India, without the treatment. I choose 19 countries from the International Monetary Fund's (IMF) World Economic Outlook List of Emerging Market Economies (EMEs). A country is classified as an EME if it demonstrates strong and stable growth, production of high value-added growth, and increased integration in global trade and financial markets. The following countries (other than India) were classified as EMEs over the period 2010 - 2020: Argentina, Brazil, Chile, China, Colombia, Egypt, Hungary, Indonesia, Iran, Malaysia, Mexico, the Philippines, Poland, Russia, Saudi Arabia, South Africa, Thailand and Turkey.
+ \linebreak
+
+ The dataset consists of 551 observations over the period 1991 - 2019. The outcome variable of interest is the log real GDP in local currency units (LCU). Following the literature on growth and applications of synthetic controls to GDP (\protect\hyperlink{ref-acemoglu_democracy_2019}{Acemoglu, Naidu, Restrepo, \& Robinson, 2019}; \protect\hyperlink{ref-billmeier_assessing_2013}{Billmeier \& Nannicini, 2013}), I include the following covariates: Gross Investment as a share of GDP, trade (sum of exports and imports) as a share of GDP, Gross Primary School Enrollment and Gross Secondary School Enrollment. The data for all variables is obtained from the World Development Indicators (WDI) database maintained by the World Bank.
+ \begin{table}[h!!!] 
+ \centering 
  \begin{tabular}{@{\extracolsep{5pt}}lccccc} 
- \\[-1.8ex]\hline 
+ \\[-1.8ex]
  \hline \\[-1.8ex] 
- Variable & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+ \B Variable & \multicolumn{1}{c}{\B N} & \multicolumn{1}{c}{\B Mean} & \multicolumn{1}{c}{\B St. Dev.} & \multicolumn{1}{c}{\B Min} & \multicolumn{1}{c}{\B Max} \\ 
  \hline \\[-1.8ex] 
  GDP (log) & 551 & 30.0 & 2.7 & 26.0 & 37.0 \\ 
  Investment & 538 & 23.0 & 6.4 & 12.0 & 44.0 \\ 
@@ -783,12 +790,15 @@
  Secondry Enrollment & 551 & 83.0 & 17.0 & 30.0 & 121.0 \\ 
  \hline \\[-1.8ex] 
  \end{tabular} 
-   \caption{ Summary Statistics} 
+   \caption{ Summary Statistics.} 
+   \label{tab:t31}
  \end{table}
- The dataset consists of 551 observations over the period 1991 - 2019. The outcome variable of interest is the log real GDP in local currency units (LCU). Following the literature on growth and applications of synthetic controls to GDP (\protect\hyperlink{ref-acemoglu_democracy_2019}{Acemoglu, Naidu, Restrepo, \& Robinson, 2019}; \protect\hyperlink{ref-billmeier_assessing_2013}{Billmeier \& Nannicini, 2013}), I include the following covariates: Gross Investment as a share of GDP, trade (sum of exports and imports) as a share of GDP, Gross Primary School Enrollment and Gross Secondary School Enrollment. The data for all variables is obtained from the World Development Indicators (WDI) database maintained by the World Bank. Table 3.1 shows the summary statistics for the outcome variable as well as the predictors. The average log GDP is 30, while the average investment and trade ratios are 23\% and 64\% respectively. There is a large variance in the trade ratio data, as the dataset includes countries which rely heavily on trade like Saudi Arabia, as well as relatively closed economies like Argentina. The Gross Primary Enrollment Ratio which is the total enrollment divided by the population of the relevant age group is above 100 at the mean, which happens due to the inclusion of over-aged and under-aged students, as well as grade repetition. The Secondary Enrollment Ratio measures the same, but for the secondary school age group (15-18 years).
  \linebreak
 
- Observations for GDP are available for all years, and trade and investment for most years. There were a significant amount of missing values (between 80 - 100), for the two enrollment ratios. However, as the gaps were not longer than a few years, and data were not missing for a significant chunk of the period for any country, the missing values were filled via linear interpolation.
+ Table \ref{tab:t31} shows the summary statistics for the outcome variable as well as the predictors. The average log GDP is 30, while the average investment and trade ratios are 23\% and 64\% respectively. There is a large variance in the trade ratio data, as the dataset includes countries which rely heavily on trade like Saudi Arabia, as well as relatively closed economies like Argentina. The Gross Primary Enrollment Ratio which is the total enrollment divided by the population of the relevant age group is above 100 at the mean, which happens due to the inclusion of over-aged and under-aged students, as well as grade repetition. The Secondary Enrollment Ratio measures the same, but for the secondary school age group (15-18 years).
+ \linebreak
+
+ Observations for GDP are available for all years, and trade and investment for most years. There were a significant number of missing values (between 80 - 100), for the two enrollment ratios. However, as the gaps were not longer than a few years, and data was not missing for a significant chunk of the period for any country, the missing values were filled via linear interpolation.
  \linebreak
 
  The data was extracted using the \texttt{R} package \texttt{wdi}, while the SCM and GSCM were implemented using the packages \texttt{tidysynth} and \texttt{gsynth} respectively.
@@ -796,41 +806,40 @@
  \hypertarget{res}{%
  \section{Results}\label{res}}
 
- I begin by presenting the counterfactual GDP estimates first using the SCM, and then the GSCM.
+ I begin by presenting the counterfactual GDP estimates obtained using SCM, foloowed by the GSCM.
+ \newpage
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/indiasynth} 
 
  }
 
- \caption{Evolution of log GDP for India and Synthetic India (SCM)}\label{fig:indsyn}
+ \caption{Evolution of log GDP for India and Synthetic India (SCM).}\label{fig:indsyn}
  \end{figure}
- Figure \ref{fig:indsyn} shows the trend of log GDP for India and the estimated counterfactual over the period 1991 - 2019. The counterfactual tracks the actual log GDP trend very closely pre - 2011, and starts diverging from the actual trend post - 2011. Given the assumptions of the SCM, the synthetic control is representative of how India's GDP would have evolved in the absence of the change in measurement methodology.
- \newpage
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/indiasynthgap} 
 
  }
 
- \caption{log GDP gap between India and Synthetic India (SCM)}\label{fig:indsyngap}
+ \caption{log GDP gap between India and Synthetic India (SCM).}\label{fig:indsyngap}
  \end{figure}
- The same result is shown differently in Figure \ref{fig:indsyngap}. This plots the difference between the log GDP trends for actual and synthetic India. As evident from Figure \ref{fig:indiasyn}, the difference remains close to zero pre - treatment and then increases steadily post - 2011, reaching close to 0.25 log points.
+ Figure \ref{fig:indsyn} shows the trend of log GDP for India and the estimated counterfactual over the period 1991-2019. The counterfactual tracks the actual log GDP trend very closely pre-2011, and starts diverging from the actual trend post-2011. Given the assumptions of the SCM, the synthetic control is representative of how India's GDP would have evolved in the absence of the change in measurement methodology.
  \linebreak
 
- \newpage
+ The same result is shown differently in Figure \ref{fig:indsyngap}. This plots the difference between the log GDP trends for actual and synthetic India. The difference remains close to zero pre-treatment and then increases steadily post-2011, reaching close to 0.25 log points.
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/weights} 
 
  }
 
- \caption{Variable weights and country weights for synthetic India}\label{fig:weights}
+ \caption{Variable weights and country weights for synthetic India.}\label{fig:weights}
  \end{figure}
- Which countries is synthetic India composed of? Figure \ref{fig:weights} shows the optimal country weights, as well as the weights assigned to each predictor. From the left panel, it is clear that synthetic India is composed of Egypt, China and Iran, with each contributing about one -thirds to the total weights. The other countries contribute close to nothing. This sparse distribution of weights is a result of the restriction of positive weights summing to one - this prevents extrapolation, and assigns the weights such that the synthetic control lies within the convex hull. The right panel shows the contributions of the predictors: Investment and trade contribute a large share (around 70\%), followed by primary enrollment.
+ Which countries is synthetic India composed of? Figure \ref{fig:weights} shows the optimal country weights, as well as the weights assigned to each predictor. From the left panel, it is clear that synthetic India is composed of Egypt, China and Iran, with each contributing about one-third to the total weights. The other countries contribute close to nothing. This sparse distribution of weights is a result of the restriction of positive weights summing to one - this prevents extrapolation, and assigns the weights such that the synthetic control lies within the convex hull. The right panel shows the contributions of the predictors: Investment and Trade contribute a large share (around 70\%), followed by Primary Enrollment.
  \linebreak
 
- I now present the results of the estimates generated by the GSCM below. Three specifications were run: without covariates, with economic covariates (trade and investment) only, and with all covariates.
+ I now present the results of the estimates generated by the GSCM below. Three specifications were run: without covariates, with economic covariates (Trade and Investment) only, and with all covariates.
 
  \newpage
  \begin{figure}
@@ -839,7 +848,7 @@
 
  }
 
- \caption{Evolution of log GDP for India and Synthetic India (GSCM)}\label{fig:indgsyn}
+ \caption{Evolution of log GDP for India and Synthetic India (GSCM).}\label{fig:indgsyn}
  \end{figure}
  \begin{figure}
 
@@ -847,16 +856,16 @@
 
  }
 
- \caption{log GDP gap between India and Synthetic India (GSCM)}\label{fig:indgsyngap}
+ \caption{log GDP gap between India and Synthetic India (GSCM).}\label{fig:indgsyngap}
  \end{figure}
- Figures \ref{fig:indgsyn} and \ref{fig:indgsyngap} show the estimated counterfactual log GDP and actual GDP, and the gap between the two respectively, as measured using the GSCM. As with the SCM, the pre-intervention fit of the synthetic control matches the actual trend and then diverges post - 2011. While the two results look similar, the magnitude of the gap post-treatment is different, with the difference exceeding 0.3 log points in the case of the GSCM.
+ Figures \ref{fig:indgsyn} and \ref{fig:indgsyngap} show the estimated counterfactual log GDP and actual GDP, and the gap between the two respectively, as measured using the GSCM, without any covariates. As with the SCM, the pre-intervention fit of the synthetic control matches the actual trend and then diverges post - 2011. While the two results look similar, the magnitude of the gap post-treatment is different, with the difference exceeding 0.3 log points in the case of the GSCM.
  \begin{figure}
 
  {\centering \includegraphics[width=1\linewidth]{figure/indiagsynthc2} 
 
  }
 
- \caption{Evolution of log GDP for India and Synthetic India with economic covariates (GSCM)}\label{fig:indgsync1}
+ \caption{Evolution of log GDP for India and Synthetic India with economic covariates (GSCM).}\label{fig:indgsync1}
  \end{figure}
  Figures \ref{fig:indgsync1} and \ref{fig:indgsync2} show the same results as the images above, but with the inclusion of economic and all covariates respectively. In the first case, the gap post-treatment persists, but at a lower magnitude (around 0.15 log points). In the second, case the post-treatment fit and the pre-treatment fit barely diverge, indicating that the treatment had no impact on India's GDP when education covariates are included. Hence, the GSCM results are robust to the inclusion of economic covariates, but not to the additional inclusion of education predictors.
  \newpage
@@ -866,14 +875,13 @@
 
  }
 
- \caption{Evolution of log GDP for India and Synthetic India with all covariates (GSCM)}\label{fig:indgsync2}
+ \caption{Evolution of log GDP for India and Synthetic India with all covariates (GSCM).}\label{fig:indgsync2}
  \end{figure}
- \newrobustcmd{\B}{\bfseries}
  \begin{table}[h!!]
  \centering
  \begin{tabular}{rrrrr}
  \hline
- Year & SCM & GSCM & GSCM+EC & GSCM+AC\\
+ \B Year & \B SCM & \B GSCM & \B GSCM+EC & \B GSCM+AC\\
  \hline
  2011 & 0.63 & 0.35 & -2.52 & -3.31\\
  \hline
@@ -896,9 +904,10 @@
  \B Avg. & \B 2.6 & \B 3.0 & \B 1.1& \B -0.5\\
  \hline
  \end{tabular}
- \caption{Difference between growth rates (percentage) of actual and synthetic GDP (All specifications)}
+ \caption{Difference between growth rates (percentage) of actual and synthetic GDP (All specifications).}
+ \label{tab:t32}
  \end{table}
- Table 3.2 shows the difference between the actual and synthetic GDP growth rates for the period 2011 - 2019. The first column shows the growth gap for results estimated using the SCM: except for the year 2016, the difference in growth has exceeded 1.5\% every year, yielding an average gap of 2.6\% over the whole period. The magnitude is larger for the GSCM estimates without covariates, shown in the second column. Post-2011, the gap has consistently been above 3\%, even crossing 5\% in 2015. The average growth gap in this period broadly matches the findings of \protect\hyperlink{ref-subramanian_indias_2019}{Subramanian} (\protect\hyperlink{ref-subramanian_indias_2019}{2019}). The inclusion of economic covariates does reduce the average growth gap to 1.1\%, but this is largely due to the period 2017 - 2019; from 2012 - 2017, the average gap exceeded 2\%. The inclusion of education covariates, leads to a significant fluctuation in the growth gap, as seen in the last column. With the gap varying between 2.9\% to -3.7\% over this period, the average growth gap of -0.5\% suggests that there was no significant difference between actual and synthetic India's GDP growth rates.
+ Table \ref{tab:t32} shows the difference between the actual and synthetic GDP growth rates for the period 2011 - 2019. The first column shows the growth gap for results estimated using the SCM: except for the year 2016, the difference in growth has exceeded 1.5\% every year, yielding an average gap of 2.6\% over the whole period. The magnitude is larger for the GSCM estimates without covariates, shown in the second column. Post-2011, the gap has consistently been above 3\%, even crossing 5\% in 2015. The average growth gap in this period broadly matches the findings of \protect\hyperlink{ref-subramanian_indias_2019}{Subramanian} (\protect\hyperlink{ref-subramanian_indias_2019}{2019}). The inclusion of economic covariates does reduce the average growth gap to 1.1\%, but this is largely due to the period 2017 - 2019; from 2012 - 2017, the average gap exceeded 2\%. The inclusion of education covariates leads to a significant fluctuation in the growth gap, as seen in the last column. With the gap varying between 2.9\% to -3.7\% over this period, the average growth gap of -0.5\% suggests that there was no significant difference between actual and synthetic India's GDP growth rates.
 
  \hypertarget{inference-1}{%
  \subsection{Inference}\label{inference-1}}
@@ -906,12 +915,12 @@
  The last section presented the results of the estimated counterfactual GDP using two synthetic control techniques. How significant are these findings? In this section, I present the results of the various inference tests used to assess the credibility of the results obtained using the SCM and the GSCM.
  \linebreak
 
- As discussed in Chapter - 2, Fisher's exact p -values evaluate the probability of getting the same result had the treatment been randomly assigned to some other country, instead of India. Table - 3.3 presents the p - values below.
+ As discussed in Chapter-\protect\hyperlink{ch2}{2}, Fisher's exact p-values evaluate the probability of getting the same result had the treatment been randomly assigned to some other country, instead of India. Table \ref{tab:t33} presents the p-values below.
  \begin{table}[h!!]
  \centering
  \begin{tabular}{rrr}
  \hline
- Country& Type & p - value\\
+ \B Country& \B Type & \B p-value\\
  \hline
  India & Treated & \B 0.053\\
  \hline
@@ -934,9 +943,12 @@
  Turkey & Donor & 0.526\\
  \hline
  \end{tabular}
- \caption{Fisher's exact p - values}
+ \caption{Fisher's exact p-values.}
+ \label{tab:t33}
  \end{table}
- The p-value for India is 0.053, indicating that there is a 5.3\% probability of getting the same results as those for India. However, the size of the p-value has a lower bound by construction, as it is simply a function of the number of donor units, in this case, 1/19. This makes it an unreliable metric for inference.
+ \linebreak
+
+ The p-value for India is 0.053, making it statistically significant at 10\%. However, the size of the p-value has a lower bound by construction, as it is simply a function of the number of donor units, in this case, 1/19. This makes it an unreliable metric for inference, in this case.
  \newpage
  \begin{figure}
 
@@ -944,14 +956,14 @@
 
  }
 
- \caption{Ratio of post and pre-treatment MSPE for India and donor countries}\label{fig:msper}
+ \caption{Ratio of post and pre-treatment MSPE for India and donor countries.}\label{fig:msper}
  \end{figure}
  Figure \ref{fig:msper} shows the ratio of post-period and pre-period MSPE. The MSPE is a measure of how close the fit between the actual outcome variable and the synthetic control is. The figure shows the ratio of the MSPE calculated post-2011 and pre-2011 for all donor countries as well as India, serving as a placebo test. The ratio is much higher for India than for the donor pool, indicating that the post-treatment fit deviates significantly from the pre-treatment fit to a much larger magnitude relative to other countries. While this is a good starting point to establish the credibility of the synthetic control, it is not a sampling-based statistical test (like a t-test). In the case of the SCM, this is difficult to implement due to the absence of a well-defined sampling mechanism. Hence, additional robustness tests are required, which are discussed in the next section.
  \begin{table}[h!!]
  \centering
- \begin{tabular}{cccc}
+ \begin{tabular}{lccc}
  \hline
- Model & Average ATT & Std. Err. & p - value\\
+ \B Model & \B Average ATT & \B Std. Err. & \B p-value\\
  \hline
  Baseline GSCM&0.166& 0.256 & 0.516\\
  \hline
@@ -960,12 +972,13 @@
  GSCM with all covariates & 0.013 & 0.154 & 0.928\\
  \hline
  \end{tabular}
- \caption{ Average ATT and p - values for GSCM specifications}
+ \caption{ Average ATT and p-values for GSCM specifications.}
+ \label{tab:t34}
  \end{table}
- Table 3.4 shows the average Average Treatment Effect on the Treated, which is simply the mean of the difference between the actual and counterfactual log GDP estimated via GSCM, and the associated p -values. It is important to note that the p - values are calculated in a completely different way from the SCM: rather than a permutation test, uncertainty bounds and variance are estimated using a parametric bootstrap (for details, see Chapter - 2). The results indicate that the mean ATT magnitude falls with the inclusion of covariates and that none of the specifications yields statistically significant results.
+ Table \ref{tab:t34} shows the mean Average Treatment Effect on the Treated unit, which is simply the mean of the difference between the actual and counterfactual log GDP estimated via GSCM, and the associated p-values. It is important to note that the p-values are calculated in a completely different way from the SCM: rather than a permutation test, uncertainty bounds and variance are estimated using a parametric bootstrap (for details, see Chapter-\protect\hyperlink{ch2}{2}). The results indicate that the mean ATT magnitude falls with the inclusion of covariates and that none of the specifications yields statistically significant results.
  \linebreak
 
- The lack of significant results could be due to two reasons: one, while the GSCM does allow the inclusion of covariates with an incomplete panel, the dropping of observations reduces the sample size by 50, which is 10\% of the sample. Reduced sample size due to sparse covariate data affects the unbiasedness of the GSCM estimator significantly. Second, \protect\hyperlink{ref-xu_generalized_2017}{Xu} (\protect\hyperlink{ref-xu_generalized_2017}{2017}) cautions against a straightforward interpretation of results when the number of donor units is less than 40. Since I use only 19 donor countries, the results are prone to bias.
+ The lack of significant results could be due to two reasons: one, while the GSCM does allow for the inclusion of covariates with an incomplete panel, the dropping of observations reduces the sample size by 50 - almost 10\% of the sample. Reduced sample size due to sparse covariate data affects the unbiasedness of the GSCM estimator. Second, \protect\hyperlink{ref-xu_generalized_2017}{Xu} (\protect\hyperlink{ref-xu_generalized_2017}{2017}) cautions against a straightforward interpretation of results when the number of donor units is less than 40. Since I use only 19 donor countries, the results are prone to bias.
 
  \hypertarget{rob}{%
  \section{Robustness Checks}\label{rob}}
@@ -973,14 +986,12 @@
  I implement two robustness checks:
 
  \textbf{Backdating}: The treatment is assigned a few years/quarters before the actual intervention, and the SCM and GSCM are estimated with the new pre and post-treatment periods. The results are robust if:
- \begin{enumerate}
- \def\labelenumi{\alph{enumi}.}
- \item
-   The pre-treatment fit does not change between the new and old treatment year, indicating the absence of any anticipation effect.
- \item
-   The gap between the synthetic and actual outcome variable of interest starts around the same time as the actual treatment.
-   \linebreak
- \end{enumerate}
+ \begin{itemize}
+  
+  \item The pre-treatment fit does not change between the new and old treatment year, indicating the absence of any anticipation effect.
+
+ \item The gap between the synthetic and actual outcome variable of interest starts around the same time as the actual treatment.
+ \end{itemize}
  I implement the SCM and GSCM by backdating the treatment to the year 2005. This year is chosen to allow sufficient pre-intervention periods (15 years), as at least 10 years is the minimum recommended for effective implementation of the GSCM.
 
  \newpage
@@ -990,9 +1001,9 @@
 
  }
 
- \caption{Evolution of log GDP for actual and synthetic India with backdated treatment (SCM)}\label{fig:scmbd}
+ \caption{Evolution of log GDP for actual and synthetic India with backdated treatment (SCM).}\label{fig:scmbd}
  \end{figure}
- Figure \ref{fig:scmbd} shows the results of backdating implemented using the SCM. Between 2005 and 2011, the synthetic India line closely tracks the actual India line, meeting the first criterion, and ruling out anticipation effects. However, this pattern continues post - 2011 as well, and the first signs of divergence appear only near 2016, five years after the actual treatment, which raises concerns about the credibility of the SCM estimates.
+ Figure \ref{fig:scmbd} shows the results of backdating implemented using the SCM. Between 2005 and 2011, the synthetic India line closely tracks the actual India line, meeting the first criterion, and ruling out anticipation effects. However, this pattern continues post-2011 as well, and the first signs of divergence appear only near 2016, five years after the actual treatment, which raises concerns about the credibility of the SCM estimates.
  \newpage
  \begin{figure}
 
@@ -1000,9 +1011,9 @@
 
  }
 
- \caption{Evolution of log GDP for actual and synthetic India with backdated treatment (GSCM)}\label{fig:gscmbd}
+ \caption{Evolution of log GDP for actual and synthetic India with backdated treatment (GSCM).}\label{fig:gscmbd}
  \end{figure}
- Figure \ref{fig:gscmbd} shows the results of backdating implemented using the GSCM. As previously, there is no gap between the two lines for the period 2005 - 2011. However, the two trends begin to diverge around the actual treatment year, satisfying both conditions for robustness. The backdating procedure indicates that the GSCM estimates are robust relative to SCM.
+ Figure \ref{fig:gscmbd} shows the results of backdating implemented using the GSCM. As previously, there is no gap between the two lines for the period 2005-2011. However, the two trends begin to diverge around the actual treatment year, satisfying both conditions for robustness. The backdating procedure indicates that the GSCM estimates are more robust than the SCM ones.
  \linebreak
 
  \textbf{Quarterly data}: This robustness check replaces yearly data with quarterly data for the outcome variable. This provides a more granular measure of the GDP, and significantly increases the number of observations, attenuating the bias of both estimators. I implement this only for the GSCM, as the SCM requires data for predictors, which was not available quarterly.
@@ -1015,21 +1026,21 @@
 
  }
 
- \caption{Evolution of log GDP for actual and synthetic India with quarterly data (GSCM)}\label{fig:gqtr}
+ \caption{Evolution of log GDP for actual and synthetic India with quarterly data (GSCM).}\label{fig:gqtr}
  \end{figure}
- Figure \ref{fig:gqtr} shows the results of the above robustness test estimated using the GSCM. The pre-treatment fit remains good before 2011. The divergence begins not immediately in 2011 Q1, but almost a year later. However, the overall patterns evolve similar to the SCM and Baseline GSCM results, confirming the robustness of the GSCM results to the use of quarterly data.
+ Figure \ref{fig:gqtr} shows the results of the above robustness test estimated using the GSCM. The pre-treatment fit is good before 2011. The divergence begins not immediately in 2011 Q1, but almost a year later. However, the overall patterns evolve similarly to the SCM and Baseline GSCM results, confirming the robustness of the GSCM results to the use of quarterly data.
  \linebreak
 
- \hypertarget{conc}{%
- \section{Discussion and Conclusion}\label{conc}}
+ \hypertarget{conc3}{%
+ \section{Discussion and Conclusion}\label{conc3}}
 
  In this chapter, I use the SCM and GSCM to estimate a counterfactual trajectory of India's real GDP. In doing so, I attempt to quantify the extent of conjectured GDP overestimation post - 2011. The SCM results suggest that real GDP growth has been over-estimated by 2.6\% on average since the change in the base year. However, these results are sensitive to specification, and not fully robust to backdating. The GSCM results, with and without covariates imply that the over-estimation has been between -0.5\% and 3\% on average. The baseline GSCM results are robust to backdating and usage of quarterly data, but statistically insignificant, as are the results with covariates.
  \linebreak
 
- As discussed before, both the SCM and GSCM perform poorly with a low sample size, which is the case in the specifications with predictors, as several observations are missing for many countries. Furthermore, a caveat to keep in mind while interpreting these results is that inference for synthetic control and its class of models is an evolving enterprise and that any results, significant or otherwise need to be interpreted with caution.
+ As discussed before, both the SCM and GSCM perform poorly with a low sample size. Furthermore, a caveat to keep in mind while interpreting these results is that inference for synthetic control and its class of models is an evolving enterprise and that any results, significant or otherwise need to be interpreted with caution.
  \linebreak
 
- With regards to the two issues mentioned above, multiple promising avenues have opened up, which serve as a natural extension to this project. The first pertains to the development of methods of conformal inference, and exact t-tests by Victor Chernozhukov and co-authors (\protect\hyperlink{ref-chernozhukov_t-test_2021}{Chernozhukov, Wuthrich, \& Zhu, 2021}; \protect\hyperlink{ref-chernozhukov_exact_2021}{Chernozhukov, Wüthrich, \& Zhu, 2021}). As these methods of inference apply to a large class of causal models, their application to generate uncertainty bounds for SCM results seems like a feasible next step. The second avenue is the development of matrix completion methods for causal models (\protect\hyperlink{ref-athey_matrix_2021}{Athey, Bayati, Doudchenko, Imbens, \& Khosravi, 2021}), which uses observed control outcome data to impute missing data. Finally, the synthetic difference-in-difference method, which combines the two namesake techniques (\protect\hyperlink{ref-arkhangelsky_synthetic_2021}{Arkhangelsky, Athey, Hirshberg, Imbens, \& Wager, 2021}) is shown to be more efficient and unbiased relative to both individual methods. The applications of these three novelties form the basis for future research projects regarding applying the SCM to GDP data.
+ With regards to the two issues mentioned above, multiple promising avenues have opened up, which serve as a natural extension to this project. The first pertains to the development of methods of conformal inference, and exact t-tests by Victor Chernozhukov and co-authors (\protect\hyperlink{ref-chernozhukov_t-test_2021}{Chernozhukov, Wuthrich, \& Zhu, 2021}; \protect\hyperlink{ref-chernozhukov_exact_2021}{Chernozhukov, Wüthrich, \& Zhu, 2021}). As these methods of inference apply to a large class of causal models, applying them to estimate uncertainty bounds for SCM results seems like a feasible next step. The second avenue is the development of matrix completion methods for causal models (\protect\hyperlink{ref-athey_matrix_2021}{Athey, Bayati, Doudchenko, Imbens, \& Khosravi, 2021}), who use observed control outcome data to impute missing data. Finally, the synthetic difference-in-difference method, which combines the two namesake techniques (\protect\hyperlink{ref-arkhangelsky_synthetic_2021}{Arkhangelsky, Athey, Hirshberg, Imbens, \& Wager, 2021}) is shown to be more efficient and unbiased relative to both individual methods. The applications of these three novelties form the basis for future research projects.
 
  \backmatter
 
@@ -1099,6 +1110,9 @@
  \leavevmode\hypertarget{ref-billmeier_assessing_2013}{}%
  Billmeier, A., \& Nannicini, T. (2013). Assessing economic liberalization episodes: A synthetic control approach. \emph{The Review of Economics and Statistics}, \emph{95}(3), 983--1001. Retrieved from \url{https://econpapers.repec.org/article/tprrestat/v_3a95_3ay_3a2013_3ai_3a3_3ap_3a983-1001.htm}
 
+ \leavevmode\hypertarget{ref-callaway_difference_differences_2021}{}%
+ Callaway, B., \& Sant'Anna, P. H. C. (2021). Difference-in-differences with multiple time periods. \emph{Journal of Econometrics}, \emph{225}(2), 200--230. http://doi.org/\href{https://doi.org/10.1016/j.jeconom.2020.12.001}{10.1016/j.jeconom.2020.12.001}
+
  \leavevmode\hypertarget{ref-card_impact_1990}{}%
  Card, D. (1990). The impact of the mariel boatlift on the miami labor market. \emph{{ILR} Review}, \emph{43}(2), 245--257. http://doi.org/\href{https://doi.org/10.1177/001979399004300205}{10.1177/001979399004300205}
 
@@ -1109,7 +1123,7 @@
  Chang, A. C., \& Li, P. (2018). Measurement error in macroeconomic data and economics research: Data revisions, gross domestic product, and gross domestic income. \emph{Economic Inquiry}, \emph{56}(3), 1846--1869. http://doi.org/\href{https://doi.org/10.1111/ecin.12567}{10.1111/ecin.12567}
 
  \leavevmode\hypertarget{ref-chernozhukov_t-test_2021}{}%
- Chernozhukov, V., Wuthrich, K., \& Zhu, Y. (2021). \emph{A \$t\$-test for synthetic controls} (No. {arXiv}:1812.10820). {arXiv}. Retrieved from \url{http://arxiv.org/abs/1812.10820}
+ Chernozhukov, V., Wuthrich, K., \& Zhu, Y. (2021). \emph{A t-test for synthetic controls} (No. {arXiv}:1812.10820). {arXiv}. Retrieved from \url{http://arxiv.org/abs/1812.10820}
 
  \leavevmode\hypertarget{ref-chernozhukov_exact_2021}{}%
  Chernozhukov, V., Wüthrich, K., \& Zhu, Y. (2021). An exact and robust conformal inference method for counterfactual and synthetic controls. \emph{Journal of the American Statistical Association}, \emph{116}(536), 1849--1864. http://doi.org/\href{https://doi.org/10.1080/01621459.2021.1920957}{10.1080/01621459.2021.1920957}
@@ -1143,6 +1157,9 @@
 
  \leavevmode\hypertarget{ref-gobillon_regional_2016}{}%
  Gobillon, L., \& Magnac, T. (2016). Regional policy evaluation: Interactive fixed effects and synthetic controls. \emph{The Review of Economics and Statistics}, \emph{98}(3), 535--551. Retrieved from \url{https://econpapers.repec.org/article/tprrestat/v_3a98_3ay_3a2016_3ai_3a3_3ap_3a535-551.htm}
+
+ \leavevmode\hypertarget{ref-goodman-bacon_difference_differences_2021}{}%
+ Goodman-Bacon, A. (2021). Difference-in-differences with variation in treatment timing. \emph{Journal of Econometrics}, \emph{225}(2), 254--277. http://doi.org/\href{https://doi.org/10.1016/j.jeconom.2021.03.014}{10.1016/j.jeconom.2021.03.014}
 
  \leavevmode\hypertarget{ref-hahn_synthetic_2017}{}%
  Hahn, J., \& Shi, R. (2017). Synthetic control and inference. \emph{Econometrics}, \emph{5}(4), 1--12. Retrieved from \url{https://econpapers.repec.org/article/gamjecnmx/v_3a5_3ay_3a2017_3ai_3a4_3ap_3a52-_3ad_3a120610.htm}

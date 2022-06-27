@@ -2,18 +2,18 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Disaggregated GDP growth rates by sector (2012-13). Source: Nagaraj (2015b).\relax }}{11}{figure.caption.7}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Disaggregated GDP growth rates by sector (2013-14). Source: Nagaraj (2015b).\relax }}{11}{figure.caption.8}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Synthetic Control of Californoa\relax }}{17}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Per-capita cigarette sales gaps in California and placebo gaps in 19 control states\relax }}{21}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Ratio of post and pre-treatment MSPE in California and donor states\relax }}{22}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Synthetic Control of California. Source: Abadie et al. (2010).\relax }}{17}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Per-capita cigarette sales gaps in California and placebo gaps in 19 control states. Source: Abadie et al. (2010).\relax }}{21}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Ratio of post and pre-treatment MSPE in California and donor states.\relax }}{22}{figure.caption.11}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Evolution of log GDP for India and Synthetic India (SCM)\relax }}{37}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces log GDP gap between India and Synthetic India (SCM)\relax }}{38}{figure.caption.16}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Variable weights and country weights for synthetic India\relax }}{39}{figure.caption.17}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Evolution of log GDP for India and Synthetic India (GSCM)\relax }}{40}{figure.caption.18}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces log GDP gap between India and Synthetic India (GSCM)\relax }}{40}{figure.caption.19}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Evolution of log GDP for India and Synthetic India with economic covariates (GSCM)\relax }}{41}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Evolution of log GDP for India and Synthetic India with all covariates (GSCM)\relax }}{42}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Ratio of post and pre-treatment MSPE for India and donor countries\relax }}{44}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Evolution of log GDP for actual and synthetic India with backdated treatment (SCM)\relax }}{46}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Evolution of log GDP for actual and synthetic India with backdated treatment (GSCM)\relax }}{47}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Evolution of log GDP for actual and synthetic India with quarterly data (GSCM)\relax }}{48}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Evolution of log GDP for India and Synthetic India (SCM).\relax }}{37}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces log GDP gap between India and Synthetic India (SCM).\relax }}{37}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Variable weights and country weights for synthetic India.\relax }}{38}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Evolution of log GDP for India and Synthetic India (GSCM).\relax }}{39}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces log GDP gap between India and Synthetic India (GSCM).\relax }}{39}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Evolution of log GDP for India and Synthetic India with economic covariates (GSCM).\relax }}{40}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Evolution of log GDP for India and Synthetic India with all covariates (GSCM).\relax }}{41}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Ratio of post and pre-treatment MSPE for India and donor countries.\relax }}{43}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Evolution of log GDP for actual and synthetic India with backdated treatment (SCM).\relax }}{45}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Evolution of log GDP for actual and synthetic India with backdated treatment (GSCM).\relax }}{46}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Evolution of log GDP for actual and synthetic India with quarterly data (GSCM).\relax }}{47}{figure.caption.28}%

@@ -21,12 +21,12 @@
 \contentsline {subsection}{\numberline {2.5.1}Framework}{27}{subsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.5.2}Estimation and Inference}{28}{subsection.2.5.2}%
 \contentsline {section}{\numberline {2.6}Conclusion}{29}{section.2.6}%
-\contentsline {chapter}{Chapter 3: Estimating measurement error in India's GDP using SCM}{31}{chapter.3}%
+\contentsline {chapter}{Chapter 3: Estimating Measurement Error in India's GDP using SCM}{31}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Literature Review}{32}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Econometric Approach}{33}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Data}{35}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Results}{36}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Inference}{43}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Robustness Checks}{45}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Discussion and Conclusion}{48}{section.3.6}%
-\contentsline {chapter}{References}{51}{chapter*.29}%
+\contentsline {subsection}{\numberline {3.4.1}Inference}{42}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Robustness Checks}{44}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Discussion and Conclusion}{47}{section.3.6}%
+\contentsline {chapter}{References}{49}{chapter*.29}%
