@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Measurement Issues in India’s GDP</title>
+    <meta charset="utf-8" />
+    <script src="final-presentation_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Measurement Issues in India’s GDP
+]
+.subtitle[
+## A Synthetic Control Approach
+]
+.author[
+### Advait Moharir <br> <br> 14-07-2022<br> <br> Advisor 1: Dr. Federico Crudu                    <strong>Advisor 2</strong>: Dr. Giuliano Curatola
+<hr>
+University of Siena <br>
+]
+
+---
+
+
+
+
+
+## The Indian GDP debate
+
+
+
+--
+India's new real GDP series, which uses base year 2011 instead of 2004, has been subject to the following critiques:
+--
+
+- Change in methodology of measuring mfg sector output has led to "blowing up" of private corporate sector GVA &lt;a name=cite-nagaraj_seeds_2015&gt;&lt;/a&gt;&lt;a name=cite-nagaraj_seeds_2015-1&gt;&lt;/a&gt;([Nagaraj, 2015a](https://www.jstor.org/stable/24481913); [Nagaraj, 2015b](#bib-nagaraj_seeds_2015-1)).
+   
+--
+
+- Reversal of positive relationship with correlates like imports and credit growth &lt;a name=cite-subramanian_indias_2019&gt;&lt;/a&gt;([Subramanian, 2019](#bib-subramanian_indias_2019)).
+--
+
+  
+- Other issues: upward biased revisions &lt;a name=cite-sapre_analysis_2017&gt;&lt;/a&gt;([Sapre and Sengupta, 2017](https://econpapers.repec.org/article/wejwldecn/689.htm)), choice of deflators, and under-representation of unorganized sector &lt;a name=cite-nagaraj_measuring_2016&gt;&lt;/a&gt;([Nagaraj and Srinivasan, 2016](#bib-nagaraj_measuring_2016)).
+  
+--
+
+Measurement error typically estimated by reconciling income - side and expenditure - side GDP estimates &lt;a name=cite-aruoba_improving_2016&gt;&lt;/a&gt;&lt;a name=cite-chang_measurement_2018&gt;&lt;/a&gt;&lt;a name=cite-jacobs_can_2022&gt;&lt;/a&gt;([Aruoba, Diebold, Nalewaik, et al., 2016](https://www.sciencedirect.com/science/article/pii/S0304407615002857); [Chang and Li, 2018](https://onlinelibrary.wiley.com/doi/abs/10.1111/ecin.12567); [Jacobs, Sarferaz, Sturm, et al., 2022](https://doi.org/10.1080/07350015.2020.1831928)).
+
+--
+
+However, no income-side data available for India.
+
+---
+## Research Design
+
+I construct a counterfactual trajectory of real GDP.
+
+--
+
+The trajectory represents what India's GDP would have been had the methodology for estimation not changed post - 2011.
+
+--
+
+This is generated using an optimally chosen weighted  average of countries similar to India, which did .red[**not**] have any such intervention in 2011.
+
+--
+
+To do this, I use two methods: 
+
+--
+
+-  Synthetic Control Method (**SCM**) &lt;a name=cite-abadie_economic_2003&gt;&lt;/a&gt;&lt;a name=cite-abadie_synthetic_2010&gt;&lt;/a&gt;([Abadie and Gardeazabal, 2003](https://www.aeaweb.org/articles?id=10.1257/000282803321455188); [Abadie, Diamond, and Hainmueller, 2010](https://doi.org/10.1198/jasa.2009.ap08746))
+
+--
+
+- Generalized Synthetic Control Method (**GSCM**) &lt;a name=cite-xu_generalized_2017&gt;&lt;/a&gt;([Xu, 2017](https://www.cambridge.org/core/journals/political-analysis/article/generalized-synthetic-control-method-causal-inference-with-interactive-fixed-effects-models/B63A8BD7C239DD4141C67DA10CD0E4F3)).
+
+---
+class:inverse center middle
+
+#Methodology
+
+---
+## SCM
+
+Let data be observed `\(J+1\)` countries, where `\(i=1\)` is India (treated unit). The rest of the countries are unaffected by the treatment and are referred to as the *donor* pool. 
+
+--
+
+Let the the potential GDP for India with and without the intervention be given by `\(Y^{I}_{1t}\)` and `\(Y^{N}_{1t}\)` respectively. The former is observed, and the latter is not.
+
+--
+The counterfactual GDP is estimated as follows:
+
+`$$\hat{Y}_{1t}^{N}=\sum_{j=2}^{J+1}w^{*}_{j}Y_{jt}$$`
+where `\(\textbf{W*}=(w^{*}_{2},...,w^{*}_{J+1})\)` is a vector of *optimal* weights. The weights are chosen such that synthetic India best represents the *predictors* of India's GDP before the treatment. Hence, the optimal weights minimize
+
+--
+
+`$$||\mathbf{X_1}-\mathbf{X_0 W}||=\sqrt{(\mathbf{X_1}-\mathbf{X_0 W})' \mathbf{V} (\mathbf{X_1}-\mathbf{X_0 W})}$$`
+where `\(\mathbf{X_1}\)` consists of the pre-intervention predictors of India's GDP and `\(\mathbf{X_0}\)` consists of pre-intervention predictors of the donor countries' GDP. 
+---
+## GSCM
+
+Combines synthetic control with interactive fixed effects (IFE) model &lt;a name=cite-bai_panel_2009&gt;&lt;/a&gt;([Bai, 2009](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA6135)).
+
+--
+
+The counterfactual is estimated using a linear IFE model as follows:
+
+`$$\hat{Y}^{N}_{1t}=x_{1t}'\hat{\beta}+\hat{\lambda}_{1}'\hat{f_{t}}$$`
+where `\(x_{1t}\)` is a vector of covariates, `\(\hat{\beta}\)` consists of estimated parameters for covariates, `\(\hat{\lambda}_{1}\)` are estimated common factors, and `\(\hat{f_{t}}\)` are estimated factor loadings. The optimal number of factors are chosen via cross-validation.
+
+--
+
+Using both methods, we are interested in estimating the average treatment effect for India, given by
+
+`$$\hat{\alpha}_{1t}= Y^{I}_{1t}-\hat{Y}^{N}_{1t}$$`
+---
+## Setup
+
+**Treated Unit** : India
+
+--
+
+**Treatment year** : 2011
+
+--
+
+**Time Period** : 1991-2019
+
+--
+
+**Donor Units** : 19 Emerging Market Economies (EMEs) as defined by the IMF in their 2021 release
+
+--
+
+**Specifications**
+
+- SCM using predictors (covariates) of GDP
+
+- GSCM without covariates (matching only on GDP)
+
+- GSCM with economic covariates only
+
+- GSCM with economic and education covariates
+---
+class: inverse center middle
+
+# Data
+
+---
+## Data Sources
+
+**Dependent variable**: log real GDP in 2011 Local Currency Units
+
+--
+
+**Covariates**
+--
+
+ - Trade (Exports+ Imports) as a share of GDP
+ 
+--
+
+ - Gross Investment as a share of GDP
+ 
+--
+ 
+ - Gross Enrollment (Primary)
+ 
+--
+
+ - Gross Enrollment (Secondary)
+ 
+--
+ 
+All variables are taken from the World Development Indicators (WDI) database maintained by the World Bank using the package `wdi`.
+
+--
+ 
+The standard SC model is estimated using the `tidysynth` package and the GSC model is estimated using the `gsynth` package.
+
+
+
+---
+class: center inverse middle
+
+# Results
+
+---
+
+## SCM
+
+&lt;center&gt;&lt;img src="indiasynth.jpeg" alt="GithHub Octocat" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 1**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+
+
+---
+## GSCM (Baseline Model)
+
+&lt;center&gt;&lt;img src="indiagsynth.jpeg" alt="" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 2**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+---
+## GSCM (with economic covariates)
+
+&lt;center&gt;&lt;img src="indiagsynthc2.jpeg" alt="" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 3**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+---
+## GSCM (with all covariates)
+
+&lt;center&gt;&lt;img src="indiagsynthc1.jpeg" alt="" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 4**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+---
+## Difference in growth rates
+
+| Year    | SCM  | GSCM   | GSCM+EC|GSCM+AC
+|---------:|------:|-----:|---------------:|-----:|
+|     2012|   4.45|  3.06|             1.38| -0.03|
+|     2013|   3.00|  3.00|[2.47  |  1.58|
+|     2014|   2.33|  3.83|  2.35   | -0.31|
+|     2015|   4.34|  .purple[5.38]|2.96|  1.54|
+|     2016|   0.27|  3.79|  2.26  | 2.90|
+|     2017|   1.73|  2.51|  0.18          | -1.23|
+|     2018|   4.29|  3.45|  0.89| -2.32|
+|     2019|   2.35|  1.93| -0.25| .red[-3.72]|
+|  **Avg**| **2.6**|**3.0**|**1.1**|**-0.5**|
+.center[**Table - 1**: Difference between actual and synthetic GDP growth rates for various methods (in percentage).]
+
+*Note*: **EC** stands for "Economic Covariates", while **AC** stands for "All Covariates".
+
+---
+class: center inverse middle
+
+# Inference
+
+---
+## SCM: MSPE ratios
+
+&lt;center&gt;&lt;img src="msperatio.jpeg" alt="" height="400px" /&gt;&lt;/center&gt;
+.center[**Figure - 5**: Ratios of Post to Pre Intervention MSPE for India and donor countries.]
+
+--
+
+**Interpretation**: The ratio of MSPE's is a measure of how close the two trends are before and after the intervention. If the intervention affects the unit of interest, then the ratio is the largest for that unit, as seen here.
+
+---
+## SCM: Fisher's exact p-values
+
+.pull_left[
+
+|Country            |Type    |Fisher's exact p-value|
+|:------------------|:-------|-----------------------:|
+|India              |Treated |          **0.053**|
+|Philippines        |Donor   |                0.105|
+|Mexico             |Donor   |                0.158|
+|Brazil             |Donor   |                0.211|
+|Argentina          |Donor   |                0.263|
+|Colombia           |Donor   |                0.316| 
+|Chile              |Donor   |                0.368|
+|Indonesia          |Donor   |                0.421|
+|Russian Federation |Donor   |                0.474|
+|Turkey             |Donor   |                0.526|
+
+]
+
+.center[**Table - 2**: p-values for India and donor countries.]
+---
+## GSCM: Inference based on parametric bootstrap
+|Model                       |Average ATT| Std. Err | p-value |
+|:--------------------------|:-------|:-------|:----------|
+| Baseline GSCM            | 0.166|0.256 |       0.516        
+| GSCM with Economic covariates|0.094|0.139|0.499|
+| GSCM with all covariates|0.013|0.154|0.928|
+.center[**Table - 3**:  Average ATT and p-values for GSCM models.]
+
+
+--
+
+None of the ATT values are coefficient are statistically significant, indicating that there may be no over - estimation of GDP.
+
+--
+
+**Possible Reasons**
+
+  - *Small number of donor countries*: [Xu (2017)](https://www.cambridge.org/core/journals/political-analysis/article/generalized-synthetic-control-method-causal-inference-with-interactive-fixed-effects-models/B63A8BD7C239DD4141C67DA10CD0E4F3) notes that the GSCM is prone to bias if there are less than 40 donor units.
+  
+--
+
+  - *Sparse control data* : Large number of missing values for co variates lead to significantly reduced sample size. 
+
+---
+class: center inverse middle
+
+# Robustness Checks
+
+---
+## Backdating (SCM)
+
+&lt;center&gt;&lt;img src="indiasynthbd.jpeg" alt="" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 6**: Log GDP trend for actual and synthetic India with backdated treatment (1991 - 2019).]
+
+---
+## Backdating (GSCM)
+
+&lt;center&gt;&lt;img src="indiagsynthbd.jpeg" alt="" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 7**: Log GDP trend for actual and synthetic India with backdated treatment (1991 - 2019).]
+
+---
+## GSCM with quarterly data
+
+&lt;center&gt;&lt;img src="indiagsynthqtr.jpeg" alt="" height="450px" /&gt;&lt;/center&gt;
+.center[**Figure - 8**: Log GDP trend for actual and synthetic India with quarterly data (1996 - 2019).]
+
+---
+## Conclusion
+
+- I construct counterfactual GDP estimates using SCM and GSCM method and find average over - estimation between **-0.5%** and **3%** p.a., depending on the identification strategy.
+
+--
+
+- The SCM results are significant at 10% but not robust (sensitive to specification).  GSCM results are robust, but statistically insignificant.
+
+--
+
+- Hence, using this method we cannot conclusively establish that India's GDP is over-estimated. However, inference and test statistics for SCM is a work in progress &lt;a name=cite-ben-michael_augmented_2021&gt;&lt;/a&gt;&lt;a name=cite-chernozhukov_exact_2021&gt;&lt;/a&gt;([Ben-Michael, Feller, and Rothstein, 2021](https://doi.org/10.1080/01621459.2021.1929245); [Chernozhukov, Wuthrich, and Zhu, 2021a](https://doi.org/10.1080/01621459.2021.1920957)).
+
+--
+
+- **Future Avenues**: Using advances in causal panel data modelling, like matrix completion &lt;a name=cite-athey_matrix_2021&gt;&lt;/a&gt;([Athey, Bayati, Doudchenko, et al., 2021](https://doi.org/10.1080/01621459.2021.1891924)) to deal with problem of sparse covariate data, and other estimators like synthetic difference-in-differences &lt;a name=cite-arkhangelsky_synthetic_2021&gt;&lt;/a&gt;([Arkhangelsky, Athey, Hirshberg, et al., 2021](https://www.aeaweb.org/articles?id=10.1257/aer.20190159)).
+
+
+    
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"ratio": "16:9",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

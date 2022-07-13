@@ -1,0 +1,366 @@
+---
+title: "Measurement Issues in India's GDP"
+subtitle: "A Synthetic Control Approach "
+author: 
+  - "Advait Moharir <br>  <br> 14-07-2022<br> <br> Advisor 1: Dr. Federico Crudu &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;**Advisor 2**: Dr. Giuliano Curatola <hr> University of Siena <br>"
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    self-contained: true
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, bib.style = "authoryear", style = "markdown",longnamesfirst=F,max.names=3,
+           dashed = TRUE)
+
+bib <- ReadBib("thesis.bib")
+knitr::opts_chunk$set(
+  fig.width=9, fig.height=3.5, fig.retina=3,
+  out.width = "100%",
+  cache = FALSE,
+  echo = TRUE,
+  message = FALSE, 
+  warning = FALSE,
+  hiline = TRUE
+)
+```
+
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+#library(xaringanBuilder)
+style_duo(primary_color = "#FFFFFF", secondary_color = "#1a5276",
+title_slide_background_color = "#FFFFFF",
+header_background_color = "#17202A",
+text_font_size = 120,
+colors = c(
+  red = "#f34213",
+  purple = "#7f00ff",
+  orange = "#ff8811",
+  green = "#00ab41",
+  white = "#FFFFFF",
+  black=	"#000000",
+  darkgr="#008631"
+))
+
+extra_css<-list(
+  ".large" = list("font-size" = "130%"),
+  ".small" = list("font-size" = "70%"),
+  ".tiny" = list("font-size" = "1%"))
+
+```
+## The Indian GDP debate
+
+
+
+--
+India's new real GDP series, which uses base year 2011 instead of 2004, has been subject to the following critiques:
+--
+
+- Change in methodology of measuring mfg sector output has led to "blowing up" of private corporate sector GVA `r Citep(bib,c("nagaraj_seeds_2015","nagaraj_seeds_2015-1"))`.
+   
+--
+
+- Reversal of positive relationship with correlates like imports and credit growth `r Citep(bib, "subramanian_indias_2019")`.
+--
+
+  
+- Other issues: upward biased revisions `r Citep(bib, "sapre_analysis_2017")`, choice of deflators, and under-representation of unorganized sector `r Citep(bib, "nagaraj_measuring_2016")`.
+  
+--
+
+Measurement error typically estimated by reconciling income - side and expenditure - side GDP estimates `r Citep(bib,c("aruoba_improving_2016", "chang_measurement_2018", "jacobs_can_2022"))`.
+
+--
+
+However, no income-side data available for India.
+
+---
+## Research Design
+
+I construct a counterfactual trajectory of real GDP.
+
+--
+
+The trajectory represents what India's GDP would have been had the methodology for estimation not changed post - 2011.
+
+--
+
+This is generated using an optimally chosen weighted  average of countries similar to India, which did .red[**not**] have any such intervention in 2011.
+
+--
+
+To do this, I use two methods: 
+
+--
+
+-  Synthetic Control Method (**SCM**) `r Citep(bib, "abadie_economic_2003", "abadie_synthetic_2010")`
+
+--
+
+- Generalized Synthetic Control Method (**GSCM**) `r Citep(bib, "xu_generalized_2017")`.
+
+---
+class:inverse center middle
+
+#Methodology
+
+---
+## SCM
+
+Let data be observed $J+1$ countries, where $i=1$ is India (treated unit). The rest of the countries are unaffected by the treatment and are referred to as the *donor* pool. 
+
+--
+
+Let the the potential GDP for India with and without the intervention be given by $Y^{I}_{1t}$ and $Y^{N}_{1t}$ respectively. The former is observed, and the latter is not.
+
+--
+The counterfactual GDP is estimated as follows:
+
+$$\hat{Y}_{1t}^{N}=\sum_{j=2}^{J+1}w^{*}_{j}Y_{jt}$$
+where $\textbf{W*}=(w^{*}_{2},...,w^{*}_{J+1})$ is a vector of *optimal* weights. The weights are chosen such that synthetic India best represents the *predictors* of India's GDP before the treatment. Hence, the optimal weights minimize
+
+--
+
+$$||\mathbf{X_1}-\mathbf{X_0 W}||=\sqrt{(\mathbf{X_1}-\mathbf{X_0 W})' \mathbf{V} (\mathbf{X_1}-\mathbf{X_0 W})}$$
+where $\mathbf{X_1}$ consists of the pre-intervention predictors of India's GDP and $\mathbf{X_0}$ consists of pre-intervention predictors of the donor countries' GDP. 
+---
+## GSCM
+
+Combines synthetic control with interactive fixed effects (IFE) model `r Citep(bib,"bai_panel_2009")`.
+
+--
+
+The counterfactual is estimated using a linear IFE model as follows:
+
+$$\hat{Y}^{N}_{1t}=x_{1t}'\hat{\beta}+\hat{\lambda}_{1}'\hat{f_{t}}$$
+where $x_{1t}$ is a vector of covariates, $\hat{\beta}$ consists of estimated parameters for covariates, $\hat{\lambda}_{1}$ are estimated common factors, and $\hat{f_{t}}$ are estimated factor loadings. The optimal number of factors are chosen via cross-validation.
+
+--
+
+Using both methods, we are interested in estimating the average treatment effect for India, given by
+
+$$\hat{\alpha}_{1t}= Y^{I}_{1t}-\hat{Y}^{N}_{1t}$$
+---
+## Setup
+
+**Treated Unit** : India
+
+--
+
+**Treatment year** : 2011
+
+--
+
+**Time Period** : 1991-2019
+
+--
+
+**Donor Units** : 19 Emerging Market Economies (EMEs) as defined by the IMF in their 2021 release
+
+--
+
+**Specifications**
+
+- SCM using predictors (covariates) of GDP
+
+- GSCM without covariates (matching only on GDP)
+
+- GSCM with economic covariates only
+
+- GSCM with economic and education covariates
+---
+class: inverse center middle
+
+# Data
+
+---
+## Data Sources
+
+**Dependent variable**: log real GDP in 2011 Local Currency Units
+
+--
+
+**Covariates**
+--
+
+ - Trade (Exports+ Imports) as a share of GDP
+ 
+--
+
+ - Gross Investment as a share of GDP
+ 
+--
+ 
+ - Gross Enrollment (Primary)
+ 
+--
+
+ - Gross Enrollment (Secondary)
+ 
+--
+ 
+All variables are taken from the World Development Indicators (WDI) database maintained by the World Bank using the package `wdi`.
+
+--
+ 
+The standard SC model is estimated using the `tidysynth` package and the GSC model is estimated using the `gsynth` package.
+
+
+
+---
+class: center inverse middle
+
+# Results
+
+---
+
+## SCM
+
+<center><img src="indiasynth.jpeg" alt="GithHub Octocat" height="450px" /></center>
+.center[**Figure - 1**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+
+
+---
+## GSCM (Baseline Model)
+
+<center><img src="indiagsynth.jpeg" alt="" height="450px" /></center>
+.center[**Figure - 2**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+---
+## GSCM (with economic covariates)
+
+<center><img src="indiagsynthc2.jpeg" alt="" height="450px" /></center>
+.center[**Figure - 3**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+---
+## GSCM (with all covariates)
+
+<center><img src="indiagsynthc1.jpeg" alt="" height="450px" /></center>
+.center[**Figure - 4**: Log GDP trend for actual and synthetic India (1991 - 2019).]
+---
+## Difference in growth rates
+
+| Year    | SCM  | GSCM   | GSCM+EC|GSCM+AC
+|---------:|------:|-----:|---------------:|-----:|
+|     2012|   4.45|  3.06|             1.38| -0.03|
+|     2013|   3.00|  3.00|[2.47  |  1.58|
+|     2014|   2.33|  3.83|  2.35   | -0.31|
+|     2015|   4.34|  .purple[5.38]|2.96|  1.54|
+|     2016|   0.27|  3.79|  2.26  | 2.90|
+|     2017|   1.73|  2.51|  0.18          | -1.23|
+|     2018|   4.29|  3.45|  0.89| -2.32|
+|     2019|   2.35|  1.93| -0.25| .red[-3.72]|
+|  **Avg**| **2.6**|**3.0**|**1.1**|**-0.5**|
+.center[**Table - 1**: Difference between actual and synthetic GDP growth rates for various methods (in percentage).]
+
+*Note*: **EC** stands for "Economic Covariates", while **AC** stands for "All Covariates".
+
+---
+class: center inverse middle
+
+# Inference
+
+---
+## SCM: MSPE ratios
+
+<center><img src="msperatio.jpeg" alt="" height="400px" /></center>
+.center[**Figure - 5**: Ratios of Post to Pre Intervention MSPE for India and donor countries.]
+
+--
+
+**Interpretation**: The ratio of MSPE's is a measure of how close the two trends are before and after the intervention. If the intervention affects the unit of interest, then the ratio is the largest for that unit, as seen here.
+
+---
+## SCM: Fisher's exact p-values
+
+.pull_left[
+
+|Country            |Type    |Fisher's exact p-value|
+|:------------------|:-------|-----------------------:|
+|India              |Treated |          **0.053**|
+|Philippines        |Donor   |                0.105|
+|Mexico             |Donor   |                0.158|
+|Brazil             |Donor   |                0.211|
+|Argentina          |Donor   |                0.263|
+|Colombia           |Donor   |                0.316| 
+|Chile              |Donor   |                0.368|
+|Indonesia          |Donor   |                0.421|
+|Russian Federation |Donor   |                0.474|
+|Turkey             |Donor   |                0.526|
+
+]
+
+.center[**Table - 2**: p-values for India and donor countries.]
+---
+## GSCM: Inference based on parametric bootstrap
+|Model                       |Average ATT| Std. Err | p-value |
+|:--------------------------|:-------|:-------|:----------|
+| Baseline GSCM            | 0.166|0.256 |       0.516        
+| GSCM with Economic covariates|0.094|0.139|0.499|
+| GSCM with all covariates|0.013|0.154|0.928|
+.center[**Table - 3**:  Average ATT and p-values for GSCM models.]
+
+
+--
+
+None of the ATT values are coefficient are statistically significant, indicating that there may be no over - estimation of GDP.
+
+--
+
+**Possible Reasons**
+
+  - *Small number of donor countries*: `r Citet(bib, "xu_generalized_2017")` notes that the GSCM is prone to bias if there are less than 40 donor units.
+  
+--
+
+  - *Sparse control data* : Large number of missing values for co variates lead to significantly reduced sample size. 
+
+---
+class: center inverse middle
+
+# Robustness Checks
+
+---
+## Backdating (SCM)
+
+<center><img src="indiasynthbd.jpeg" alt="" height="450px" /></center>
+.center[**Figure - 6**: Log GDP trend for actual and synthetic India with backdated treatment (1991 - 2019).]
+
+---
+## Backdating (GSCM)
+
+<center><img src="indiagsynthbd.jpeg" alt="" height="450px" /></center>
+.center[**Figure - 7**: Log GDP trend for actual and synthetic India with backdated treatment (1991 - 2019).]
+
+---
+## GSCM with quarterly data
+
+<center><img src="indiagsynthqtr.jpeg" alt="" height="450px" /></center>
+.center[**Figure - 8**: Log GDP trend for actual and synthetic India with quarterly data (1996 - 2019).]
+
+---
+## Conclusion
+
+- I construct counterfactual GDP estimates using SCM and GSCM method and find average over - estimation between **-0.5%** and **3%** p.a., depending on the identification strategy.
+
+--
+
+- The SCM results are significant at 10% but not robust (sensitive to specification).  GSCM results are robust, but statistically insignificant.
+
+--
+
+- Hence, using this method we cannot conclusively establish that India's GDP is over-estimated. However, inference and test statistics for SCM is a work in progress `r Citep(bib, "ben-michael_augmented_2021", "chernozhukov_exact_2021")`.
+
+--
+
+- **Future Avenues**: Using advances in causal panel data modelling, like matrix completion `r Citep(bib, "athey_matrix_2021")` to deal with problem of sparse covariate data, and other estimators like synthetic difference-in-differences `r Citep(bib, "arkhangelsky_synthetic_2021")`.
+
+
+    
+
